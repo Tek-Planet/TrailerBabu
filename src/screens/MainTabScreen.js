@@ -24,12 +24,12 @@ const MainTabScreen = () => (
     >
       <Tab.Screen
         name="Home"
-        component={HomeStackScreen}
+        component={HomeScreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarColor: '#009387',
+          tabBarColor: '#333333',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-home" color={color} size={26} />
+            <Icon name="play-outline" color={color} size={26} />
           ),
         }}
       />
@@ -40,7 +40,7 @@ const MainTabScreen = () => (
           tabBarLabel: 'Updates',
           tabBarColor: '#1f65ff',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-notifications" color={color} size={26} />
+            <Icon name="videocam-outline" color={color} size={26} />
           ),
         }}
       />
@@ -59,10 +59,10 @@ const MainTabScreen = () => (
         name="Search"
         component={SearchScreen}
         options={{
-          tabBarLabel: 'Explore',
+          tabBarLabel: 'Search',
           tabBarColor: '#d02860',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-aperture" color={color} size={26} />
+            <Icon name="search-outline" color={color} size={26} />
           ),
         }}
       />
@@ -74,7 +74,7 @@ const MainTabScreen = () => (
       tabBarLabel: 'Settings',
       tabBarColor: '#d02860',
       tabBarIcon: ({ color }) => (
-        <Icon name="ios-aperture" color={color} size={26} />
+        <Icon name="settings-outline" color={color} size={26} />
       ),
     }}
   />
@@ -95,10 +95,7 @@ const HomeStackScreen = ({navigation}) => (
         fontWeight: 'bold'
         }
     }}>
-        <HomeStack.Screen name="Home" component={HomeScreen} options={{
-        title:'TrailerBabu',
-       
-        }} />
+        <HomeStack.Screen name="Home" component={HomeScreen}  />
 </HomeStack.Navigator>
 );
 

@@ -41,14 +41,14 @@ export default class Streaming extends Component {
     const {isLoading, imageUrl} = this.state
     
     return (
-    <View style={{paddingVertical:20, paddingLeft:16}}>
+    <View style={{paddingVertical:20, paddingLeft:16, maxWidth: 260}}>
        {isLoading  ? ( <TouchableOpacity>
             <Image alt={"image"} source = { {uri: imageUrl}}
-                        style={{width:200, marginRight:8, height:150, borderRadius:10}}
+                        style={{width:250, marginRight:8, height:150, borderRadius:10}}
                             />
             </TouchableOpacity>) : (null)
            }
-        <Text style={{margin:5, fontSize:18, fontWeight:'bold'}}>
+        <Text style={{color:'#ffffff',margin:5, fontSize:18, fontWeight:'bold'}}>
         {title.rendered}
         
         </Text>

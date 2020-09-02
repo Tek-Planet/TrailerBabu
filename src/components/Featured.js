@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types'
 import  axios from 'axios'
 
+
 export default class Featured extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +18,7 @@ export default class Featured extends Component {
      }
      
      componentDidMount(){
+      
        const {featured_media} = this.props.feature
       
        if(featured_media !== 0){
@@ -41,14 +43,14 @@ export default class Featured extends Component {
     const {isLoading, imageUrl} = this.state
     
     return (
-    <View style={{paddingVertical:20, paddingLeft:16}}>
+    <View style={{ maxWidth: 220, paddingVertical:20, paddingLeft:16}}>
        {isLoading  ? ( <TouchableOpacity>
             <Image alt={"image"} source = { {uri: imageUrl}}
                          style={{width:200, marginRight:8, height:250, borderRadius:10} }
                             />
             </TouchableOpacity>) : (null)
            }
-        <Text style={{margin:5, fontSize:18, fontWeight:'bold'}}>
+        <Text style={{color: '#ffffff', margin:5, fontSize:18, fontWeight:'bold'}}>
         {title.rendered}
         </Text>
     </View>

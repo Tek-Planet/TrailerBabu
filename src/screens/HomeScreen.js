@@ -7,15 +7,17 @@ import Celebrity from '../components/Celebrity'
 import Featured from '../components/Featured'
 import Upcoming from '../components/Upcoming'
 import Streaming from '../components/Streaming'
+import Category from '../components/Category'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    gallery: [
-      {image: {uri: 'https://source.unsplash.com/random'}, title: 'Netflix',  key: '1'},
-      { image:{uri:'https://source.unsplash.com/random'}, title: 'Amazon Prime Video',key: '2' },
-      { image:{uri:'https://source.unsplash.com/random'}, title: 'Zee5',key: '3' },
+    streaming: [
+      { title: 'Netflix',  id: '108'},
+      { title: 'Amazon Prime Video', id: '2' },
+      { title: 'Zee5', id: '115' },
     
     ],
     categories:[],
@@ -24,18 +26,23 @@ export default class HomeScreen extends Component {
     featuredList:[],
     upcomingList:[],
     streamingList:[],
-    isLoaded:false
+    isLoaded:false,
+    
+    //button color management
+    backgroundColor: 'black',
+    backgroundColor2: 'black',
+    pressed: false,
     };
   }
   
   componentDidMount(){
     
-   const getActionList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=44');
+   const getActionList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie');
    const getCategories = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie_cat');
    const getCelebityList = axios.get('https://trailerbabu.com/wp-json/wp/v2/celebrity');
    const getFeaturedList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=50');
    const getUpcomingList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=51');
-   const getStreaming = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=53');
+   const getStreaming = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=109');
 
    Promise.all([getCategories, getActionList,getCelebityList, getFeaturedList, getUpcomingList,getStreaming])
           .then(res => {
@@ -51,22 +58,52 @@ export default class HomeScreen extends Component {
           })       
   
   }
+  
+  changeColor(){
+    if(!this.state.pressed){
+       this.setState({ pressed: true,backgroundColor: 'red', backgroundColor2: 'black'});
+    } else {
+      this.setState({ pressed: false, backgroundColor: 'black' ,backgroundColor2: 'red'});
+    }
+  }
+  
+  fetchSelectedCategoty(id, source){
+    axios.get(`https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=${id}`)
+    .then(res => {
+      if (source === 0) {
+        this.setState({
+          actionList:res.data
+        })
+      }
+      else{
+        this.setState({
+          streamingList:res.data
+        })
+      }  
+    })
+  }
+  
+ 
+
 
   render() {
-      const {actionList,categories, isLoaded, celebrityList, featuredList, upcomingList, streamingList} = this.state;
+      const {streaming, actionList,categories, isLoaded, celebrityList, featuredList, upcomingList, streamingList} = this.state;
    
       if(isLoaded){ return (
         <ScrollView>
         {/* featured moviee zone */}
-        <View>
+             <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={{fontSize:22, fontWeight:'bold'}}>Featured</Text>                  
-   
-                     <Text style={{color: '#ff6200',fontSize:12, fontWeight:'bold'}}> View All</Text>     
-                                  
-                 </View>
+                     <Text style={styels.heading}>Featured</Text>    
+                 
+                    <Image 
+                        duraton="1500"
+                        source={require('../img/logo.png')}
+                    /> 
+                </View>
                 
            </View>
+        {/* featured flat list */}
            <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
@@ -85,12 +122,11 @@ export default class HomeScreen extends Component {
            
            <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={{fontSize:22, fontWeight:'bold'}}> Upcoming</Text>                  
-   
-                     <Text style={{color: '#ff6200',fontSize:12, fontWeight:'bold'}}> View All</Text>                  
+                     <Text style={styels.heading}> Upcoming</Text>                  
+                     <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                  </View>
            </View>
-           
+           {/* upcoming flatlist */}
            <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
@@ -105,11 +141,12 @@ export default class HomeScreen extends Component {
            
            {/* Start of categories  section */}
            <View>
+           <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={{fontSize:22, fontWeight:'bold'}}>Categories</Text>                  
-   
-                     <Text style={{color: '#ff6200',fontSize:12, fontWeight:'bold'}}> View All</Text>                  
+                     <Text style={styels.heading}> Categories </Text>                  
+                     <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                  </View>
+           </View>
            </View>
            {/* categorie name list */}
            <View style={{marginTop:-20}}>
@@ -120,7 +157,9 @@ export default class HomeScreen extends Component {
                  
                  return (
                  <View style={{paddingVertical:20, paddingLeft:16}}>
-                     <TouchableOpacity style={styels.categoryList}>
+                     <TouchableOpacity 
+                        onPress={()=>this.fetchSelectedCategoty(item.id,0)}
+                        style={styels.categoryList}>
                        <Text style={styels.categoryListText}>
                        {item.name}
                        </Text>
@@ -130,26 +169,13 @@ export default class HomeScreen extends Component {
                />
            </View>
            {/* end of category list name */}
-           
+           {/* upcoming flat list */}
            <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
                data = {actionList}
-               renderItem = {({item}) =>{
-                 
-                 return (
-                 <View style={{paddingVertical:20, paddingLeft:16}}>
-                     <TouchableOpacity>
-                         <Image source = { {uri: item._b2s_post_meta.og_image}}
-                         style={{width:200, marginRight:8, height:150, borderRadius:10}}
-                            />
-                     </TouchableOpacity>
-                     
-                     <Text style={{margin:5, fontSize:20, fontWeight:'bold'}}>
-                     {item.title.rendered}
-                     </Text>
-                    
-                 </View>)
+               renderItem = {({item}) =>{   
+                 return ( <Category category = {item} key = {item.key} />  )
                }}
                />
            </View>
@@ -157,11 +183,12 @@ export default class HomeScreen extends Component {
            
            {/* Celebrity Section */}
            <View>
+           <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={{fontSize:22, fontWeight:'bold'}}>Celebrities</Text>                  
-   
-                     <Text style={{color: '#ff6200',fontSize:12, fontWeight:'bold'}}> View All</Text>                  
+                     <Text style={styels.heading}> Celebities </Text>                  
+                     <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                  </View>
+           </View>
            </View>
            
            <View style={{marginTop:-20}}>
@@ -183,22 +210,25 @@ export default class HomeScreen extends Component {
            
            {/* Start of streaming services */}
               <View>
+              <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={{fontSize:22, fontWeight:'bold'}}>Streaming Services</Text>                  
-   
-                     <Text style={{color: '#ff6200',fontSize:12, fontWeight:'bold'}}> View All</Text>                  
+                     <Text style={styels.heading}> Streaming Services</Text>                  
+                     <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                  </View>
            </View>
+            </View>
            {/* Streaming services list */}
            <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
-               data = {this.state.gallery}
+               data = {streaming}
                renderItem = {({item}) =>{
                  
                  return (
                  <View style={{paddingVertical:20, paddingLeft:16}}>
-                     <TouchableOpacity style={styels.categoryList}>
+                     <TouchableOpacity 
+                       onPress={()=>this.fetchSelectedCategoty(item.id,1)}
+                       style={styels.categoryList}>
                        <Text style={styels.categoryListText}>
                        {item.title}
                        </Text>
@@ -207,6 +237,7 @@ export default class HomeScreen extends Component {
                }}
                />
            </View>
+            
            {/* end of category list name */}
            
            <View style={{marginTop:-20}}>
@@ -236,11 +267,13 @@ const styels = StyleSheet.create({
   categoryList: {
     padding:14,
     borderRadius:10,
-    backgroundColor: '#ff6200' 
+    backgroundColor: '#310F5B' 
   },
   categoryListText:{
-    color:'white',
+    color:'#ffffff',
     fontSize:14
-  }
+  },
+  
+  heading: {color: '#ffffff', fontSize:22, fontWeight:'bold'}
   
 })

@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types'
 import  axios from 'axios'
 
-export default class Celebrity extends Component {
+export default class Category extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,11 +13,11 @@ export default class Celebrity extends Component {
   }
   
  static propTypes = {
-   celebrity: PropTypes.object.isRequired
+   category: PropTypes.object.isRequired
  }
  
  componentDidMount(){
-   const {featured_media} = this.props.celebrity
+   const {featured_media} = this.props.category
   
    if(featured_media !== 0){
   axios.get(`https://trailerbabu.com/wp-json/wp/v2/media/${featured_media}`)
@@ -36,15 +36,15 @@ export default class Celebrity extends Component {
  }
 
   render() {
-      const {title} = this.props.celebrity
+      const {title} = this.props.category
       const {isLoading, imageUrl} = this.state
     
     return (
-        <View style={{paddingVertical:20, paddingLeft:16, maxWidth:260}}>   
+        <View style={{paddingVertical:20, paddingLeft:16, maxWidth:210}}>   
           {isLoading  ? ( <TouchableOpacity>
             <Image alt={"image"} source = { {uri: imageUrl}}
-                         style={{width:200, marginRight:8, height:250, borderRadius:10} }
-                            />
+      style={{width:200, marginRight:8, height:150, borderRadius:10}}
+         />
             </TouchableOpacity>) : (null)
            }
           
@@ -53,4 +53,5 @@ export default class Celebrity extends Component {
             </Text>      
         </View>)
   }
+
 }

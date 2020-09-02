@@ -34,21 +34,21 @@ export default class Upcoming extends Component {
         })
        }
      }
-    
+     
 
   render() {
     const {title} = this.props.upcoming
     const {isLoading, imageUrl} = this.state
     
     return (
-    <View style={{paddingVertical:20, paddingLeft:16}}>
+    <View style={{paddingVertical:20, paddingLeft:16, maxWidth:160}}>
        {isLoading  ? ( <TouchableOpacity>
             <Image alt={"image"} source = { {uri: imageUrl}}
                          style={{width:150, marginRight:8, height:200, borderRadius:10}}
                             />
             </TouchableOpacity>) : (null)
            }
-        <Text style={{margin:5, fontSize:18, fontWeight:'bold'}}>
+       <Text style={{color:'#ffffff',margin:5, fontSize:18, fontWeight:'bold'}}>
         {title.rendered}
         
         </Text>

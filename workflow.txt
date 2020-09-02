@@ -1,0 +1,15 @@
+Home Screen
+Fetch Right data
+nav icons +
+text rendering +
+Background matching +
+categories
+Detailed page 
+category changing
+
+
+netflix 108
+streaming service 109
+zee5 115
+
+#26115E
