@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types'
 import  axios from 'axios'
 
@@ -11,6 +11,8 @@ export default class Streaming extends Component {
           isLoading:false
         };
       }
+    
+    //git config --global user.name "Tek-Planet"
       
      static propTypes = {
       streaming: PropTypes.object.isRequired

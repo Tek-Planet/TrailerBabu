@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer,
   DefaultTheme as NavigationDefaultTheme, } from '@react-navigation/native';
-import BottomTab from './src/screens/MainTabScreen'
+import OtherStackScreen from './src/screens/OtherStackScreen'
 
 const CustomDefaultTheme = {
   ...NavigationDefaultTheme,
@@ -17,9 +17,9 @@ export default function App() {
 
   return (
     <NavigationContainer theme={CustomDefaultTheme}>
-    {
-    <BottomTab />
-    }
+  
+     <OtherStackScreen />
+    
     </NavigationContainer>
   );
 }

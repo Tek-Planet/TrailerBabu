@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import axios from 'axios'
 
 //components
@@ -88,14 +88,14 @@ export default class HomeScreen extends Component {
 
   render() {
       const {streaming, actionList,categories, isLoaded, celebrityList, featuredList, upcomingList, streamingList} = this.state;
-   
+      const navigation = this.props.navigation
+      const route = this.props.route
       if(isLoaded){ return (
         <ScrollView>
         {/* featured moviee zone */}
              <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={styels.heading}>Featured</Text>    
-                 
+                     <Text style={styels.heading}>Featured</Text>                  
                     <Image 
                         duraton="1500"
                         source={require('../img/logo.png')}
@@ -111,7 +111,7 @@ export default class HomeScreen extends Component {
                renderItem = {({item}) =>{
                  
                  return (
-               <Featured feature = {item} key = {item.key} />
+               <Featured feature = {item} key = {item.key} route ={route} navigation = {navigation}/>
                  )
                }}
                />
@@ -257,7 +257,10 @@ export default class HomeScreen extends Component {
         </ScrollView>
        );}
       
-      return <Text>Loading data</Text>   
+      return ( 
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styels.heading}>Loading</Text>    
+      </View>) 
   }
 }
 

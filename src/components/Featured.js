@@ -21,6 +21,7 @@ export default class Featured extends Component {
       
        const {featured_media} = this.props.feature
       
+      
        if(featured_media !== 0){
       axios.get(`https://trailerbabu.com/wp-json/wp/v2/media/${featured_media}`)
       .then(res => {
@@ -41,10 +42,17 @@ export default class Featured extends Component {
   render() {
     const {title} = this.props.feature
     const {isLoading, imageUrl} = this.state
+    const {route, feature, navigation} = this.props
     
     return (
     <View style={{ maxWidth: 220, paddingVertical:20, paddingLeft:16}}>
-       {isLoading  ? ( <TouchableOpacity>
+       {isLoading  ? (
+          <TouchableOpacity
+          onPress={() => navigation.navigate('MovieDetails', {
+              movie: feature,
+              imageUrl:imageUrl
+          }) }
+          >
             <Image alt={"image"} source = { {uri: imageUrl}}
                          style={{width:200, marginRight:8, height:250, borderRadius:10} }
                             />
