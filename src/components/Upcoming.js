@@ -34,15 +34,20 @@ export default class Upcoming extends Component {
         })
        }
      }
-     
 
   render() {
     const {title} = this.props.upcoming
     const {isLoading, imageUrl} = this.state
+    const {upcoming, navigation} = this.props
     
-    return (
+    return ( 
     <View style={{paddingVertical:20, paddingLeft:16, maxWidth:160}}>
-       {isLoading  ? ( <TouchableOpacity>
+       {isLoading  ? ( <TouchableOpacity
+                        onPress={() => navigation.navigate('MovieDetails', {
+                          movie: upcoming,
+                          imageUrl:imageUrl
+                      }) }
+                      >
             <Image alt={"image"} source = { {uri: imageUrl}}
                          style={{width:150, marginRight:8, height:200, borderRadius:10}}
                             />

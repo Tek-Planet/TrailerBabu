@@ -20,6 +20,7 @@ export default class Streaming extends Component {
      
      componentDidMount(){
        const {featured_media} = this.props.streaming
+       const {streaming, navigation} = this.props
       
        if(featured_media !== 0){
       axios.get(`https://trailerbabu.com/wp-json/wp/v2/media/${featured_media}`)
@@ -41,10 +42,16 @@ export default class Streaming extends Component {
   render() {
     const {title} = this.props.streaming
     const {isLoading, imageUrl} = this.state
+    const {streaming, navigation} = this.props
     
     return (
     <View style={{paddingVertical:20, paddingLeft:16, maxWidth: 260}}>
-       {isLoading  ? ( <TouchableOpacity>
+       {isLoading  ? ( <TouchableOpacity 
+                         onPress={() => navigation.navigate('MovieDetails', {
+                          movie: streaming,
+                          imageUrl:imageUrl
+                      }) }
+                      >
             <Image alt={"image"} source = { {uri: imageUrl}}
                         style={{width:250, marginRight:8, height:150, borderRadius:10}}
                             />

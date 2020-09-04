@@ -42,7 +42,7 @@ export default class Featured extends Component {
   render() {
     const {title} = this.props.feature
     const {isLoading, imageUrl} = this.state
-    const {route, feature, navigation} = this.props
+    const {feature, navigation} = this.props
     
     return (
     <View style={{ maxWidth: 220, paddingVertical:20, paddingLeft:16}}>

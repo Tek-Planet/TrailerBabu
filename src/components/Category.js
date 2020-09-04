@@ -18,6 +18,8 @@ export default class Category extends Component {
  
  componentDidMount(){
    const {featured_media} = this.props.category
+   
+   const {category, navigation} = this.props
   
    if(featured_media !== 0){
   axios.get(`https://trailerbabu.com/wp-json/wp/v2/media/${featured_media}`)
@@ -38,10 +40,15 @@ export default class Category extends Component {
   render() {
       const {title} = this.props.category
       const {isLoading, imageUrl} = this.state
+      const {category, navigation} = this.props
     
     return (
         <View style={{paddingVertical:20, paddingLeft:16, maxWidth:210}}>   
-          {isLoading  ? ( <TouchableOpacity>
+          {isLoading  ? ( <TouchableOpacity  onPress={() => navigation.navigate('MovieDetails', {
+              movie: category,
+              imageUrl:imageUrl
+          }) }
+          >
             <Image alt={"image"} source = { {uri: imageUrl}}
       style={{width:200, marginRight:8, height:150, borderRadius:10}}
          />

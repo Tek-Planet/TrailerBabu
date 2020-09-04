@@ -4,8 +4,10 @@ nav icons +
 text rendering +
 Background matching +
 categories
-Detailed page 
-category changing
+movie Detailed page 
+category changing+
+celebrity detailed page
+pagination
 
 
 netflix 108

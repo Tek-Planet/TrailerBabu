@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 // import SignUpScreen from './SignUpScreen';
 
 import MovieDetailsScreen from './MovieDetailsScreen'
+import CelebrityDetailsScreen from './CelebrityDetailsScreen'
 
 import BottomTab from './MainTabScreen'
 
@@ -17,6 +18,8 @@ const OtherStackScreen = ({navigation}) => (
     
         <RootStack.Screen name="Home" component={BottomTab}/>
         <RootStack.Screen name="MovieDetails" component={MovieDetailsScreen}/>
+        <RootStack.Screen name="CelebrityDetails" component={CelebrityDetailsScreen}/>
+        
         {/* <RootStack.Screen name="SignInScreen" component={SignInScreen}/>
         <RootStack.Screen name="SignUpScreen" component={SignUpScreen}/> */}
     </RootStack.Navigator>

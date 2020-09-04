@@ -38,10 +38,16 @@ export default class Celebrity extends Component {
   render() {
       const {title} = this.props.celebrity
       const {isLoading, imageUrl} = this.state
+      const {celebrity, navigation} = this.props
     
     return (
         <View style={{paddingVertical:20, paddingLeft:16, maxWidth:260}}>   
-          {isLoading  ? ( <TouchableOpacity>
+          {isLoading  ? ( <TouchableOpacity
+                          onPress={() => navigation.navigate('CelebrityDetails', {
+                            celebrity: celebrity,
+                            imageUrl:imageUrl
+                        }) }
+                        >
             <Image alt={"image"} source = { {uri: imageUrl}}
                          style={{width:200, marginRight:8, height:250, borderRadius:10} }
                             />

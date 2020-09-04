@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, SafeAreaView, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import axios from 'axios'
 
 //components
@@ -42,7 +42,7 @@ export default class HomeScreen extends Component {
    const getCelebityList = axios.get('https://trailerbabu.com/wp-json/wp/v2/celebrity');
    const getFeaturedList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=50');
    const getUpcomingList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=51');
-   const getStreaming = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=109');
+   const getStreaming = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=115');
 
    Promise.all([getCategories, getActionList,getCelebityList, getFeaturedList, getUpcomingList,getStreaming])
           .then(res => {
@@ -91,6 +91,7 @@ export default class HomeScreen extends Component {
       const navigation = this.props.navigation
       const route = this.props.route
       if(isLoaded){ return (
+        <SafeAreaView>
         <ScrollView>
         {/* featured moviee zone */}
              <View>
@@ -103,7 +104,7 @@ export default class HomeScreen extends Component {
                 </View>
                 
            </View>
-        {/* featured flat list */}
+        {/* featured flat lis t */}
            <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
@@ -111,7 +112,7 @@ export default class HomeScreen extends Component {
                renderItem = {({item}) =>{
                  
                  return (
-               <Featured feature = {item} key = {item.key} route ={route} navigation = {navigation}/>
+               <Featured feature = {item} key = {item.key}  navigation = {navigation}/>
                  )
                }}
                />
@@ -133,7 +134,7 @@ export default class HomeScreen extends Component {
                data = {upcomingList}
                renderItem = {({item}) =>{
                  
-                 return ( <Upcoming upcoming = {item} key = {item.key} />  )
+                 return ( <Upcoming upcoming = {item} key = {item.key}  navigation = {navigation} />  )
                }}
                />
            </View>
@@ -175,7 +176,7 @@ export default class HomeScreen extends Component {
                horizontal = {true}
                data = {actionList}
                renderItem = {({item}) =>{   
-                 return ( <Category category = {item} key = {item.key} />  )
+                 return ( <Category category = {item} key = {item.key}  navigation = {navigation} />  )
                }}
                />
            </View>
@@ -198,7 +199,7 @@ export default class HomeScreen extends Component {
                
                renderItem = {({item}) =>{ 
                  return(
-                  <Celebrity celebrity = {item}   key = {item.id} />
+                  <Celebrity celebrity = {item}   key = {item.id} navigation= {navigation}/>
                  )                   
                }
                }
@@ -246,7 +247,7 @@ export default class HomeScreen extends Component {
                data = {streamingList}
                renderItem = {({item}) =>{
                 return(
-                  <Streaming streaming = {item}   key = {item.id} />
+                  <Streaming streaming = {item}   key = {item.id} navigation= {navigation}/>
                  )    
                }}
                />
@@ -255,11 +256,12 @@ export default class HomeScreen extends Component {
            
            
         </ScrollView>
+        </SafeAreaView>
        );}
       
       return ( 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={styels.heading}>Loading</Text>    
+          <ActivityIndicator color="#ffffff" size="large"/>  
       </View>) 
   }
 }
