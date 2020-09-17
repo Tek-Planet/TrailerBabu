@@ -5,6 +5,8 @@ import Comment from '../components/Comment'
 
 import { LogBox } from 'react-native'
 
+import Icon from 'react-native-vector-icons/FontAwesome5'; 
+
 LogBox.ignoreLogs([
   'VirtualizedLists should never be nested', // TODO: Remove when fixed
 ])
@@ -24,15 +26,22 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
       <ImageBackground
       source={{uri: imageUrl}}
       style = {styles.image}
-      imageStyle ={{borderBottomRightRadius:200, borderBottomLeftRadius:30, }}
+      imageStyle ={{borderBottomRightRadius:230, borderBottomLeftRadius:50, }}
       />
       
-      {/* <View style={{position:"absolute", right:5, top:310, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{fontSize:30, fontWeight:"bold", color:"#ffffff"}}>{movie.rating}</Text>                         
-          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Rating</Text>  
-      </View> */}
-      
-     <View style={styles.row}>
+      <View style={{position:"absolute", right:3, top:350, alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Follow On</Text>                         
+          <View style={{flexDirection:'row'}}>
+          <Icon name="youtube" style = {styles.icon} color={'#fff'} size={20} />
+          <Icon name="facebook" style = {styles.icon} color={'#fff'} size={20} />
+          <Icon name="twitter" style = {styles.icon} color={'#fff'} size={20} />
+          <Icon name="instagram" style = {styles.icon} color={'#fff'} size={20} />
+          
+         
+          </View>
+      </View>
+       
+     <View style={[styles.row, {marginTop:40}]}>
            <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff", }}>{celebrity.title.rendered }</Text> 
      </View>
      
@@ -99,6 +108,10 @@ const styles = StyleSheet.create({
   
   column:{
     marginStart:20, marginTop:15
+  },
+  
+  icon:{
+    margin: 5,
   }
     
 })

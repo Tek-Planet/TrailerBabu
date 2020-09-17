@@ -13,7 +13,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
+    
+    categoryId:1000,
+  
     streaming: [
       { title: 'Netflix',  id: '108'},
       { title: 'Amazon Prime Video', id: '2' },
@@ -29,7 +33,7 @@ export default class HomeScreen extends Component {
     isLoaded:false,
     
     //button color management
-    backgroundColor: 'black',
+    backgroundColor1: 'black',
     backgroundColor2: 'black',
     pressed: false,
     };
@@ -39,7 +43,7 @@ export default class HomeScreen extends Component {
     
    const getActionList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie');
    const getCategories = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie_cat');
-   const getCelebityList = axios.get('https://trailerbabu.com/wp-json/wp/v2/celebrity');
+   const getCelebityList = axios.get('https://trailerbabu.com/wp-json/wp/v2/celebrity?page=2');
    const getFeaturedList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=50');
    const getUpcomingList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=51');
    const getStreaming = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=115');
@@ -55,17 +59,13 @@ export default class HomeScreen extends Component {
               streamingList:res[5].data,
               isLoaded:true
             })
+          })
+          .catch(err => {
+            console.log('************************ Network error**********')
           })       
   
   }
   
-  changeColor(){
-    if(!this.state.pressed){
-       this.setState({ pressed: true,backgroundColor: 'red', backgroundColor2: 'black'});
-    } else {
-      this.setState({ pressed: false, backgroundColor: 'black' ,backgroundColor2: 'red'});
-    }
-  }
   
   fetchSelectedCategoty(id, source){
     axios.get(`https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=${id}`)
@@ -83,9 +83,11 @@ export default class HomeScreen extends Component {
     })
   }
   
- 
-
-
+  
+  changeBg (id) {
+   this.setState({categoryId:id})
+  }  
+    
   render() {
       const {streaming, actionList,categories, isLoaded, celebrityList, featuredList, upcomingList, streamingList} = this.state;
       const navigation = this.props.navigation
@@ -112,7 +114,7 @@ export default class HomeScreen extends Component {
                renderItem = {({item}) =>{
                  
                  return (
-               <Featured feature = {item} key = {item.key}  navigation = {navigation}/>
+               <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}/>
                  )
                }}
                />
@@ -134,7 +136,7 @@ export default class HomeScreen extends Component {
                data = {upcomingList}
                renderItem = {({item}) =>{
                  
-                 return ( <Upcoming upcoming = {item} key = {item.key}  navigation = {navigation} />  )
+                 return ( <Upcoming upcoming = {item} key = {item.id.toString()}  navigation = {navigation} />  )
                }}
                />
            </View>
@@ -159,9 +161,9 @@ export default class HomeScreen extends Component {
                  return (
                  <View style={{paddingVertical:20, paddingLeft:16}}>
                      <TouchableOpacity 
-                        onPress={()=>this.fetchSelectedCategoty(item.id,0)}
-                        style={styels.categoryList}>
-                       <Text style={styels.categoryListText}>
+                        onPress={()=>[this.fetchSelectedCategoty(item.id,0), this.changeBg(item.id)]}
+                        style={[styels.categoryList, item.id === this.state.categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
+                       <Text style={styels.categoryListText}> 
                        {item.name}
                        </Text>
                      </TouchableOpacity>
@@ -176,7 +178,7 @@ export default class HomeScreen extends Component {
                horizontal = {true}
                data = {actionList}
                renderItem = {({item}) =>{   
-                 return ( <Category category = {item} key = {item.key}  navigation = {navigation} />  )
+                 return ( <Category category = {item} key = {item.id.toString()}  navigation = {navigation} />  )
                }}
                />
            </View>
@@ -199,7 +201,7 @@ export default class HomeScreen extends Component {
                
                renderItem = {({item}) =>{ 
                  return(
-                  <Celebrity celebrity = {item}   key = {item.id} navigation= {navigation}/>
+                  <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
                  )                   
                }
                }
@@ -228,8 +230,8 @@ export default class HomeScreen extends Component {
                  return (
                  <View style={{paddingVertical:20, paddingLeft:16}}>
                      <TouchableOpacity 
-                       onPress={()=>this.fetchSelectedCategoty(item.id,1)}
-                       style={styels.categoryList}>
+                       onPress={()=>[this.fetchSelectedCategoty(item.id,1), this.changeBg(item.id)]}
+                       style={[styels.categoryList, item.id === this.state.categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
                        <Text style={styels.categoryListText}>
                        {item.title}
                        </Text>
@@ -247,7 +249,7 @@ export default class HomeScreen extends Component {
                data = {streamingList}
                renderItem = {({item}) =>{
                 return(
-                  <Streaming streaming = {item}   key = {item.id} navigation= {navigation}/>
+                  <Streaming streaming = {item}   key = {item.id.toString()} navigation= {navigation}/>
                  )    
                }}
                />
@@ -272,7 +274,7 @@ const styels = StyleSheet.create({
   categoryList: {
     padding:14,
     borderRadius:10,
-    backgroundColor: '#310F5B' 
+    backgroundColor: '#232323'
   },
   categoryListText:{
     color:'#ffffff',
@@ -282,3 +284,5 @@ const styels = StyleSheet.create({
   heading: {color: '#ffffff', fontSize:22, fontWeight:'bold'}
   
 })
+
+

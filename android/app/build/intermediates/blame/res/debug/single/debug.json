@@ -321,7 +321,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable_redbox_top_border_background.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/drawable/redbox_top_border_background.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/drawable/redbox_top_border_background.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/interpolator_btn_checkbox_checked_mtrl_animation_interpolator_0.xml.flat",
@@ -569,7 +569,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/xml_rn_dev_preferences.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/xml/rn_dev_preferences.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/xml/rn_dev_preferences.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable_mtrl_tabs_default_indicator.xml.flat",
@@ -709,7 +709,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/anim_catalyst_push_up_in.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/anim/catalyst_push_up_in.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/anim/catalyst_push_up_in.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/xml_standalone_badge_gravity_top_start.xml.flat",
@@ -729,7 +729,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/layout_redbox_item_title.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/layout/redbox_item_title.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/layout/redbox_item_title.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -833,7 +833,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/anim_catalyst_slide_up.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/anim/catalyst_slide_up.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/anim/catalyst_slide_up.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/color_mtrl_popupmenu_overlay_color.xml.flat",
@@ -1097,7 +1097,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/anim_catalyst_push_up_out.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/anim/catalyst_push_up_out.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/anim/catalyst_push_up_out.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -1113,7 +1113,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/layout_redbox_view.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/layout/redbox_view.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/layout/redbox_view.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable_abc_seekbar_tick_mark_material.xml.flat",
@@ -1276,12 +1276,12 @@
         "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/color/abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable_mtrl_ic_arrow_drop_up.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/863e0c3c6716935cd3657ad638fd992d/material-1.1.0/res/drawable/mtrl_ic_arrow_drop_up.xml"
-    },
-    {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/raw_app.json.flat",
         "source": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/src/main/res/raw/app.json"
+    },
+    {
+        "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable_mtrl_ic_arrow_drop_up.xml.flat",
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/863e0c3c6716935cd3657ad638fd992d/material-1.1.0/res/drawable/mtrl_ic_arrow_drop_up.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
@@ -1557,7 +1557,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/anim_catalyst_fade_out.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/anim/catalyst_fade_out.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/anim/catalyst_fade_out.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/xml_standalone_badge_gravity_bottom_end.xml.flat",
@@ -1613,7 +1613,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/layout_dev_loading_view.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/layout/dev_loading_view.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/layout/dev_loading_view.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/layout_design_navigation_menu_item.xml.flat",
@@ -1969,7 +1969,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/anim_catalyst_fade_in.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/anim/catalyst_fade_in.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/anim/catalyst_fade_in.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
@@ -2133,7 +2133,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/layout_redbox_item_frame.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/layout/redbox_item_frame.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/layout/redbox_item_frame.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/layout_mtrl_alert_dialog.xml.flat",
@@ -2368,6 +2368,10 @@
         "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable/abc_ic_go_search_api_material.xml"
     },
     {
+        "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/layout_youtube_layout.xml.flat",
+        "source": "/home/tekplanet/Documents/ReactNative/TrailerBabu/node_modules/react-native-youtube/android/build/intermediates/packaged_res/debug/layout/youtube_layout.xml"
+    },
+    {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable_ic_menu_arrow_up_black_24dp.xml.flat",
         "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/863e0c3c6716935cd3657ad638fd992d/material-1.1.0/res/drawable/ic_menu_arrow_up_black_24dp.xml"
     },
@@ -2485,7 +2489,7 @@
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/anim_catalyst_slide_down.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/anim/catalyst_slide_down.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/anim/catalyst_slide_down.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_longpressed_holo.9.png.flat",
@@ -2512,6 +2516,10 @@
         "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/863e0c3c6716935cd3657ad638fd992d/material-1.1.0/res/color/mtrl_tabs_icon_color_selector.xml"
     },
     {
+        "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/raw_node_modules_reactnativevectoricons_glyphmaps_ionicons.json.flat",
+        "source": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/src/main/res/raw/node_modules_reactnativevectoricons_glyphmaps_ionicons.json"
+    },
+    {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
         "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-xxxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
     },
@@ -2520,16 +2528,12 @@
         "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/863e0c3c6716935cd3657ad638fd992d/material-1.1.0/res/drawable/ic_mtrl_chip_checked_circle.xml"
     },
     {
-        "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/raw_node_modules_reactnativevectoricons_glyphmaps_ionicons.json.flat",
-        "source": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/src/main/res/raw/node_modules_reactnativevectoricons_glyphmaps_ionicons.json"
-    },
-    {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/drawable-v21_abc_list_divider_material.xml.flat",
         "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-v21/abc_list_divider_material.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/layout_fps_view.xml.flat",
-        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/f7fa75c1afbd6480dba2a8b80518c443/jetified-react-native-0.63.2/res/layout/fps_view.xml"
+        "source": "/home/tekplanet/.gradle/caches/transforms-2/files-2.1/b20cd00c797653a55034cc6fbda2a613/jetified-react-native-0.63.2/res/layout/fps_view.xml"
     },
     {
         "merged": "/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",

@@ -5,6 +5,10 @@ import Comment from '../components/Comment'
 
 import { LogBox } from 'react-native'
 
+import Rating from '../components/Rating'
+
+import YouTube from 'react-native-youtube';
+
 LogBox.ignoreLogs([
   'VirtualizedLists should never be nested', // TODO: Remove when fixed
 ])
@@ -21,18 +25,30 @@ export default function MovieDetailsScreen({ route, navigation }) {
   return (
 <ScrollView style={{flex: 1}}>
       <View >
-      <ImageBackground
+      {/* <ImageBackground
       source={{uri: imageUrl}}
       style = {styles.image}
-      imageStyle ={{borderBottomRightRadius:200, borderBottomLeftRadius:30, }}
-      />
+      imageStyle ={{borderBottomRightRadius:250, borderBottomLeftRadius:35, }}
+      /> */}
       
-      <View style={{position:"absolute", right:5, top:310, alignItems: 'center', justifyContent: 'center' }}>
-  <Text style={{fontSize:30, fontWeight:"bold", color:"#ffffff"}}>{movie.rating}</Text>                         
-          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Rating</Text>  
+      <YouTube
+        apiKey = "AIzaSyDXpWnVyISSysQZyK3PwA59obJQiu_Kaw8"
+        videoId={movie.themeum_movie_trailer_info[0].themeum_video_link} // The YouTube video ID
+        play // control playback of video with true/false
+        // fullscreen // control whether the video should play in fullscreen or inline
+        loop // control whether the video should loop when ended
+        // onReady={e => this.setState({ isReady: true })}
+        // onChangeState={e => this.setState({ status: e.state })}
+        // onChangeQuality={e => this.setState({ quality: e.quality })}
+        // onError={e => this.setState({ error: e.error })}
+        style={{ alignSelf: 'stretch', height: 300, margin:5}}
+        />
+      <View style={{position:"absolute", right:5, top:330, alignItems: 'center', justifyContent: 'center' }}>                           
+          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>{movie.rating}</Text>  
+          <Rating ratings = {movie.rating} />   
       </View>
       
-     <View style={styles.row}>
+     <View style={[styles.row, {marginTop: 25,}]}>
            <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff", }}>{movie.title.rendered } ({movie.themeum_movie_release_year})</Text> 
      </View>
      
@@ -60,7 +76,18 @@ export default function MovieDetailsScreen({ route, navigation }) {
           <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Movie Descriptions : </Text>   
           <Text style={{fontSize:20, fontWeight:"normal", color:"#ffffff"}}>{content}</Text>      
      </View>
-     
+     {/* AIzaSyDXpWnVyISSysQZyK3PwA59obJQiu_Kaw8 */}
+     {/* <YouTube
+        videoId="ZvpdN4VltKY" // The YouTube video ID
+        play // control playback of video with true/false
+        fullscreen // control whether the video should play in fullscreen or inline
+        loop // control whether the video should loop when ended
+        onReady={e => this.setState({ isReady: true })}
+        onChangeState={e => this.setState({ status: e.state })}
+        onChangeQuality={e => this.setState({ quality: e.quality })}
+        onError={e => this.setState({ error: e.error })}
+        style={{ alignSelf: 'stretch', height: 300 }}
+          /> */}
      <View>
         {/* displays all comments */}
         <Comment key={movie.id}  postID = {movie.id}/>
