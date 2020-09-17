@@ -126,7 +126,11 @@ export default class HomeScreen extends Component {
            <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
                      <Text style={styels.heading}> Upcoming</Text>                  
+                     <TouchableOpacity
+                        onPress={()=> navigation.navigate('MovieList')}
+                     >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
+                     </TouchableOpacity> 
                  </View>
            </View>
            {/* upcoming flatlist */}
@@ -147,7 +151,11 @@ export default class HomeScreen extends Component {
            <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
                      <Text style={styels.heading}> Categories </Text>                  
+                     <TouchableOpacity
+                        onPress={()=> navigation.navigate('MovieList')}
+                     >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
+                     </TouchableOpacity> 
                  </View>
            </View>
            </View>
@@ -188,8 +196,14 @@ export default class HomeScreen extends Component {
            <View>
            <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={styels.heading}> Celebities </Text>                  
+                     <Text style={styels.heading}> Celebities </Text> 
+                     <TouchableOpacity
+                        onPress={()=> navigation.navigate('CelebrityList')}
+                     >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
+                     </TouchableOpacity>                 
+                     
+                    
                  </View>
            </View>
            </View>
@@ -216,7 +230,11 @@ export default class HomeScreen extends Component {
               <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
                      <Text style={styels.heading}> Streaming Services</Text>                  
+                     <TouchableOpacity
+                        onPress={()=> navigation.navigate('MovieList')}
+                     >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
+                     </TouchableOpacity> 
                  </View>
            </View>
             </View>
