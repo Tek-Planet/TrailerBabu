@@ -1,7 +1,4 @@
-#Sat Sep 19 22:18:49 WAT 2020
-base.1=/home/tekplanet/Documents/ReactNative/TrailerBabu/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
-path.1=classes.dex
-base.0=/home/tekplanet/Documents/webprojects/TrailerBabu/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
-renamed.1=classes2.dex
-renamed.0=classes.dex
+#Mon Oct 05 23:27:55 WAT 2020
+base.0=/home/tekplanet/Documents/Project/React native/TrailerBabu/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
+renamed.0=classes.dex
