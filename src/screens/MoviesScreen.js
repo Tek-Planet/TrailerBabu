@@ -6,6 +6,8 @@ import Movie from '../components/MovieFull'
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+//update to movies screen. by commenting code
+
 
 export default class SearchScreen extends Component {
   constructor(props) {
