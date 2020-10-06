@@ -11,7 +11,7 @@ LogBox.ignoreLogs([
   'VirtualizedLists should never be nested', // TODO: Remove when fixed
 ])
 
-
+ 
 
 
 export default function CelebrityDetailsScreen({ route, navigation }) {
