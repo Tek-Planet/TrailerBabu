@@ -1,17 +1,19 @@
-Home Screen
-Fetch Right data
-nav icons +
-text rendering +
-Background matching +
-categories
-movie Detailed page 
-category changing+
-celebrity detailed page
-pagination
+For search you can use this 
+https://developer.wordpress.org/rest-api/reference/search-results/
+
+https://stackoverflow.com/questions/38084765/wordpress-rest-api-global-search-api-v2
+
+https://webdesign.tutsplus.com/tutorials/how-to-use-the-wordpress-rest-api-a-practical-tutorial--cms-33566
+
+the designs are updated here 
+
+https://www.figma.com/file/QzAYxZHSnZePIlGIuJNXCZ/v3-app-ksonecha?node-id=0%3A1
 
 
-netflix 108
-streaming service 109
-zee5 115
+Chikas details
 
-#26115E
+Lisam Construction Company Limited. RC.23377
+Colour shd be blue
+
+Geodaam Engineering Services Limited.  RC 1594663
+Baravid Resources Limited Rc 1227920

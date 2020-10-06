@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, ActivityIndicator, ScrollView, SafeAreaView, FlatList, StyleSheet,  } from 'react-native';
+import { View, Text, ActivityIndicator, ScrollView, SafeAreaView, FlatList, StyleSheet, Image,
+TouchableOpacity } from 'react-native';
 import Celebrity from '../components/CelebrityFull'
 
 import axios from 'axios'
@@ -10,11 +11,27 @@ export default class SearchScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      categoryId:'all',
       celebrityList:[],
       movieList:[],
       isLoaded:false,
+      alphalist: [
+        {id:'all',name:'All'},
+      {id:'a',name:'A'},
+      {id:'b',name:'B'},
+      {id:'c',name:'C'},
+      {id:'d',name:'D'},
+      {id:'e',name:'E'},
+      {id:'f',name:'F'},
+      {id:'g',name:'G'},
+      {id:'h',name:'H'},
+    ]
     };
   }
+
+  changeBg (id) {
+    this.setState({categoryId:id})
+   } 
   
   componentDidMount(){
     
@@ -35,20 +52,44 @@ export default class SearchScreen extends Component {
    }
 
   render() {
-    const { isLoaded, celebrityList, movieList} = this.state;
+    const { isLoaded, celebrityList, movieList, alphalist} = this.state;
     const navigation = this.props.navigation
  
    
     return (
         <SafeAreaView>
             <ScrollView>
-                 <View style={{padding:20, flexDirection: 'row'}}>
-                     <Text style={styles.heading}> Celebities </Text>                  
-                    
+                 <View style={{padding:20, flexDirection: 'row',  justifyContent:'space-between'}}>
+                     <Text style={styles.heading}> Celebrities </Text>                  
+                     <Image 
+                        duraton="1500"
+                        source={require('../img/logo.png')}
+                    /> 
                  </View>
+
+              <View style={{marginTop:-20}}>
+               <FlatList 
+               horizontal = {true}
+               data = {alphalist}
+               renderItem = {({item}) =>{
+                  
+                 return (
+                 <View style={{paddingVertical:20, paddingLeft:10}}>
+                     <TouchableOpacity 
+                        onPress={()=>[this.changeBg(item.id)] }
+                        style={[styles.categoryList, item.id === this.state.categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
+                       <Text style={styles.categoryListText}> 
+                       {item.name}
+                       </Text>
+                     </TouchableOpacity>
+                 </View>)
+               }}
+               />
+           </View>
             {
-              isLoaded ? ( <View style={{marginTop:-20}}>
+              isLoaded ? ( <View style={{}}>
                 <FlatList 
+                numColumns={2}
                 data = {celebrityList} 
                 renderItem = {({item}) =>{ 
                   return(
@@ -92,11 +133,13 @@ const styles = StyleSheet.create({
   
   },
   categoryList: {
-    padding:14,
+    width:50,
+    padding:10,
     borderRadius:10,
     backgroundColor: '#232323'
   },
   categoryListText:{
+    textAlign:'center',
     color:'#ffffff',
     fontSize:14
   },

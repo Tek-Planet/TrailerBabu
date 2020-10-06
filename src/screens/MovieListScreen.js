@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, ActivityIndicator, ScrollView, SafeAreaView, FlatList, StyleSheet } from 'react-native';
+import { View, Text, ActivityIndicator, ScrollView, SafeAreaView, FlatList, StyleSheet, Image,
+TouchableOpacity } from 'react-native';
+import Movie from '../components/MovieFull'
 
-import Featured from '../components/Movie'
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -10,19 +11,42 @@ export default class SearchScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      categoryId:108,
+      categoryList:[],
       movieList:[],
       isLoaded:false,
+      streaming: [
+        { title: 'Netflix',  id: '108'},
+        { title: 'Amazon Prime Video', id: '2' },
+        { title: 'Zee5', id: '115' },
+      
+      ],
+      alphalist: [
+        {id:'all',name:'All'},
+      {id:'a',name:'A'},
+      {id:'b',name:'B'},
+      {id:'c',name:'C'},
+      {id:'d',name:'D'},
+      {id:'e',name:'E'},
+      {id:'f',name:'F'},
+      {id:'g',name:'G'},
+      {id:'h',name:'H'},
+    ]
     };
   }
+
+  changeBg (id) {
+    this.setState({categoryId:id})
+   } 
   
   componentDidMount(){
     
-    const getMovieList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie');
-    
-    Promise.all([getMovieList])
+    const getStreaming = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=108');
+
+    Promise.all([getStreaming])
            .then(res => {
              this.setState({
-               movieList: res[0].data,
+               movieList:res[0].data,
                isLoaded:true
              })
            })
@@ -33,38 +57,61 @@ export default class SearchScreen extends Component {
    }
 
   render() {
-    const { isLoaded, celebrityList, movieList} = this.state;
+    const { isLoaded, streaming, movieList, categoryList} = this.state;
     const navigation = this.props.navigation
  
    
     return (
         <SafeAreaView>
             <ScrollView>
-            <View >
-                 <View style={{padding:20, flexDirection: 'row', }}>
-                     <Text style={styles.heading}>Movies</Text>                  
+                 <View style={{padding:20, flexDirection: 'row',  justifyContent:'space-between'}}>
+                     <Text style={styles.heading}> Streaming Services</Text>                  
+                     <Image 
+                        duraton="1500"
+                        source={require('../img/logo.png')}
+                    /> 
+                 </View>
 
-                </View>
-                
-           </View>
-        {/* featured flat lis t */}
-     {   isLoaded ? (  <View style={{marginTop:-20}}>
+              <View style={{marginTop:-20}}>
                <FlatList 
-               data = {movieList}
+               horizontal = {true}
+               data = {streaming}
                renderItem = {({item}) =>{
                  
                  return (
-               <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}/>
-                 )
+                 <View style={{paddingVertical:20, paddingLeft:10}}>
+                     <TouchableOpacity 
+                        onPress={()=>[this.changeBg(item.id)] }
+                        style={[styles.categoryList, item.id === this.state.categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
+                       <Text style={styles.categoryListText}> 
+                       {item.title}
+                       </Text>
+                     </TouchableOpacity>
+                 </View>)
                }}
                />
-           </View> )  : (
+           </View>
+            {
+              isLoaded ? ( <View style={{}}>
+                <FlatList 
+                data = {movieList} 
+                renderItem = {({item}) =>{ 
+                  return(
+                   <Movie movie = {item}   key = {item.id.toString()} navigation= {navigation}/>
+                  )                   
+                }
+                }
+               
+                />
+            
+            </View>) : (
                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                <ActivityIndicator color="#ffffff" size="large"/>  
                 </View>) 
-           }
-        {/* end of future moview */}
-           
+    
+            }
+          
+           {/* end of Celebity section */}
             </ScrollView>
         </SafeAreaView>
       );
@@ -90,15 +137,17 @@ const styles = StyleSheet.create({
   
   },
   categoryList: {
-    padding:14,
+   
+    padding:10,
     borderRadius:10,
     backgroundColor: '#232323'
   },
   categoryListText:{
+    textAlign:'center',
     color:'#ffffff',
     fontSize:14
   },
   
-  heading: {color: '#ffffff', fontSize:22, fontWeight:'bold'}
+  heading: {color: '#ffffff', fontSize:20, fontWeight:'bold'}
   
 })

@@ -152,7 +152,7 @@ export default class HomeScreen extends Component {
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
                      <Text style={styels.heading}> Categories </Text>                  
                      <TouchableOpacity
-                        onPress={()=> navigation.navigate('MovieList')}
+                        onPress={()=> navigation.navigate('Movies')}
                      >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                      </TouchableOpacity> 

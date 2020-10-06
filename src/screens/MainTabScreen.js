@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './HomeScreen'
 import MoviesScreen from './MoviesScreen'
-import ProfileScreen from './ProfileScreen'
+import ProfileScreen from './CelebrityListScreen'
 import SearchScreen from './SearchScreen'
 import SettingsScreen from './SettingsScreen'
 
@@ -35,9 +35,9 @@ const MainTabScreen = () => (
       />
       <Tab.Screen
         name="Movies"
-        component={MoviesStackScreen}
+        component={MoviesScreen}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Movies',
           tabBarColor: '#1f65ff',
           tabBarIcon: ({ color }) => (
             <Icon name="videocam-outline" color={color} size={26} />
@@ -48,7 +48,7 @@ const MainTabScreen = () => (
         name="Profile"
         component={ProfileScreen}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Celebrity',
           tabBarColor: '#694fad',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-person" color={color} size={26} />

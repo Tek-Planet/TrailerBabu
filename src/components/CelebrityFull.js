@@ -41,7 +41,7 @@ export default class Celebrity extends Component {
       const {celebrity, navigation} = this.props
     
     return (
-        <View style={{paddingVertical:20, paddingLeft:16, maxHeight:320}}>   
+        <View style={{maxWidth:175, margin:5, alignContent:'center', alignItems:'center'}}>   
           {isLoading  ? ( <TouchableOpacity
                           onPress={() => navigation.navigate('CelebrityDetails', {
                             celebrity: celebrity,
@@ -49,12 +49,12 @@ export default class Celebrity extends Component {
                         }) }
                         >
             <Image alt={"image"} source = { {uri: imageUrl}}
-                         style={{ width:'98%', marginRight:8, height:300, borderRadius:10} }
+                         style={{ width:170, height:200, borderRadius:10} }
                             />
             </TouchableOpacity>) : (null)
            }
           
-            <Text style={{color:'#ffffff',margin:5, fontSize:22, fontWeight:'bold'}}>
+            <Text style={{color:'#ffffff',margin:5, fontSize:18, fontWeight:'bold', textAlign:'center'}}>
              {title.rendered}
             </Text>      
         </View>)

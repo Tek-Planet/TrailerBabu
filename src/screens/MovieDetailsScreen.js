@@ -43,12 +43,15 @@ export default function MovieDetailsScreen({ route, navigation }) {
         // onError={e => this.setState({ error: e.error })}
         style={{ alignSelf: 'stretch', height: 300, margin:5}}
         />
-      <View style={{position:"absolute", right:5, top:330, alignItems: 'center', justifyContent: 'center' }}>                           
+        
+      <View style={{  alignItems: 'flex-end', margin: 5,}}>                           
+      <View style={{  alignItems: 'center' }}>                           
           <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>{movie.rating}</Text>  
           <Rating ratings = {movie.rating} />   
+      </View> 
       </View>
       
-     <View style={[styles.row, {marginTop: 25,}]}>
+     <View style={[styles.row, {marginTop: 20,}]}>
            <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff", }}>{movie.title.rendered } ({movie.themeum_movie_release_year})</Text> 
      </View>
      
@@ -74,7 +77,7 @@ export default function MovieDetailsScreen({ route, navigation }) {
      
      <View style={styles.column}>
           <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Movie Descriptions : </Text>   
-          <Text style={{fontSize:20, fontWeight:"normal", color:"#ffffff"}}>{content}</Text>      
+    <Text style={{fontSize:20, fontWeight:"normal", color:"#ffffff", textAlign:'justify', marginEnd: 10,}}>{content}</Text>      
      </View>
      {/* AIzaSyDXpWnVyISSysQZyK3PwA59obJQiu_Kaw8 */}
      {/* <YouTube
