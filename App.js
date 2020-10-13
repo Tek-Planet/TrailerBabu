@@ -1,8 +1,11 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity, ActivityIndicator} from 'react-native';
 import { NavigationContainer,
   DefaultTheme as NavigationDefaultTheme, } from '@react-navigation/native';
+
 import OtherStackScreen from './src/screens/OtherStackScreen'
+import SplashScreen from './src/screens/SplashScreen'
 
 const CustomDefaultTheme = {
   ...NavigationDefaultTheme,
@@ -13,8 +16,22 @@ const CustomDefaultTheme = {
   }
 }
 
-export default function App() {
 
+const  App = () => {
+
+const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout( () => {
+      setIsLoading(false)
+    },
+     2000);
+  }, []);
+
+  if(isLoading)
+  {
+    return(   <SplashScreen />   )
+  }
   return (
     <NavigationContainer theme={CustomDefaultTheme}>
   
@@ -23,3 +40,5 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+export default App

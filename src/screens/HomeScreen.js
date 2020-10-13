@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, SafeAreaView, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, SafeAreaView, StyleSheet, FlatList, 
+  Image, ImageBackground,
+  TouchableOpacity, ActivityIndicator } from 'react-native';
 import axios from 'axios'
 
 //components
@@ -9,6 +11,7 @@ import Upcoming from '../components/Upcoming'
 import Streaming from '../components/Streaming'
 import Category from '../components/Category'
 import Icon from 'react-native-vector-icons/Ionicons';
+import Splash from './SplashScreen'
 
 export default class HomeScreen extends Component {
   constructor(props) {
