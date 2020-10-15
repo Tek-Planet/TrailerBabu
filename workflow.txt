@@ -1,4 +1,4 @@
-For search you can use this 
+    For search you can use this 
 https://developer.wordpress.org/rest-api/reference/search-results/
 
 https://stackoverflow.com/questions/38084765/wordpress-rest-api-global-search-api-v2

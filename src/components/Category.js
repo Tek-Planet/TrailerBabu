@@ -17,10 +17,9 @@ export default class Category extends Component {
  }
  
  componentDidMount(){
-   const {featured_media} = this.props.category
-   
-   const {category, navigation} = this.props
-  
+   //const {featured_media} = this.props.category
+   const featured_media = this.props.category.themeum_movie_trailer_info[0].themeum_video_trailer_image[0]
+
    if(featured_media !== 0){
   axios.get(`https://trailerbabu.com/wp-json/wp/v2/media/${featured_media}`)
   .then(res => {
@@ -52,7 +51,11 @@ export default class Category extends Component {
             <Image alt={"image"} source = { {uri: imageUrl}}
       style={{width:200, marginRight:8, height:150, borderRadius:10}}
          />
-            </TouchableOpacity>) : (null)
+            </TouchableOpacity>) : (
+                <Image alt={"image"} source={require('../img/background/Horizontal_big.png')}
+                style={{width:200, marginRight:8, height:150, borderRadius:10} }
+                   />
+            )
            }
           
             <Text style={{color:'#ffffff',margin:5, fontSize:18, fontWeight:'bold'}}>

@@ -19,7 +19,6 @@ const OtherStackScreen = ({navigation}) => (
         <RootStack.Screen name="Home" component={BottomTab}/>
         <RootStack.Screen name="MovieDetails" component={MovieDetailsScreen}/>
         <RootStack.Screen name="MovieList" component={MovieListScreen}/>
-        <RootStack.Screen name="CelebrityList" component={CelebrityListScreen}/>
         <RootStack.Screen name="CelebrityDetails" component={CelebrityDetailsScreen}/>
         <RootStack.Screen name="Splash" component={SplashScreen}/>
         

@@ -51,7 +51,11 @@ export default class Upcoming extends Component {
             <Image alt={"image"} source = { {uri: imageUrl}}
                          style={{width:150, marginRight:8, height:200, borderRadius:10}}
                             />
-            </TouchableOpacity>) : (null)
+            </TouchableOpacity>) : (
+               <Image alt={"image"} source={require('../img/background/Vertical_Medium.png')}
+               style={{width:150, marginRight:8, height:200, borderRadius:10} }
+                  />
+            )
            }
        <Text style={{color:'#ffffff',margin:5, fontSize:18, fontWeight:'bold'}}>
         {title.rendered}

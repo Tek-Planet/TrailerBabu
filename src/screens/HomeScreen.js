@@ -18,13 +18,20 @@ export default class HomeScreen extends Component {
     super(props);
     
     this.state = {
-    
+    // changing background of categories
     categoryId:1000,
-  
+    categoryName:'',
+    isLoadedCategory:true,
+
+    // changing background of streaming category
+    streamingId:1000,
+    streamingName:'',
+    isLoadedStreaming:true,
+
     streaming: [
-      { title: 'Netflix',  id: '108'},
-      { title: 'Amazon Prime Video', id: '2' },
-      { title: 'Zee5', id: '115' },
+      { name: 'Netflix',  id: '108'},
+      { name: 'Amazon Prime Video', id: '2' },
+      { name: 'Zee5', id: '115' },
     
     ],
     categories:[],
@@ -35,10 +42,7 @@ export default class HomeScreen extends Component {
     streamingList:[],
     isLoaded:false,
     
-    //button color management
-    backgroundColor1: 'black',
-    backgroundColor2: 'black',
-    pressed: false,
+    
     };
   }
   
@@ -75,26 +79,33 @@ export default class HomeScreen extends Component {
     .then(res => {
       if (source === 0) {
         this.setState({
-          actionList:res.data
+          actionList:res.data,
+          isLoadedCategory:true
         })
       }
       else{
         this.setState({
-          streamingList:res.data
+          streamingList:res.data,
+          isLoadedStreaming:true
         })
       }  
     })
   }
   
   
-  changeBg (id) {
-   this.setState({categoryId:id})
+  changeBg (item, source) {
+  if(source === 0){
+    this.setState({categoryId:item.id,categoryName:item.name, isLoadedCategory:false})
+  }
+  else{
+    this.setState({streamingId:item.id,streamingName:item.name, isLoadedStreaming:false})
+  }
   }  
     
   render() {
-      const {streaming, actionList,categories, isLoaded, celebrityList, featuredList, upcomingList, streamingList} = this.state;
+      const {streaming, actionList,categories, categoryName, streamingName, isLoaded, isLoadedStreaming, isLoadedCategory, celebrityList, featuredList, upcomingList, streamingList} = this.state;
       const navigation = this.props.navigation
-      const route = this.props.route
+    
       if(isLoaded){ return (
         <SafeAreaView>
         <ScrollView>
@@ -172,7 +183,7 @@ export default class HomeScreen extends Component {
                  return (
                  <View style={{paddingVertical:20, paddingLeft:16}}>
                      <TouchableOpacity 
-                        onPress={()=>[this.fetchSelectedCategoty(item.id,0), this.changeBg(item.id)]}
+                        onPress={()=>[this.fetchSelectedCategoty(item.id,0), this.changeBg(item, 0)]}
                         style={[styels.categoryList, item.id === this.state.categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
                        <Text style={styels.categoryListText}> 
                        {item.name}
@@ -183,16 +194,30 @@ export default class HomeScreen extends Component {
                />
            </View>
            {/* end of category list name */}
-           {/* upcoming flat list */}
-           <View style={{marginTop:-20}}>
-               <FlatList 
-               horizontal = {true}
-               data = {actionList}
-               renderItem = {({item}) =>{   
-                 return ( <Category category = {item} key = {item.id.toString()}  navigation = {navigation} />  )
-               }}
-               />
-           </View>
+           {/* Categoty flat list */}
+           {
+             //fecth data while the bottons are clicked
+             isLoadedCategory ? (
+              //  after fetching data check if the list is empty
+              actionList.length !== 0 ? (<View style={{marginTop:-20}}>
+                <FlatList 
+                horizontal = {true}
+                data = {actionList}
+                renderItem = {({item}) =>{   
+                  return ( <Category category = {item} key = {item.id.toString()}  navigation = {navigation} />  )
+                }}
+                />
+            </View>):( <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+              <Text style={{color:'#fff', fontSize:18, textAlign:'center'}}>No result found for {categoryName}</Text>
+              </View>)
+              
+             ) :(
+              <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+                 <ActivityIndicator color="#ffffff" size="large"/>  
+              </View>
+            )
+           }
+          
            {/* end of categories section*/}
            
            {/* Celebrity Section */}
@@ -241,8 +266,10 @@ export default class HomeScreen extends Component {
                  </View>
            </View>
             </View>
-           {/* Streaming services list */}
-           <View style={{marginTop:-20}}>
+         
+
+            {/* Streaming services list */}
+            <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
                data = {streaming}
@@ -251,10 +278,10 @@ export default class HomeScreen extends Component {
                  return (
                  <View style={{paddingVertical:20, paddingLeft:16}}>
                      <TouchableOpacity 
-                       onPress={()=>[this.fetchSelectedCategoty(item.id,1), this.changeBg(item.id)]}
-                       style={[styels.categoryList, item.id === this.state.categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
+                       onPress={()=>[this.fetchSelectedCategoty(item.id,1), this.changeBg(item, 1)]}
+                       style={[styels.categoryList, item.id === this.state.streamingId ? ({backgroundColor: '#bd10e0'}):(null)]}>
                        <Text style={styels.categoryListText}>
-                       {item.title}
+                       {item.name}
                        </Text>
                      </TouchableOpacity>
                  </View>)
@@ -264,17 +291,40 @@ export default class HomeScreen extends Component {
             
            {/* end of category list name */}
            
-           <View style={{marginTop:-20}}>
-               <FlatList 
-               horizontal = {true}
-               data = {streamingList}
-               renderItem = {({item}) =>{
-                return(
-                  <Streaming streaming = {item}   key = {item.id.toString()} navigation= {navigation}/>
-                 )    
-               }}
-               />
-           </View>
+           
+
+           {
+             //fecth data while the bottons are clicked
+             isLoadedStreaming ? (
+              //  after fetching data check if the list is empty
+              streamingList.length !== 0 ? (
+                <View style={{marginTop:-20}}>
+                <FlatList 
+                horizontal = {true}
+                data = {streamingList}
+                renderItem = {({item}) =>{
+                 return(
+                   <Streaming streaming = {item}   key = {item.id.toString()} navigation= {navigation}/>
+                  )    
+                }}
+                />
+            </View>
+            ):( <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+              <Text style={{color:'#fff', fontSize:18, textAlign:'center'}}>No result found for {streamingName}</Text>
+              </View>)
+              
+             ) :(
+              <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+                 <ActivityIndicator color="#ffffff" size="large"/>  
+              </View>
+            )
+           }
+          
+           {/* end of categories section*/}
+            
+           {/* end of category list name */}
+           
+         
            {/* end of streaming service */}
            
            
@@ -284,7 +334,11 @@ export default class HomeScreen extends Component {
       
       return ( 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <ActivityIndicator color="#ffffff" size="large"/>  
+     
+       <ImageBackground
+          style={{width:'100%', height:'100%'}}
+          source={require('../img/background/Vertical_Big.png')}
+                    />   
       </View>) 
   }
 }

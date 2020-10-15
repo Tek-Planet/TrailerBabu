@@ -19,10 +19,10 @@ export default class Streaming extends Component {
      }
      
      componentDidMount(){
-       const {featured_media} = this.props.streaming
-       const {streaming, navigation} = this.props
+      // const {featured_media} = this.props.streaming
+       const featured_media = this.props.streaming.themeum_movie_trailer_info[0].themeum_video_trailer_image[0]
       
-       if(featured_media !== 0){
+       if(featured_media !== 0){  
       axios.get(`https://trailerbabu.com/wp-json/wp/v2/media/${featured_media}`)
       .then(res => {
         this.setState({
@@ -43,6 +43,8 @@ export default class Streaming extends Component {
     const {title} = this.props.streaming
     const {isLoading, imageUrl} = this.state
     const {streaming, navigation} = this.props
+
+
     
     return (
     <View style={{paddingVertical:20, paddingLeft:16, maxWidth: 260}}>
@@ -55,10 +57,14 @@ export default class Streaming extends Component {
             <Image alt={"image"} source = { {uri: imageUrl}}
                         style={{width:250, marginRight:8, height:150, borderRadius:10}}
                             />
-            </TouchableOpacity>) : (null)
+            </TouchableOpacity>) : (
+              <Image alt={"image"} source={require('../img/background/Horizontal_big.png')}
+              style={{width:250, marginRight:8, height:150, borderRadius:10}}
+                 />
+            ) 
            }
         <Text style={{color:'#ffffff',margin:5, fontSize:18, fontWeight:'bold'}}>
-        {title.rendered}
+        {title.rendered }
         
         </Text>
     </View>

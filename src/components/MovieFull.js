@@ -19,7 +19,7 @@ export default class Featured extends Component {
      
      componentDidMount(){
       
-       const {featured_media} = this.props.movie
+      const featured_media = this.props.movie.themeum_movie_trailer_info[0].themeum_video_trailer_image[0]
       
       
        if(featured_media !== 0){
@@ -56,7 +56,11 @@ export default class Featured extends Component {
             <Image alt={"image"} source = { {uri: imageUrl}}
                          style={{width:'98%', marginRight:8, height:250, borderRadius:10} }
                             />
-            </TouchableOpacity>) : (null)
+            </TouchableOpacity>) : (
+              <Image alt={"image"} source={require('../img/background/Horizontal_big.png')}
+              style={{width:'98%', marginRight:8, height:250, borderRadius:10} }
+                 />
+            )
            }
         <Text style={{color: '#ffffff', margin:8, fontSize:20, fontWeight:'bold'}}>
         {title.rendered}

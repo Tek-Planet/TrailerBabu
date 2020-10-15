@@ -29,7 +29,7 @@ export default class Celebrity extends Component {
   })}
    else{
     this.setState({
-      imageUrl:'https://source.unsplash.com/random',
+      imageUrl:'noImage',
       isLoading:true
     })
    }
@@ -42,16 +42,37 @@ export default class Celebrity extends Component {
     
     return (
         <View style={{paddingVertical:20, paddingLeft:16, maxWidth:260}}>   
-          {isLoading  ? ( <TouchableOpacity
-                          onPress={() => navigation.navigate('CelebrityDetails', {
-                            celebrity: celebrity,
-                            imageUrl:imageUrl
-                        }) }
+          {isLoading  ? (
+
+            // if the celevrity has profile Image
+            imageUrl !== 'noImage' ? (<TouchableOpacity
+              onPress={() => navigation.navigate('CelebrityDetails', {
+                celebrity: celebrity,
+                imageUrl:imageUrl
+            }) }
                         >
             <Image alt={"image"} source = { {uri: imageUrl}}
-                         style={{width:200, marginRight:8, height:250, borderRadius:10} }
+                        style={{width:200, marginRight:8, height:250, borderRadius:10} }
                             />
-            </TouchableOpacity>) : (null)
+            </TouchableOpacity>): (
+
+              // display no image icon if celebrity has no image
+              <TouchableOpacity
+              onPress={() => navigation.navigate('CelebrityDetails', {
+                celebrity: celebrity,
+                imageUrl:imageUrl
+            }) }
+                        >
+                <Image alt={"image"} source={require('../img/background/noImage.png')}
+                style={{width:200, marginRight:8, height:250, borderRadius:10} }
+                  />
+            </TouchableOpacity>
+            )
+          ) : (
+               <Image alt={"image"} source={require('../img/background/Vertical_Big.png')}
+               style={{width:200, marginRight:8, height:250, borderRadius:10} }
+                  />
+            )
            }
           
             <Text style={{color:'#ffffff',margin:5, fontSize:18, fontWeight:'bold'}}>

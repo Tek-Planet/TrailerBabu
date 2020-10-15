@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ActivityIndicator, ScrollView, SafeAreaView, FlatList, StyleSheet, Image,
+ImageBackground,
 TouchableOpacity } from 'react-native';
 import Movie from '../components/MovieFull'
 
@@ -18,17 +19,7 @@ export default class SearchScreen extends Component {
       categoryList:[],
       movieList:[],
       isLoaded:false,
-      alphalist: [
-        {id:'all',name:'All'},
-      {id:'a',name:'A'},
-      {id:'b',name:'B'},
-      {id:'c',name:'C'},
-      {id:'d',name:'D'},
-      {id:'e',name:'E'},
-      {id:'f',name:'F'},
-      {id:'g',name:'G'},
-      {id:'h',name:'H'},
-    ]
+      
     };
   }
 
@@ -56,10 +47,10 @@ export default class SearchScreen extends Component {
    }
 
   render() {
-    const { isLoaded, celebrityList, movieList, alphalist, categoryList} = this.state;
+    const { isLoaded, movieList, categoryList} = this.state;
     const navigation = this.props.navigation
  
-   
+    if(isLoaded){ 
     return (
         <SafeAreaView>
             <ScrollView>
@@ -69,7 +60,7 @@ export default class SearchScreen extends Component {
                         duraton="1500"
                         source={require('../img/logo.png')}
                     /> 
-                 </View>
+                 </View> 
 
               <View style={{marginTop:-20}}>
                <FlatList 
@@ -105,15 +96,51 @@ export default class SearchScreen extends Component {
             
             </View>) : (
                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-               <ActivityIndicator color="#ffffff" size="large"/>  
+               <Image
+                  style={{width:'100%', height:'100%'}}
+                  source={require('../img/background/Vertical_Big.png')}
+                    />   
                 </View>) 
     
             }
-          
+
+{/* {
+             //fecth data while the bottons are clicked
+             isLoaded ? (
+              //  after fetching data check if the list is empty
+              actionList.length !== 0 ? (<View style={{marginTop:-20}}>
+                <FlatList 
+                horizontal = {true}
+                data = {actionList}
+                renderItem = {({item}) =>{   
+                  return ( <Category category = {item} key = {item.id.toString()}  navigation = {navigation} />  )
+                }}
+                />
+            </View>):( <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+              <Text style={{color:'#fff', fontSize:18, textAlign:'center'}}>No result found for {categoryName}</Text>
+              </View>)
+              
+             ) :(
+              <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+                 <ActivityIndicator color="#ffffff" size="large"/>  
+              </View>
+            )
+           }
+           */}
            {/* end of Celebity section */}
             </ScrollView>
         </SafeAreaView>
-      );
+     
+      );}
+      
+      return ( 
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+     
+       <ImageBackground
+          style={{width:'100%', height:'100%'}}
+          source={require('../img/background/Vertical_Big.png')}
+                    />   
+      </View>) 
   }
 }
 

@@ -45,7 +45,7 @@ const MainTabScreen = () => (
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="CelebrityList"
         component={ProfileScreen}
         options={{
           tabBarLabel: 'Celebrity',
