@@ -41,7 +41,7 @@ export default class Celebrity extends Component {
       const {celebrity, navigation} = this.props
     
     return (
-        <View style={{maxWidth:175, margin:5, alignContent:'center', alignItems:'center'}}>   
+        <View style={{ margin:5, alignContent:'center', alignItems:'center'}}>   
           {isLoading  ? (
            // if the celevrity has profile Image
            imageUrl !== 'noImage' ? (<TouchableOpacity

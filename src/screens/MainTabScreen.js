@@ -5,6 +5,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { createStackNavigator } from '@react-navigation/stack';
+
 import HomeScreen from './HomeScreen'
 import MoviesScreen from './MoviesScreen'
 import ProfileScreen from './CelebrityListScreen'

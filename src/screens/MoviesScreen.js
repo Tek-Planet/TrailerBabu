@@ -1,71 +1,125 @@
-import React, { Component } from 'react';
-import { View, Text, ActivityIndicator, ScrollView, SafeAreaView, FlatList, StyleSheet, Image,
-ImageBackground,
-TouchableOpacity } from 'react-native';
+import React, { Component } from "react";
+import { View, Text, FlatList, ActivityIndicator, TouchableOpacity, SafeAreaView , StyleSheet, Image} from "react-native";
+import { List, ListItem, SearchBar } from "react-native-elements";
+import axios from 'axios'
 import Movie from '../components/MovieFull'
 
-import axios from 'axios'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
-//update to movies screen. by commenting code
-
-
-export default class SearchScreen extends Component {
+class FlatListDemo extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      categoryId:'all',
-      MovieList:[],
-      categoryList:[],
-      movieList:[],
-      isLoaded:false,
-      
+      loading: false,
+      data: [],
+      page: 1,
+      refreshing: false
     };
   }
 
-  changeBg (id) {
-    this.setState({categoryId:id})
-   } 
-  
-  componentDidMount(){
-    
-  const getMovieList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie');
-  const getCategories = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie_cat');
+  componentDidMount() {
+    this.makeRemoteRequest();
 
-    Promise.all([getMovieList, getCategories])
+    const getCategories = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie_cat');
+
+    Promise.all([getCategories])
            .then(res => {
              this.setState({
-               movieList:res[0].data,
-               categoryList:res[1].data,
-               isLoaded:true
+               categoryList:res[0].data,      
              })
            })
            .catch(err => {
              console.log('************************ Network error**********')
            })       
    
-   }
+  }
+
+  makeRemoteRequest = () => {
+    const { page } = this.state;
+    const url = (`https://trailerbabu.com/wp-json/wp/v2/movie?page=${page}`);
+          axios.
+          get(url)
+           .then(res => {
+             this.setState({
+             //  data: res[0].data,
+               data: page === 1 ? res.data : [...this.state.data, ...res.data,],
+               refreshing: false
+             })
+           })
+           .catch(err => {
+             console.log(err)
+           })    
+  };
+  
+
+  handleRefresh = () => {
+    this.setState(
+      {
+        page: 1,
+        refreshing: true
+      },
+      () => {
+        this.makeRemoteRequest();
+      }
+    );
+  };
+
+  handleLoadMore = () => {
+    this.setState(
+      {
+        page: this.state.page + 1
+      },
+      () => {
+        this.makeRemoteRequest();
+      }
+    );
+  };
+
+  renderSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: "86%",
+          backgroundColor: "#CED0CE",
+          marginLeft: "14%"
+        }}
+      />
+    );
+  };
+
+  renderFooter = () => {
+    if (!this.state.loading) return null;
+
+    return (
+      <View
+        style={{
+          paddingVertical: 20,
+          borderTopWidth: 1,
+          borderColor: "#CED0CE"
+        }}
+      >
+        <ActivityIndicator animating size="large" />
+      </View>
+    );
+  };
 
   render() {
-    const { isLoaded, movieList, categoryList} = this.state;
     const navigation = this.props.navigation
- 
-    if(isLoaded){ 
     return (
-        <SafeAreaView>
-            <ScrollView>
-                 <View style={{padding:20, flexDirection: 'row',  justifyContent:'space-between'}}>
-                     <Text style={styles.heading}> Categories </Text>                  
-                     <Image 
-                        duraton="1500"
-                        source={require('../img/logo.png')}
-                    /> 
-                 </View> 
+      <SafeAreaView>
+     
+           <View style={{padding:20, flexDirection: 'row',  justifyContent:'space-between'}}>
+               <Text style={styles.heading}> Categories </Text>                  
+               <Image 
+                  duraton="1500"
+                  source={require('../img/logo.png')}
+              /> 
+           </View> 
 
-              <View style={{marginTop:-20}}>
+           <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
-               data = {categoryList}
+               data = {this.state.categoryList}
                renderItem = {({item}) =>{
                  
                  return (
@@ -81,68 +135,28 @@ export default class SearchScreen extends Component {
                }}
                />
            </View>
-            {
-              isLoaded ? ( <View style={{}}>
-                <FlatList 
-                data = {movieList} 
-                renderItem = {({item}) =>{ 
-                  return(
-                   <Movie movie = {item}   key = {item.id.toString()} navigation= {navigation}/>
-                  )                   
-                }
-                }
-               
-                />
-            
-            </View>) : (
-               <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-               <Image
-                  style={{width:'100%', height:'100%'}}
-                  source={require('../img/background/Vertical_Big.png')}
-                    />   
-                </View>) 
-    
-            }
 
-{/* {
-             //fecth data while the bottons are clicked
-             isLoaded ? (
-              //  after fetching data check if the list is empty
-              actionList.length !== 0 ? (<View style={{marginTop:-20}}>
-                <FlatList 
-                horizontal = {true}
-                data = {actionList}
-                renderItem = {({item}) =>{   
-                  return ( <Category category = {item} key = {item.id.toString()}  navigation = {navigation} />  )
-                }}
-                />
-            </View>):( <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
-              <Text style={{color:'#fff', fontSize:18, textAlign:'center'}}>No result found for {categoryName}</Text>
-              </View>)
-              
-             ) :(
-              <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
-                 <ActivityIndicator color="#ffffff" size="large"/>  
-              </View>
-            )
-           }
-           */}
-           {/* end of Celebity section */}
-            </ScrollView>
-        </SafeAreaView>
      
-      );}
-      
-      return ( 
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-     
-       <ImageBackground
-          style={{width:'100%', height:'100%'}}
-          source={require('../img/background/Vertical_Big.png')}
-                    />   
-      </View>) 
+        <FlatList
+          data={this.state.data}
+          renderItem={({ item }) => (
+             <Movie movie = {item}   key = {item.id.toString()} navigation= {navigation}/>    
+          )}
+          keyExtractor={item => item.id}
+          ListFooterComponent={this.renderFooter}
+          onRefresh={this.handleRefresh}
+          refreshing={this.state.refreshing}
+          onEndReached={this.handleLoadMore}
+          onEndReachedThreshold={10}
+          
+        />
+   
+    </SafeAreaView>
+    );
   }
 }
+
+export default FlatListDemo;
 
 
 const styles = StyleSheet.create({

@@ -539,6 +539,7 @@ attr roundedCornerRadius
 attr roundingBorderColor
 attr roundingBorderPadding
 attr roundingBorderWidth
+attr scalableType
 attr scrimAnimationDuration
 attr scrimBackground
 attr scrimVisibleHeightTrigger
@@ -1349,6 +1350,12 @@ drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
 drawable node_modules_reactnativepaper_src_assets_backchevron
+drawable node_modules_reactnativeratings_src_images_airbnbstar
+drawable node_modules_reactnativeratings_src_images_airbnbstarselected
+drawable node_modules_reactnativeratings_src_images_bell
+drawable node_modules_reactnativeratings_src_images_heart
+drawable node_modules_reactnativeratings_src_images_rocket
+drawable node_modules_reactnativeratings_src_images_star
 drawable node_modules_reactnavigation_stack_src_views_assets_backicon
 drawable node_modules_reactnavigation_stack_src_views_assets_backiconmask
 drawable notification_action_background
@@ -1364,7 +1371,12 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable redbox_top_border_background
+drawable src_img_background_horizontal_big
+drawable src_img_background_noimage
+drawable src_img_background_vertical_big
+drawable src_img_background_vertical_medium
 drawable src_img_logo
+drawable src_img_splash
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1449,8 +1461,12 @@ id buttonPanel
 id cancel_button
 id catalyst_redbox_title
 id center
+id centerBottom
+id centerBottomCrop
 id centerCrop
 id centerInside
+id centerTop
+id centerTopCrop
 id center_horizontal
 id center_vertical
 id checkbox
@@ -1483,6 +1499,7 @@ id disableHome
 id dropdown_menu
 id edit_query
 id end
+id endInside
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
@@ -1522,6 +1539,12 @@ id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
 id left
+id leftBottom
+id leftBottomCrop
+id leftCenter
+id leftCenterCrop
+id leftTop
+id leftTopCrop
 id line1
 id line3
 id listMode
@@ -1580,6 +1603,12 @@ id radio
 id react_test_id
 id relativelayout
 id right
+id rightBottom
+id rightBottomCrop
+id rightCenter
+id rightCenterCrop
+id rightTop
+id rightTopCrop
 id right_icon
 id right_side
 id rn_frame_file
@@ -1630,6 +1659,7 @@ id src_atop
 id src_in
 id src_over
 id start
+id startInside
 id stretch
 id submenuarrow
 id submit_area
@@ -1817,10 +1847,21 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 raw app
+raw node_modules_reactnativevectoricons_glyphmaps_antdesign
+raw node_modules_reactnativevectoricons_glyphmaps_entypo
+raw node_modules_reactnativevectoricons_glyphmaps_evilicons
+raw node_modules_reactnativevectoricons_glyphmaps_feather
+raw node_modules_reactnativevectoricons_glyphmaps_fontawesome
 raw node_modules_reactnativevectoricons_glyphmaps_fontawesome5free
 raw node_modules_reactnativevectoricons_glyphmaps_fontawesome5free_meta
+raw node_modules_reactnativevectoricons_glyphmaps_fontisto
+raw node_modules_reactnativevectoricons_glyphmaps_foundation
 raw node_modules_reactnativevectoricons_glyphmaps_ionicons
 raw node_modules_reactnativevectoricons_glyphmaps_materialcommunityicons
+raw node_modules_reactnativevectoricons_glyphmaps_materialicons
+raw node_modules_reactnativevectoricons_glyphmaps_octicons
+raw node_modules_reactnativevectoricons_glyphmaps_simplelineicons
+raw node_modules_reactnativevectoricons_glyphmaps_zocial
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -2741,6 +2782,8 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
+styleable scaleStyle scalableType
+xml file_provider_paths
 xml rn_dev_preferences
 xml standalone_badge
 xml standalone_badge_gravity_bottom_end

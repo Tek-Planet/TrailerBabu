@@ -11,7 +11,8 @@ export default class SearchScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categoryId:'all',
+      page:2,
+      categoryId:'All',
       celebrityList:[],
       movieList:[],
       isLoaded:false,
@@ -47,30 +48,45 @@ export default class SearchScreen extends Component {
     };
   }
 
-  changeBg (id) {
-    this.setState({categoryId:id})
-   } 
-  
-  componentDidMount(){
-    
-  const getCelebityList = axios.get('https://trailerbabu.com/wp-json/wp/v2/celebrity?page=2');
-  
- 
-    Promise.all([getCelebityList])
+  makeRemoteRequest = () => {
+    const { page } = this.state;
+    const url = (`https://trailerbabu.com/wp-json/wp/v2/celebrity?page=${page}`);
+          axios.
+          get(url)
            .then(res => {
-             this.setState({
-               celebrityList:res[0].data,
-               isLoaded:true
+             this.setState({  
+             celebrityList: page === 1 ? res.data : [...this.state.celebrityList, ...res.data,],
+             isLoaded:true
              })
            })
            .catch(err => {
-             console.log('************************ Network error**********')
-           })       
+             console.log(err)
+           })    
+  };
+
+  handleLoadMore = () => {
+    this.setState(
+      {
+        page: this.state.page + 1
+      },
+      () => {
+        this.makeRemoteRequest();
+      }
+    );
+  };
+
+
+  changeBg (id) {
+    this.setState({categoryId:id})
    
+   } 
+  
+  componentDidMount(){
+      this.makeRemoteRequest()
    }
 
   render() {
-    const { isLoaded, celebrityList, movieList, alphalist} = this.state;
+    const { isLoaded, celebrityList,  alphalist, categoryId} = this.state;
     const navigation = this.props.navigation
  
    
@@ -89,13 +105,14 @@ export default class SearchScreen extends Component {
                <FlatList 
                horizontal = {true}
                data = {alphalist}
+
                renderItem = {({item}) =>{
                   
                  return (
                  <View style={{paddingVertical:20, paddingLeft:10}}>
                      <TouchableOpacity 
-                        onPress={()=>[this.changeBg(item.id)] }
-                        style={[styles.categoryList, item.id === this.state.categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
+                        onPress={()=>[this.changeBg(item.name)] }
+                        style={[styles.categoryList, item.name === this.state.categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
                        <Text style={styles.categoryListText}> 
                        {item.name}
                        </Text>
@@ -106,12 +123,24 @@ export default class SearchScreen extends Component {
            </View>
             {
               isLoaded ? ( <View style={{}}>
+                
                 <FlatList 
                 numColumns={2}
                 data = {celebrityList} 
-                renderItem = {({item}) =>{ 
-                  return(
-                   <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
+                onEndReached={this.handleLoadMore}       
+                renderItem = {({item}) =>{               
+                  return(                
+                      categoryId === 'All' ? (
+                        <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
+                      ):(
+                       categoryId === item.title.rendered.charAt(0) ? (
+                        <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
+                       ):(null)
+                      )
+                       
+                        // <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
+                     
+                  
                   )                   
                 }
                 }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import  axios from 'axios'
 import Rating from '../components/Rating'
 
-export default class Featured extends Component {
+export default class Featured extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {

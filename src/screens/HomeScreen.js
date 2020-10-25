@@ -3,6 +3,7 @@ import { View, Text, ScrollView, SafeAreaView, StyleSheet, FlatList,
   Image, ImageBackground,
   TouchableOpacity, ActivityIndicator } from 'react-native';
 import axios from 'axios'
+import dayjs from 'dayjs'
 
 //components
 import Celebrity from '../components/Celebrity'
@@ -35,40 +36,38 @@ export default class HomeScreen extends Component {
     
     ],
     categories:[],
-    actionList:[],
+    movies:[],
     celebrityList:[],
     featuredList:[],
     upcomingList:[],
     streamingList:[],
     isLoaded:false,
-    
+    data: [],
+    page: 1,   
     
     };
   }
   
   componentDidMount(){
-    
+   this.makeRemoteRequest()
+
    const getActionList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie');
    const getCategories = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie_cat');
    const getCelebityList = axios.get('https://trailerbabu.com/wp-json/wp/v2/celebrity?page=2');
-   const getFeaturedList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=50');
-   const getUpcomingList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=51');
    const getStreaming = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=115');
 
-   Promise.all([getCategories, getActionList,getCelebityList, getFeaturedList, getUpcomingList,getStreaming])
+   Promise.all([getCategories,getActionList, getCelebityList,getStreaming])
           .then(res => {
             this.setState({
               categories: res[0].data,
               actionList: res[1].data,
               celebrityList:res[2].data,
-              featuredList:res[3].data,
-              upcomingList:res[4].data,
-              streamingList:res[5].data,
-              isLoaded:true
+              streamingList:res[3].data,
+              isLoaded:true  
             })
           })
           .catch(err => {
-            console.log('************************ Network error**********')
+            console.log(err)
           })       
   
   }
@@ -101,11 +100,39 @@ export default class HomeScreen extends Component {
     this.setState({streamingId:item.id,streamingName:item.name, isLoadedStreaming:false})
   }
   }  
+
+  makeRemoteRequest = () => {
+    const { page } = this.state;
+    const url = (`https://trailerbabu.com/wp-json/wp/v2/movie?page=${page}`);
+          axios.
+          get(url)
+           .then(res => {
+             this.setState({  
+             movies: page === 1 ? res.data : [...this.state.movies, ...res.data,],
+             })
+           })
+           .catch(err => {
+             console.log(err)
+           })    
+  };
+  
+
+  handleLoadMore = () => {
+    this.setState(
+      {
+        page: this.state.page + 1
+      },
+      () => {
+        this.makeRemoteRequest();
+      }
+    );
+  };
     
   render() {
-      const {streaming, actionList,categories, categoryName, streamingName, isLoaded, isLoadedStreaming, isLoadedCategory, celebrityList, featuredList, upcomingList, streamingList} = this.state;
-      const navigation = this.props.navigation
-    
+      const {movies, streaming, actionList,categories, categoryName, streamingName, isLoaded, isLoadedStreaming, isLoadedCategory, celebrityList, featuredList, upcomingList, streamingList} = this.state;
+      const navigation = this.props.navigation     
+      const date = new Date()
+  
       if(isLoaded){ return (
         <SafeAreaView>
         <ScrollView>
@@ -124,13 +151,14 @@ export default class HomeScreen extends Component {
            <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
-               data = {featuredList}
-               renderItem = {({item}) =>{
-                 
+               data = {movies}
+               onEndReached={this.handleLoadMore}
+               onEndReachedThreshold={10}
+               renderItem = {({item}) =>{ 
                  return (
-               <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}/>
-                 )
-               }}
+                  item.themeum_featured_movie ===  "1" ?(
+                  <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}/>
+                ):(null) ) }}
                />
            </View>
         {/* end of future moview */}
@@ -141,7 +169,7 @@ export default class HomeScreen extends Component {
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
                      <Text style={styels.heading}> Upcoming</Text>                  
                      <TouchableOpacity
-                        onPress={()=> navigation.navigate('MovieList')}
+                        onPress={()=> navigation.navigate('UpcomingList')}
                      >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                      </TouchableOpacity> 
@@ -151,10 +179,17 @@ export default class HomeScreen extends Component {
            <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
-               data = {upcomingList}
-               renderItem = {({item}) =>{
-                 
-                 return ( <Upcoming upcoming = {item} key = {item.id.toString()}  navigation = {navigation} />  )
+               data = {movies}
+               onEndReached={this.handleLoadMore}
+               onEndReachedThreshold={10}
+               renderItem = {({item}) =>{  
+                const release_date  = new Date(item.themeum_release_date);     
+                 return ( 
+                  release_date.getTime()   >  date.getTime() ?(
+                    <Upcoming upcoming = {item} key = {item.id.toString()}  navigation = {navigation} /> 
+                  ):(null)
+                //  <Upcoming upcoming = {item} key = {item.id.toString()}  navigation = {navigation} />  
+                 )
                }}
                />
            </View>
@@ -224,7 +259,7 @@ export default class HomeScreen extends Component {
            <View>
            <View>
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={styels.heading}> Celebities </Text> 
+                     <Text style={styels.heading}> Celebrities </Text> 
                      <TouchableOpacity
                         onPress={()=> navigation.navigate('CelebrityList')}
                      >

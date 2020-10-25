@@ -33,9 +33,8 @@ const [isLoading, setIsLoading] = useState(true)
     return(   <SplashScreen />   )
   }
   return (
-    <NavigationContainer theme={CustomDefaultTheme}>
-  
-     <OtherStackScreen />
+       <NavigationContainer theme={CustomDefaultTheme}>
+  <OtherStackScreen /> 
     
     </NavigationContainer>
   );
