@@ -49,7 +49,7 @@ const MainTabScreen = () => (
         name="CelebrityList"
         component={ProfileScreen}
         options={{
-          tabBarLabel: 'Celebrity',
+          tabBarLabel: <Text>Celebrity</Text>,
           tabBarColor: '#694fad',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-person" color={color} size={26} />
@@ -86,33 +86,3 @@ const MainTabScreen = () => (
 
 export default MainTabScreen;
 
-const HomeStackScreen = ({navigation}) => (
-<HomeStack.Navigator screenOptions={{
-        headerStyle: {
-        backgroundColor: '#009387',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-        fontWeight: 'bold'
-        }
-    }}>
-        <HomeStack.Screen name="Home" component={HomeScreen}  />
-</HomeStack.Navigator>
-);
-
-const MoviesStackScreen = ({navigation}) => (
-<MoviesStack.Navigator screenOptions={{
-        headerStyle: {
-        backgroundColor: '#1f65ff',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-        fontWeight: 'bold'
-        }
-    }}>
-        <MoviesStack.Screen name="Details" component={MoviesScreen} options={{
-       
-        }} />
-</MoviesStack.Navigator>
-);
-  

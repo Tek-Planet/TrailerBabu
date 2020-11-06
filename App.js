@@ -34,9 +34,8 @@ const [isLoading, setIsLoading] = useState(true)
   }
   return (
        <NavigationContainer theme={CustomDefaultTheme}>
-  <OtherStackScreen /> 
-    
-    </NavigationContainer>
+           <OtherStackScreen />   
+      </NavigationContainer>
   );
 }
 

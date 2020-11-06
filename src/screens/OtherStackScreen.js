@@ -9,7 +9,7 @@ import MovieListScreen from './MovieListScreen'
 import UpcomingListScreen from './UpcomingListScreen'
 import SplashScreen from './SplashScreen'
 
-import BottomTab from './MainTabScreen'
+import BottomTab from './BottomTabScreen'
 
 const RootStack = createStackNavigator();
 

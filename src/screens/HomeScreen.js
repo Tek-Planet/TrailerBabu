@@ -22,12 +22,13 @@ export default class HomeScreen extends Component {
     // changing background of categories
     categoryId:1000,
     categoryName:'',
-    isLoadedCategory:true,
+    isLoadedCategory:false,
 
     // changing background of streaming category
     streamingId:1000,
     streamingName:'',
     isLoadedStreaming:true,
+    reload:false,
 
     streaming: [
       { name: 'Netflix',  id: '108'},
@@ -49,8 +50,9 @@ export default class HomeScreen extends Component {
   }
   
   componentDidMount(){
-   this.makeRemoteRequest()
-
+  this.makeRemoteRequest()
+   
+   
    const getActionList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie');
    const getCategories = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie_cat');
    const getCelebityList = axios.get('https://trailerbabu.com/wp-json/wp/v2/celebrity?page=2');
@@ -63,11 +65,14 @@ export default class HomeScreen extends Component {
               actionList: res[1].data,
               celebrityList:res[2].data,
               streamingList:res[3].data,
-              isLoaded:true  
+              isLoadedCategory:true,
             })
           })
           .catch(err => {
             console.log(err)
+            this.setState({  
+              reload: true,
+              })
           })       
   
   }
@@ -105,14 +110,18 @@ export default class HomeScreen extends Component {
     const { page } = this.state;
     const url = (`https://trailerbabu.com/wp-json/wp/v2/movie?page=${page}`);
           axios.
-          get(url)
+          get(url, {timeout:10000})
            .then(res => {
              this.setState({  
              movies: page === 1 ? res.data : [...this.state.movies, ...res.data,],
+             isLoaded:true
              })
            })
            .catch(err => {
              console.log(err)
+             this.setState({  
+              reload: true,
+              })
            })    
   };
   
@@ -129,9 +138,30 @@ export default class HomeScreen extends Component {
   };
     
   render() {
-      const {movies, streaming, actionList,categories, categoryName, streamingName, isLoaded, isLoadedStreaming, isLoadedCategory, celebrityList, featuredList, upcomingList, streamingList} = this.state;
+      const {movies, streaming, actionList,categories, categoryName, streamingName, isLoaded, reload, isLoadedStreaming, isLoadedCategory, celebrityList, featuredList, upcomingList, streamingList} = this.state;
       const navigation = this.props.navigation     
       const date = new Date()
+
+      if(reload){
+        return ( 
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+               <Image 
+                       style={{width:150, height:150, borderRadius:100, marginBottom:20}}
+                        source={require('../img/error.png')}
+                    />
+              <Text style={{color:'#fff', fontSize:18, marginBottom:10}}>Hmm. We’re having trouble fetching data</Text>
+
+              <Text style={{color:'#fff', fontSize:18, marginBottom:20}}>Check your network connection.</Text>
+
+                <TouchableOpacity 
+                          onPress={()=> [this.makeRemoteRequest(),   this.setState({  
+                            reload: false,
+                            })]}
+                          style={[styels.categoryList,{backgroundColor: '#bd10e0'}]}>
+                        <Text style={styels.categoryListText}> Try Again</Text>
+                </TouchableOpacity>
+            </View>) 
+        }
   
       if(isLoaded){ return (
         <SafeAreaView>
@@ -384,7 +414,7 @@ const styels = StyleSheet.create({
   categoryList: {
     padding:14,
     borderRadius:10,
-    backgroundColor: '#232323'
+    backgroundColor: '#0037018D'
   },
   categoryListText:{
     color:'#ffffff',

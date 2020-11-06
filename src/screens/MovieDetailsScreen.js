@@ -9,6 +9,9 @@ import Rating from '../components/Rating'
 
 import YouTube from 'react-native-youtube';
 
+import Icon from 'react-native-vector-icons/Ionicons';
+
+
 LogBox.ignoreLogs([
   'VirtualizedLists should never be nested', // TODO: Remove when fixed
 ])
@@ -75,9 +78,12 @@ export default function MovieDetailsScreen({ route, navigation }) {
           <Text style={{fontSize:20, fontWeight:"normal", color:"#ffffff"}}>{movie.themeum_movie_type} </Text>                  
      </View>
      
-     <View style={styles.column}>
-          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Movie Descriptions : </Text>   
-    <Text style={{fontSize:20, fontWeight:"normal", color:"#ffffff", textAlign:'justify', marginEnd: 10,}}>{content}</Text>      
+     <View style={[]}>
+     <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', elevation:5, height:50, marginBottom:10,  marginTop:10,  padding:10, backgroundColor:'#0037018D'}}>
+          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff", marginStart:10}}>Movie Descriptions : </Text>   
+          <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
+      </View>
+    <Text style={{fontSize:20,  marginStart:20, fontWeight:"normal", color:"#ffffff", textAlign:'justify', marginEnd: 10,}}>{content}</Text>      
      </View>
      {/* AIzaSyDXpWnVyISSysQZyK3PwA59obJQiu_Kaw8 */}
      {/* <YouTube
