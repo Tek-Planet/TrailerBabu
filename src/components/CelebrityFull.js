@@ -41,7 +41,7 @@ export default class Celebrity extends Component {
       const {celebrity, navigation} = this.props
     
     return (
-        <View style={{ margin:5, alignContent:'center', alignItems:'center'}}>   
+        <View style={{ margin:5, }}>    
           {isLoading  ? (
            // if the celevrity has profile Image
            imageUrl !== 'noImage' ? (<TouchableOpacity
@@ -51,7 +51,7 @@ export default class Celebrity extends Component {
           }) }
                       >
           <Image alt={"image"} source = { {uri: imageUrl}}
-                      style={{width:170, marginRight:8, height:200, borderRadius:10} }
+                      style={{width:170,  height:200, borderRadius:10} }
                           />
           </TouchableOpacity>): (
 
@@ -63,18 +63,18 @@ export default class Celebrity extends Component {
           }) }
                       >
               <Image alt={"image"} source={require('../img/background/noImage.png')}
-              style={{width:170, marginRight:8, height:200, borderRadius:10} }
+              style={{width:170, height:200, borderRadius:10} }
                 />
           </TouchableOpacity>
           )
         ) : (
              <Image alt={"image"} source={require('../img/background/Vertical_Big.png')}
-             style={{width:170, marginRight:8, height:200, borderRadius:10} }
+             style={{width:170,  height:200, borderRadius:10} }
              />
           )
            }
           
-            <Text style={{color:'#ffffff',margin:5, fontSize:18, fontWeight:'bold', textAlign:'center'}}>
+            <Text style={{width:150, color:'#ffffff',margin:5, fontSize:18, fontWeight:'bold', textAlign:'center'}}>
              {title.rendered}
             </Text>      
         </View>)

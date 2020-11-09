@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, ActivityIndicator, ScrollView, SafeAreaView, FlatList, StyleSheet, Image,
 TouchableOpacity } from 'react-native';
 import Celebrity from '../components/CelebrityFull'
+import Celeb from '../components/CelebrityFull'
+
 
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -11,7 +13,8 @@ export default class SearchScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page:2,
+      page:1,
+      keyword:'',
       categoryId:'All',
       celebrityList:[],
       movieList:[],
@@ -80,16 +83,34 @@ export default class SearchScreen extends Component {
     this.setState({categoryId:id})
    
    } 
+
+   searchCelebrity = () => {
+    const { keyword } = this.state;
+    const url = (`https://trailerbabu.com/wp-json/wp/v2/celebrity?search=${keyword}`);
+    this.setState({ loading: true });
+          axios.
+          get(url)
+           .then(res => {
+             this.setState({
+              movieList: res.data,
+               isLoaded: true,
+             
+             })
+           })
+           .catch(err => {
+             console.log(err)
+           })    
+  };
   
   componentDidMount(){
       this.makeRemoteRequest()
+     
    }
 
   render() {
     const { isLoaded, celebrityList,  alphalist, categoryId} = this.state;
     const navigation = this.props.navigation
  
-   
     return (
         <SafeAreaView>
             <ScrollView>
@@ -122,39 +143,43 @@ export default class SearchScreen extends Component {
                />
            </View>
             {
-              isLoaded ? ( <View style={{}}>
-                
-                <FlatList 
-                numColumns={2}
-                data = {celebrityList} 
-                onEndReached={this.handleLoadMore}       
-                renderItem = {({item}) =>{               
-                  return(                
-                      categoryId === 'All' ? (
-                        <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
-                      ):(
-                       categoryId === item.title.rendered.charAt(0) ? (
-                        <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
-                       ):(null)
-                      )
-                       
-                        // <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
-                     
-                  
-                  )                   
-                }
-                }
+              isLoaded ? ( 
+              
+                categoryId === 'All' ? (  
+                  <FlatList 
+                  key={'_'}
+                  numColumns={2}
+                  data = {celebrityList} 
+                  onEndReached={this.handleLoadMore}       
+                  renderItem = {({item}) =>{               
+                    return(                
+                          <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
+                        ) }  }  />
+              
+             ) : (
+              <FlatList 
+              key={'#'}
+              horizontal={true}
+              data = {celebrityList}  
+              renderItem = {({item}) =>{    
+                 if  (item.title.rendered.charAt(0) === categoryId)  {              
+                return(   
+                   <Celeb celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
+                            )
+                  }   
+                  }  }  />
+              
+              
+              ) 
                
-                />
+              ):
+              (  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <ActivityIndicator color="#ffffff" size="large"/>  
+               </View>) 
             
-            </View>) : (
-               <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-               <ActivityIndicator color="#ffffff" size="large"/>  
-                </View>) 
-    
             }
           
-           {/* end of Celebity section */}
+        
             </ScrollView>
         </SafeAreaView>
       );

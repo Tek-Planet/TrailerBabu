@@ -12,10 +12,16 @@ https://www.figma.com/file/QzAYxZHSnZePIlGIuJNXCZ/v3-app-ksonecha?node-id=0%3A1
 
 Chikas details
 
-JSON web token              
-
 Lisam Construction Company Limited. RC.23377
 Colour shd be blue
 
 Geodaam Engineering Services Limited.  RC 1594663
 Baravid Resources Limited Rc 1227920
+
+5th october
+
+Bottom nav- tick
+Loading error message-l
+Celebrity List-
+Movies Loading -tick
+Some Other UI changing

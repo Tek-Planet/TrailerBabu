@@ -22,12 +22,21 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
   const content = celebrity.content.rendered.replace(regex, '');
   return (
 <ScrollView style={{flex: 1}}>
-      <View >
-      <ImageBackground
-      source={{uri: imageUrl}}
-      style = {styles.image}
-      imageStyle ={{borderBottomRightRadius:230, borderBottomLeftRadius:50, }}
+      <View > 
+        {
+          imageUrl !== 'noImage' ? (<ImageBackground
+            source={{uri: imageUrl}}
+            style = {styles.image}
+            imageStyle ={{borderBottomRightRadius:230, borderBottomLeftRadius:50, }}
+            />):(
+              <ImageBackground
+              source={require('../img/background/noImage.png')}
+              style = {styles.image}
+              imageStyle ={{borderBottomRightRadius:230, borderBottomLeftRadius:50, }}
       />
+            )
+        }
+      
       
       <View style={{position:"absolute", right:3, top:350, alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Follow On</Text>                         
