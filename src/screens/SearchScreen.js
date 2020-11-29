@@ -141,14 +141,12 @@ export default class SearchScreen extends Component {
             {/* featured moviee zone */}
           
 
-        {
-          categoryId === 100 ?  (
+      
         
         <View>
-            <View style={{marginTop: 40,}}>
-                 <View style={{padding:20, flexDirection: 'row', }}>
-                     <Text style={styles.heading}>Movies</Text>                  
-                   
+            <View >
+                 <View >
+                     <Text style={styles.heading}>Movies</Text>                             
                 </View>
                 
             </View>
@@ -160,17 +158,19 @@ export default class SearchScreen extends Component {
                renderItem = {({item}) =>{
                  
                  return (
-               <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}/>
+               <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}
+               maxwidth = {200}  imagewidth = {180} imageheight ={200}
+               />
                  )
                }}
                />
            </View>
            </View>
-           ):( 
+         
          
            <View>
-              <View style={{marginTop: 40,}}>
-                 <View style={{padding:20, flexDirection: 'row', }}>
+              <View >
+                 <View >
                      <Text style={styles.heading}>Celebrity</Text>                  
                    
                 </View>
@@ -191,8 +191,7 @@ export default class SearchScreen extends Component {
            
            </View>
           
-           </View> )
-          }
+           </View> 
            
             </ScrollView>
         </SafeAreaView>
@@ -204,7 +203,7 @@ export default class SearchScreen extends Component {
 const styles = StyleSheet.create({
   searchBox: {  
     flexDirection:"row",
-    backgroundColor: '#7a00ff',
+    backgroundColor: '#0037018D',
     width: '75%',
     alignSelf:'center',
     borderRadius: 5,
@@ -229,7 +228,7 @@ const styles = StyleSheet.create({
     alignSelf:'center'
   },
   
-  heading: {color: '#ffffff', fontSize:22, fontWeight:'bold'}
+  heading: {color: '#ffffff', fontSize:22, fontWeight:'bold', margin:20}
   
 })
 

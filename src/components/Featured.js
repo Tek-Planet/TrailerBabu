@@ -19,9 +19,7 @@ export default class Featured extends Component {
      
      componentDidMount(){
       
-       const {featured_media} = this.props.feature
-      
-      
+       const {featured_media} = this.props.feature    
        if(featured_media !== 0){
       axios.get(`https://trailerbabu.com/wp-json/wp/v2/media/${featured_media}`)
       .then(res => {
@@ -42,10 +40,13 @@ export default class Featured extends Component {
   render() {
     const {title} = this.props.feature
     const {isLoading, imageUrl} = this.state
-    const {feature, navigation} = this.props
+    const {feature, navigation, maxwidth,imagewidth,imageheight} = this.props
+    
+  
+    
     
     return (
-    <View style={{ maxWidth: 220, paddingVertical:20, paddingLeft:16}}>
+    <View style={{ maxWidth: maxwidth, paddingVertical:20, paddingLeft:16}}>
        {isLoading  ? (
           <TouchableOpacity
           onPress={() => navigation.navigate('MovieDetails', {
@@ -54,13 +55,13 @@ export default class Featured extends Component {
           }) }
           >
             <Image alt={"image"} source = { {uri: imageUrl}}
-                         style={{width:200, marginRight:8, height:250, borderRadius:10} }
+                         style={{width:imagewidth, marginRight:8, height:imageheight, borderRadius:10} }
                             />
             </TouchableOpacity>) : (
 
               <Image alt={"image"} source={require('../img/background/Vertical_Big.png')}
-              style={{width:200, marginRight:8, height:250, borderRadius:10} }
-                 />
+              style={{width:imagewidth, marginRight:8, height:imageheight, borderRadius:10} }
+              />
             )
            }
         <Text style={{color: '#ffffff', margin:5, fontSize:18, fontWeight:'bold'}}>

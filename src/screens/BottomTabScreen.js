@@ -4,7 +4,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './HomeScreen'
 import MoviesScreen from './MoviesScreen'

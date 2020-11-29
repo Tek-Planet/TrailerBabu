@@ -6,6 +6,7 @@ import { NavigationContainer,
 
 import OtherStackScreen from './src/screens/OtherStackScreen'
 import SplashScreen from './src/screens/SplashScreen'
+import { StatusBar } from 'react-native';
 
 const CustomDefaultTheme = {
   ...NavigationDefaultTheme,
@@ -17,6 +18,7 @@ const CustomDefaultTheme = {
 }
 
 
+
 const  App = () => {
 
 const [isLoading, setIsLoading] = useState(true)
@@ -25,7 +27,7 @@ const [isLoading, setIsLoading] = useState(true)
     setTimeout( () => {
       setIsLoading(false)
     },
-     2000);
+     500);
   }, []);
 
   if(isLoading)

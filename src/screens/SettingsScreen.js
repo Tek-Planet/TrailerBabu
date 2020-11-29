@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {
-  TouchableRipple,
-  Switch
-} from 'react-native-paper';
+
 import ToggleSwitch from 'toggle-switch-react-native'
 
 export default class SettingsScreen extends Component {

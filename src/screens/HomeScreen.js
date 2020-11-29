@@ -4,6 +4,7 @@ import { View, Text, ScrollView, SafeAreaView, StyleSheet, FlatList,
   TouchableOpacity, ActivityIndicator } from 'react-native';
 import axios from 'axios'
 import dayjs from 'dayjs'
+import { StatusBar } from 'react-native';
 
 //components
 import Celebrity from '../components/Celebrity'
@@ -45,11 +46,15 @@ export default class HomeScreen extends Component {
     isLoaded:false,
     data: [],
     page: 1,   
+    upcomingCounter:0,
     
     };
   }
-  
+  componentWillUnmount() {
+   // StatusBar.setHidden(false);
+  }
   componentDidMount(){
+    StatusBar.setHidden(true);
   this.makeRemoteRequest()
    
    
@@ -138,7 +143,8 @@ export default class HomeScreen extends Component {
   };
     
   render() {
-      const {movies, streaming, actionList,categories, categoryName, streamingName, isLoaded, reload, isLoadedStreaming, isLoadedCategory, celebrityList, featuredList, upcomingList, streamingList} = this.state;
+      const {movies, streaming, actionList,categories, categoryName, streamingName, isLoaded, reload, isLoadedStreaming, isLoadedCategory, celebrityList, featuredList, upcomingList, streamingList,
+      upcomingCounter} = this.state;
       const navigation = this.props.navigation     
       const date = new Date()
 
@@ -216,6 +222,7 @@ export default class HomeScreen extends Component {
                 const release_date  = new Date(item.themeum_release_date);     
                  return ( 
                   release_date.getTime()   >  date.getTime() ?(
+                   
                     <Upcoming upcoming = {item} key = {item.id.toString()}  navigation = {navigation} /> 
                   ):(null)
                 //  <Upcoming upcoming = {item} key = {item.id.toString()}  navigation = {navigation} />  
@@ -402,7 +409,7 @@ export default class HomeScreen extends Component {
      
        <ImageBackground
           style={{width:'100%', height:'100%'}}
-          source={require('../img/background/Vertical_Big.png')}
+          source={require('../img/splash.png')}
                     />   
       </View>) 
   }
