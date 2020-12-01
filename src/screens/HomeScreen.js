@@ -193,7 +193,9 @@ export default class HomeScreen extends Component {
                renderItem = {({item}) =>{ 
                  return (
                   item.themeum_featured_movie ===  "1" ?(
-                  <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}/>
+                  <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}
+                   maxwidth = {240}  imagewidth = {200} imageheight ={300}
+                  />
                 ):(null) ) }}
                />
            </View>

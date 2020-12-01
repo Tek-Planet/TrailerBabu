@@ -32,7 +32,7 @@ export default class Featured extends React.PureComponent {
       })}
        else{
         this.setState({
-          imageUrl:'https://source.unsplash.com/random',
+          imageUrl:require('../img/background/Vertical_Big.png'),
           isLoading:true
         })
        }
@@ -42,30 +42,30 @@ export default class Featured extends React.PureComponent {
   render() {
     const {rating, title} = this.props.movie
     const {isLoading, imageUrl} = this.state
-    const {feature, navigation} = this.props
+    const {movie, navigation} = this.props
     
     return (
-    <View style={{ paddingVertical:20, paddingLeft:16}}>
+    <View style={{ marginBottom:20}}>
        {isLoading  ? (
           <TouchableOpacity
           onPress={() => navigation.navigate('MovieDetails', {
-              movie: feature,
+              movie: movie,
               imageUrl:imageUrl
           }) }
           >
             <Image alt={"image"} source = { {uri: imageUrl}}
-                         style={{width:'98%', marginRight:8, height:250, borderRadius:10} }
+                         style={{ marginStart:20, marginEnd:20, height:172, borderRadius:10, } }
                             />
             </TouchableOpacity>) : (
               <Image alt={"image"} source={require('../img/background/Horizontal_big.png')}
-              style={{width:'98%', marginRight:8, height:250, borderRadius:10} }
+              style={{ marginStart:20, marginEnd:20, height:172, borderRadius:10, } }
                  />
             )
            }
-        <Text style={{color: '#ffffff', margin:8, fontSize:20, fontWeight:'bold'}}>
+        <Text style={{color: '#ffffff', marginStart:35, marginTop:10, fontSize:20, fontWeight:'bold'}}>
         {title.rendered}
         </Text>
-        <View style={{margin:8}}>
+        <View style={{ marginStart:35,  marginTop:10,}}>
         <Rating  ratings = {rating} />  
         </View>
     </View>

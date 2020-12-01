@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet,  ActivityIndicator , FlatList} from 'react-native';
 import PropTypes from 'prop-types'
 import axios from 'axios'
-import { SafeAreaView } from 'react-native-safe-area-context';
+import Rating from '../components/Rating'
 
 export default class Comment extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export default class Comment extends Component {
   static propTypes = {
     postID: PropTypes.number.isRequired
   }
-  
+   
   componentDidMount(){
     const {postID} = this.props
    
@@ -40,17 +40,20 @@ export default class Comment extends Component {
         renderItem = {({item}) =>{
             const regex = /(<([^>]+)>)/ig;
             const content = item.content.rendered.replace(regex, '');
-           return (
-           
+           return (        
               <View >
-                <View style={{marginTop:10, marginStart:20, marginEnd:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                    <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>{item.author_name}</Text>     
-                    <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Rating</Text>              
+                <View style={{marginTop:10, flexDirection: 'row', justifyContent:'space-between'}}>
+                    <Text style={{fontSize:18, fontFamily:'Roboto-Regular', color:"#ffffff"}}>{item.author_name}</Text>     
+                    {/* <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Rating</Text>               */}
+                    {
+                      item.rating ? (<Rating ratings = {item.rating} />   ):
+                      (<Rating ratings = {0} />   )
+                    }
                 </View>
            
-                <View style={{marginTop:5,  marginStart:20, marginEnd:20,  }}>
-                <Text style={{paddingHorizontal:14,lineHeight:26, justifyContent: 'flex-start', textAlign:'justify', fontSize:20, fontWeight:"normal", color:"#ffffff"}}>{content }</Text>       
-                </View>
+              
+                <Text style={{lineHeight:26,marginTop:5, textAlign:'justify', fontSize:15, fontFamily:'Roboto-Regular', color:"#ffffff"}}>{content }</Text>       
+              
            </View>
          
             )
@@ -72,7 +75,7 @@ export default class Comment extends Component {
     return (
       
         <View style={{padding:20, }}>
-            <Text style={{ marginStart:20,fontSize:22, fontWeight:"bold", color:"#ffffff"}}>Reviews</Text>                  
+            <Text style={{ fontSize:22, fontWeight:"bold", color:"#ffffff"}}>Reviews</Text>                  
           
             { checkIfCommentIsLoaded}
         </View>

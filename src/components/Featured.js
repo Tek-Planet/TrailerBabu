@@ -30,7 +30,7 @@ export default class Featured extends Component {
       })}
        else{
         this.setState({
-          imageUrl:'https://source.unsplash.com/random',
+          imageUrl: require('../img/background/Vertical_Big.png'),
           isLoading:true
         })
        }

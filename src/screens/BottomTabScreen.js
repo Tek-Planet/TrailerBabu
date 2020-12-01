@@ -24,7 +24,7 @@ const MainTabScreen = () => (
     inactiveColor="#A9A9A9"
     initialRouteName="Home"
     labeled = {false}
-    barStyle={{ backgroundColor: '#222222', }}
+    barStyle={{ backgroundColor: '#222222', height:60 }}
  
 
     screenOptions={({ route }) => ({    

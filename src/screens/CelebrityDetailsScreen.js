@@ -27,7 +27,7 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
           imageUrl !== 'noImage' ? (<ImageBackground
             source={{uri: imageUrl}}
             style = {styles.image}
-            imageStyle ={{borderBottomRightRadius:230, borderBottomLeftRadius:50, }}
+            imageStyle ={{borderBottomRightRadius:250, borderBottomLeftRadius:120, }}
             />):(
               <ImageBackground
               source={require('../img/background/noImage.png')}
@@ -51,16 +51,16 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
       </View>
        
      <View style={[styles.row, {marginTop:40}]}>
-           <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff", }}>{celebrity.title.rendered }</Text> 
+           <Text  style={styles.headers}>{celebrity.title.rendered }</Text> 
      </View>
      
      <View style={styles.row  }>
-          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Birthday Date : </Text>   
+          <Text style={styles.miniheaders}>Birthday Date : </Text>   
           <Text style={{fontSize:20, fontWeight:"normal", color:"#ffffff"}}></Text>                  
      </View>
      
      <View style={styles.row  }>
-          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Height : </Text>   
+          <Text  style={styles.miniheaders}>Height : </Text>   
           <Text style={{fontSize:20, fontWeight:"normal", color:"#ffffff"}}>
           {celebrity.celebrity_info.themeum_info_description}
           </Text>                  
@@ -82,8 +82,8 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
      </View> */}
      
      <View style={styles.column}>
-          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Biography : </Text>   
-          <Text style={{fontSize:20, fontWeight:"normal", color:"#ffffff"}}>{content}</Text>      
+          <Text  style={styles.miniheaders}>Biography : </Text>   
+          <Text  style={styles.subheader}>{content}</Text>      
      </View>
      
      
@@ -121,6 +121,12 @@ const styles = StyleSheet.create({
   
   icon:{
     margin: 5,
-  }
-    
+  },
+  headers:{
+    fontSize:20, fontWeight:"bold", color:"#ffffff",fontFamily:'Kanit-SemiBold'
+  },
+  miniheaders:{
+    fontSize:17, fontWeight:"bold", color:"#ffffff",fontFamily:'Kanit-SemiBold'
+  },
+  subheader:{fontSize:15, marginTop:10, marginEnd:10, lineHeight:26, color:"#ffffff", fontFamily:'Roboto-Regular'}
 })

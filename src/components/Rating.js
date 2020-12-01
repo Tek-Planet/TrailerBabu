@@ -37,11 +37,11 @@ const styles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	star: {
-		color: '#FFD700'
+        color: '#FFD54F',
+        marginRight:4
 	},
 	text: {
-		fontSize: 12,
-        marginLeft: 5,
+		fontSize: 12,  
         color: '#444',
 	}
 });

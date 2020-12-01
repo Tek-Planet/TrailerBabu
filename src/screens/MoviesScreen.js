@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, FlatList, ActivityIndicator, TouchableOpacity, SafeAreaView , StyleSheet, Image} from "react-native";
-import { List, ListItem, SearchBar } from "react-native-elements";
 import axios from 'axios'
 import Movie from '../components/MovieFull'
-
+//WORK BEGINS FROM HERE
 
 class FlatListDemo extends React.PureComponent {
   constructor(props) {
@@ -12,7 +11,8 @@ class FlatListDemo extends React.PureComponent {
       loading: false,
       data: [],
       page: 1,
-      refreshing: false
+      refreshing: false,
+      categoryId:1
     };
   }
 
@@ -32,6 +32,28 @@ class FlatListDemo extends React.PureComponent {
            })       
    
   }
+
+  fetchSelectedCategoty(id, source){
+    axios.get(`https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=${id}`)
+    .then(res => {
+      if (source === 0) {
+        this.setState({
+          actionList:res.data,
+          isLoadedCategory:true
+        })
+      }
+      else{
+        this.setState({
+          streamingList:res.data,
+          isLoadedStreaming:true
+        })
+      }  
+    })
+  }
+
+  changeBg (id) {
+    this.setState({categoryId:id})
+   } 
 
   makeRemoteRequest = () => {
     const { page } = this.state;
@@ -105,6 +127,7 @@ class FlatListDemo extends React.PureComponent {
 
   render() {
     const navigation = this.props.navigation
+    
     return (
       <SafeAreaView>
      
@@ -180,7 +203,7 @@ const styles = StyleSheet.create({
    
     padding:10,
     borderRadius:10,
-    backgroundColor: '#232323'
+    backgroundColor: '#0037018D'
   },
   categoryListText:{
     textAlign:'center',

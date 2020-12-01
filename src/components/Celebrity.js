@@ -10,7 +10,7 @@ export default class Celebrity extends Component {
       imageUrl:'',
       isLoading:false
     };
-  }
+  } 
   
  static propTypes = {
    celebrity: PropTypes.object.isRequired
@@ -38,10 +38,10 @@ export default class Celebrity extends Component {
   render() {
       const {title} = this.props.celebrity
       const {isLoading, imageUrl} = this.state
-      const {celebrity, navigation} = this.props
-    
+      const {celebrity, navigation,maxwidth,imagewidth,imageheight} = this.props
+      
     return (
-        <View style={{paddingVertical:20, paddingLeft:16, maxWidth:260}}>   
+        <View style={{paddingVertical:20, paddingLeft:16, maxWidth:maxwidth}}>   
           {isLoading  ? (
 
             // if the celevrity has profile Image
@@ -52,7 +52,7 @@ export default class Celebrity extends Component {
             }) }
                         >
             <Image alt={"image"} source = { {uri: imageUrl}}
-                        style={{width:200, marginRight:8, height:250, borderRadius:10} }
+                        style={{width:imagewidth, marginRight:8, height:imageheight, borderRadius:10} }
                             />
             </TouchableOpacity>): (
 
@@ -64,13 +64,13 @@ export default class Celebrity extends Component {
             }) }
                         >
                 <Image alt={"image"} source={require('../img/background/noImage.png')}
-                style={{width:200, marginRight:8, height:250, borderRadius:10} }
+                style={{width:imagewidth, marginRight:8, height:imageheight, borderRadius:10} }
                   />
             </TouchableOpacity>
             )
           ) : (
                <Image alt={"image"} source={require('../img/background/Vertical_Big.png')}
-               style={{width:200, marginRight:8, height:250, borderRadius:10} }
+               style={{width:imagewidth, marginRight:8, height:imageheight, borderRadius:10} }
                   />
             )
            }

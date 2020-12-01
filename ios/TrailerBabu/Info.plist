@@ -71,6 +71,57 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Anton-Regular.ttf</string>
+		<string>Montserrat-Black.ttf</string>
+		<string>Montserrat-BlackItalic.ttf</string>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-BoldItalic.ttf</string>
+		<string>Montserrat-ExtraBold.ttf</string>
+		<string>Montserrat-ExtraBoldItalic.ttf</string>
+		<string>Montserrat-ExtraLight.ttf</string>
+		<string>Montserrat-ExtraLightItalic.ttf</string>
+		<string>Montserrat-Italic.ttf</string>
+		<string>Montserrat-Light.ttf</string>
+		<string>Montserrat-LightItalic.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-MediumItalic.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
+		<string>Montserrat-SemiBoldItalic.ttf</string>
+		<string>Montserrat-Thin.ttf</string>
+		<string>Montserrat-ThinItalic.ttf</string>
+		<string>Notable-Regular.ttf</string>
+		<string>SyneTactile-Regular.ttf</string>
+		<string>Kanit-Black.ttf</string>
+		<string>Kanit-BlackItalic.ttf</string>
+		<string>Kanit-Bold.ttf</string>
+		<string>Kanit-BoldItalic.ttf</string>
+		<string>Kanit-ExtraBold.ttf</string>
+		<string>Kanit-ExtraBoldItalic.ttf</string>
+		<string>Kanit-ExtraLight.ttf</string>
+		<string>Kanit-ExtraLightItalic.ttf</string>
+		<string>Kanit-Italic.ttf</string>
+		<string>Kanit-Light.ttf</string>
+		<string>Kanit-LightItalic.ttf</string>
+		<string>Kanit-Medium.ttf</string>
+		<string>Kanit-MediumItalic.ttf</string>
+		<string>Kanit-Regular.ttf</string>
+		<string>Kanit-SemiBold.ttf</string>
+		<string>Kanit-SemiBoldItalic.ttf</string>
+		<string>Kanit-Thin.ttf</string>
+		<string>Kanit-ThinItalic.ttf</string>
+		<string>Roboto-Black.ttf</string>
+		<string>Roboto-BlackItalic.ttf</string>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-BoldItalic.ttf</string>
+		<string>Roboto-Italic.ttf</string>
+		<string>Roboto-Light.ttf</string>
+		<string>Roboto-LightItalic.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+		<string>Roboto-MediumItalic.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Thin.ttf</string>
+		<string>Roboto-ThinItalic.ttf</string>
 	</array>
 </dict>
 </plist>

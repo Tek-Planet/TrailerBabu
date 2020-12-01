@@ -5,6 +5,8 @@ import Celebrity from '../components/Celebrity'
 import Featured from '../components/Featured'
 import axios from 'axios'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+
 
 
 export default class SearchScreen extends Component {
@@ -20,7 +22,14 @@ export default class SearchScreen extends Component {
         { name: 'Movie',  id: 100},
         { name: 'Celebrity', id: 200 },],
       keyword:'',
+      radio_props : [
+        {label: 'Movie', value: 100 },
+        {label: 'Celebrities', value: 200 }
+      ],
+      value: 0,
     };
+
+
   }
 
   // method tyo search movie
@@ -90,7 +99,7 @@ export default class SearchScreen extends Component {
    }
 
   render() {
-    const { isLoaded, celebrityList, movieList, category, categoryId} = this.state;
+    const { isLoaded, celebrityList, movieList, category, categoryId, radio_props} = this.state;
     const navigation = this.props.navigation
  
    
@@ -98,8 +107,8 @@ export default class SearchScreen extends Component {
         <SafeAreaView>
             <ScrollView>
             
-  <View style={{flexDirection:'row',  marginTop: Platform.OS === 'ios' ? 40 : 20, marginEnd:5,marginStart:5 }}>
-  <View style={{width:'20%', marginEnd:5}}>
+  <View style={{marginTop: Platform.OS === 'ios' ? 40 : 20,  }}>
+  {/* <View style={{width:'20%', marginEnd:5}}>
    <FlatList    
    data = {category}
    renderItem = {({item}) =>{
@@ -118,7 +127,7 @@ export default class SearchScreen extends Component {
           }}
           />
         </View>
-            
+             */}
         
         <View style={styles.searchBox}>         
             <TextInput 
@@ -140,18 +149,31 @@ export default class SearchScreen extends Component {
 
             {/* featured moviee zone */}
           
+           <View style={{ alignItems:'center', marginTop:10}}>
+              <RadioForm
+                  radio_props={radio_props}
+                  initial={0}
+                  onPress={(value) => {this.setState({categoryId:value})}}
+                  formHorizontal={true}
+                  labelHorizontal={true}  
+                  buttonColor={'#fff'} 
+                  selectedButtonColor = {'#bd10e0'}
+                  buttonStyle ={{color: '#fff',}}
+                  labelStyle={{fontSize: 20, color: '#fff', marginEnd: 20,}}
+                  animation={true}
+                  buttonSize={10}
+                  buttonOuterSize={20}
+                  
+                 
+                />
+           </View>
 
       
         
         <View>
-            <View >
-                 <View >
-                     <Text style={styles.heading}>Movies</Text>                             
-                </View>
-                
-            </View>
-       
-         <View style={{marginTop:-20}}>
+          
+         <View style={{marginTop:20,  height:320}}>
+         <Text style={styles.heading}>Movies</Text>     
                <FlatList 
                horizontal = {true}
                data = {movieList}
@@ -159,7 +181,7 @@ export default class SearchScreen extends Component {
                  
                  return (
                <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}
-               maxwidth = {200}  imagewidth = {180} imageheight ={200}
+               maxwidth = {160}  imagewidth = {150} imageheight ={200}
                />
                  )
                }}
@@ -169,22 +191,18 @@ export default class SearchScreen extends Component {
          
          
            <View>
-              <View >
-                 <View >
-                     <Text style={styles.heading}>Celebrity</Text>                  
-                   
-                </View>
-                
-            </View>
-       
-         <View style={{marginTop:-20}}>
+               
+         <View style={{marginTop:-30, height:320}}>
+         <Text style={styles.heading}>Celebrity</Text>  
                <FlatList 
                horizontal = {true}
                data = {celebrityList}
                
                renderItem = {({item}) =>{ 
                  return(
-                  <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
+                  <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}
+                  maxwidth = {160}  imagewidth = {150} imageheight ={200}
+                  />
                  )                   
                }
                } />
@@ -202,13 +220,12 @@ export default class SearchScreen extends Component {
 
 const styles = StyleSheet.create({
   searchBox: {  
+    flex:1,
     flexDirection:"row",
     backgroundColor: '#0037018D',
-    width: '75%',
-    alignSelf:'center',
+    margin:10,
     borderRadius: 5,
     padding: 10,
-    marginStart:5,
     shadowColor: '#ccc',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.5,
@@ -228,7 +245,7 @@ const styles = StyleSheet.create({
     alignSelf:'center'
   },
   
-  heading: {color: '#ffffff', fontSize:22, fontWeight:'bold', margin:20}
+  heading: {color: '#ffffff', fontSize:22, fontWeight:'bold', marginStart:20}
   
 })
 
