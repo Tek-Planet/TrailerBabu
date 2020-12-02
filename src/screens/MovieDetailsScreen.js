@@ -11,6 +11,8 @@ import YouTube from 'react-native-youtube';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import HTMLView from 'react-native-htmlview';
+
 
 LogBox.ignoreLogs([
   'VirtualizedLists should never be nested', // TODO: Remove when fixed
@@ -24,10 +26,14 @@ export default function MovieDetailsScreen({ route, navigation }) {
   const { imageUrl } = route.params;
   const { movie } = route.params;
   const regex = /(<([^>]+)>)/ig;
-  const content = movie.content.rendered.replace(regex, '');
-  return (
+  const content = movie.content.rendered
+   
+   return (
 <ScrollView style={{flex: 1}}>
       <View >
+      <View style={{ margin: 10, height:40, width:40, justifyContent:'center', alignItems:'center', borderRadius: 100, backgroundColor:'#0037018D'}}>
+            <Icon onPress={()=>navigation.goBack()}  name="arrow-back-outline" size={30} color="#FFF" /> 
+      </View>
       {/* <ImageBackground
       source={{uri: imageUrl}}
       style = {styles.image}
@@ -84,7 +90,12 @@ export default function MovieDetailsScreen({ route, navigation }) {
           <Text style={{fontSize:20, fontFamily:'Kanit-SemiBold', color:"#ffffff", marginStart:10}}>Movie Descriptions : </Text>   
           <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
       </View>
-    <Text style={{fontSize:16, lineHeight:24,  marginStart:20,  color:"#ffffff", textAlign:'justify', marginEnd: 10, fontFamily:'Roboto-Regular',}}>{content}</Text>      
+      <HTMLView
+                addLineBreaks={false}
+                value={content}
+                stylesheet={stylesC}
+              />
+    {/* <Text style={{fontSize:16, lineHeight:24,  marginStart:20,  color:"#ffffff", textAlign:'justify', marginEnd: 10, fontFamily:'Roboto-Regular',}}>{content}</Text>       */}
      </View>
   
      <View>
@@ -127,6 +138,25 @@ const styles = StyleSheet.create({
   headers:{
     fontSize:20, fontWeight:"bold", color:"#ffffff",fontFamily:'Kanit-SemiBold'
   },
-  subheader:{fontSize:18, color:"#ffffff", fontFamily:'Roboto-Regular'}
+  subheader:{fontSize:18, color:"#ffffff", fontFamily:'Roboto-Regular'},
+  p: {
+    margin: 20,
+    fontWeight: '300',
+    lineHeight:26,
+    color: '#FFF', // make links coloured pink
+  },
     
 })
+
+
+const stylesC = StyleSheet.create({
+  p: {
+    marginBottom: -45,
+    fontSize:15,
+    lineHeight:26,
+    padding:10,
+    textAlign:'justify',
+    fontFamily:'Roboto-Regular',
+    color: '#FFF', // make links coloured pink
+  },
+});

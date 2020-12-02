@@ -54,6 +54,7 @@ export default class HomeScreen extends Component {
    // StatusBar.setHidden(false);
   }
   componentDidMount(){
+  
     StatusBar.setHidden(true);
   this.makeRemoteRequest()
    
@@ -317,7 +318,8 @@ export default class HomeScreen extends Component {
                
                renderItem = {({item}) =>{ 
                  return(
-                  <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}/>
+                  <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}
+                  maxwidth = {160}  imagewidth = {150} imageheight ={200}/>
                  )                   
                }
                }

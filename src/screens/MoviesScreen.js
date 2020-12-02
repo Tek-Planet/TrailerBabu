@@ -12,8 +12,9 @@ class FlatListDemo extends React.PureComponent {
       data: [],
       page: 1,
       refreshing: false,
-      categoryId:1
-    };
+      categoryId:1,
+      categoryCount:100
+    };  
   }
 
   componentDidMount() {
@@ -33,26 +34,12 @@ class FlatListDemo extends React.PureComponent {
    
   }
 
-  fetchSelectedCategoty(id, source){
-    axios.get(`https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=${id}`)
-    .then(res => {
-      if (source === 0) {
-        this.setState({
-          actionList:res.data,
-          isLoadedCategory:true
-        })
-      }
-      else{
-        this.setState({
-          streamingList:res.data,
-          isLoadedStreaming:true
-        })
-      }  
-    })
-  }
 
-  changeBg (id) {
-    this.setState({categoryId:id})
+  changeBg (item) {
+    this.setState({categoryId:item.id,
+    categoryCount:item.count,
+    categoryName:item.name
+    })
    } 
 
   makeRemoteRequest = () => {
@@ -127,6 +114,7 @@ class FlatListDemo extends React.PureComponent {
 
   render() {
     const navigation = this.props.navigation
+    const {categoryName, categoryId,categoryCount} = this.state
     
     return (
       <SafeAreaView>
@@ -148,8 +136,8 @@ class FlatListDemo extends React.PureComponent {
                  return (
                  <View style={{paddingVertical:20, paddingLeft:10}}>
                      <TouchableOpacity 
-                        onPress={()=>[this.changeBg(item.id)] }
-                        style={[styles.categoryList, item.id === this.state.categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
+                        onPress={()=>[this.changeBg(item)] }
+                        style={[styles.categoryList, item.id === categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
                        <Text style={styles.categoryListText}> 
                        {item.name}
                        </Text>
@@ -163,16 +151,27 @@ class FlatListDemo extends React.PureComponent {
         <FlatList
           data={this.state.data}
           renderItem={({ item }) => (
+            
+          categoryId === 1 ? (
              <Movie movie = {item}   key = {item.id.toString()} navigation= {navigation}/>    
+             ) 
+             : 
+             ( item.movie_cat.includes(categoryId) ? (  <Movie movie = {item}   key = {item.id.toString()} navigation= {navigation}/>): (null)
+             )
           )}
           keyExtractor={item => item.id}
           ListFooterComponent={this.renderFooter}
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}
           onEndReached={this.handleLoadMore}
-          onEndReachedThreshold={10}
-          
+          onEndReachedThreshold={10}      
         />
+
+        {
+          categoryCount === 0 ? ( <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+          <Text style={{color:'#fff', fontSize:18, textAlign:'center'}}>No result found for {categoryName}</Text>
+          </View>):(null)
+        }
    
     </SafeAreaView>
     );

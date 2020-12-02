@@ -19,10 +19,10 @@ export default class Featured extends React.PureComponent {
      
      componentDidMount(){
       
-      const featured_media = this.props.movie.themeum_movie_trailer_info[0].themeum_video_trailer_image[0]
+      const featured_media = this.props.movie.themeum_movie_trailer_info[0].themeum_video_trailer_image[0]  
       
       
-       if(featured_media !== 0){
+       if(featured_media !== null){
       axios.get(`https://trailerbabu.com/wp-json/wp/v2/media/${featured_media}`)
       .then(res => {
         this.setState({
