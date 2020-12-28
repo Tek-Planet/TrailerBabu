@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, Image, ImageBackground , StyleSheet, SafeAreaView, ScrollView} from 'react-native';
+import { View, Text, Image, ImageBackground , StyleSheet, SafeAreaView, ScrollView, Linking,} from 'react-native';
 
 import Comment from '../components/Comment'
 
 import { LogBox } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome5'; 
+
+import HTMLView from 'react-native-htmlview';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 LogBox.ignoreLogs([
   'VirtualizedLists should never be nested', // TODO: Remove when fixed
@@ -18,8 +21,12 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
   /* 2. Get the param */
   const { imageUrl } = route.params;
   const { celebrity} = route.params;
-  const regex = /(<([^>]+)>)/ig;
-  const content = celebrity.content.rendered.replace(regex, '');
+
+  const content = celebrity.content.rendered
+  const insta = celebrity.themeum_instagram_url
+  const fb = celebrity.themeum_facebook_url
+  const youtube =  celebrity.themeum_youtube_url
+  const twitter = celebrity.themeum_twitter_url
   return (
 <ScrollView style={{flex: 1}}>
       <View > 
@@ -39,19 +46,43 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
       
       
       <View style={{position:"absolute", right:3, top:350, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Follow On</Text>                         
-          <View style={{flexDirection:'row'}}>
-          <Icon name="youtube" style = {styles.icon} color={'#fff'} size={20} />
-          <Icon name="facebook" style = {styles.icon} color={'#fff'} size={20} />
+          <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Follow On</Text>   
+
+          <View style={{flexDirection:'row', position: 'absolute', right: 5, top:30}}>
+
+         { youtube !== "" ? (<TouchableOpacity 
+         onPress={() => Linking.openURL(youtube)}>
+          <Icon  name="youtube" style = {styles.icon} color={'#dddddd'} size={20} />
+          </TouchableOpacity>) 
+         :(null)  
+        }
+
+        { fb !== "" ? (<TouchableOpacity   onPress={() => Linking.openURL(fb)}>
+          <Icon name="facebook" style = {styles.icon} color={'#dddddd'} size={20} />
+          </TouchableOpacity>) 
+         :(null)  
+        }
+
+        { twitter !== "" ? (<TouchableOpacity   onPress={() => Linking.openURL(twitter)}>
           <Icon name="twitter" style = {styles.icon} color={'#fff'} size={20} />
+          </TouchableOpacity>) 
+         :(null)  
+        }
+
+        { insta !== "" ? (<TouchableOpacity   onPress={() => Linking.openURL(insta)}>
           <Icon name="instagram" style = {styles.icon} color={'#fff'} size={20} />
+          </TouchableOpacity>) 
+         :(null)  
+        }
+        
+         
           
          
           </View>
       </View>
        
      <View style={[styles.row, {marginTop:40}]}>
-           <Text  style={styles.headers}>{celebrity.title.rendered }</Text> 
+           <Text  style={styles.headers}>{celebrity.title.rendered}</Text> 
      </View>
      
      <View style={styles.row  }>
@@ -83,7 +114,20 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
      
      <View style={styles.column}>
           <Text  style={styles.miniheaders}>Biography : </Text>   
-          <Text  style={styles.subheader}>{content}</Text>      
+        
+     </View>
+
+     <HTMLView
+          addLineBreaks={false}
+          value={content}
+          stylesheet={stylesC}
+        />
+
+     <View style={styles.column}>
+          <Text  style={styles.miniheaders}>Filmography : </Text>   
+
+          <Text style={{fontSize:18, marginTop: 10, marginBottom:10, fontWeight:"normal", color:"#ffffff"}}>Do your API has an end point to generate film by the celebrity because I cant find it </Text>   
+        
      </View>
      
      
@@ -130,3 +174,16 @@ const styles = StyleSheet.create({
   },
   subheader:{fontSize:15, marginTop:10, marginEnd:10, lineHeight:26, color:"#ffffff", fontFamily:'Roboto-Regular'}
 })
+
+const stylesC = StyleSheet.create({
+  p: {
+    marginBottom: -45,
+    fontSize:15,
+    lineHeight:26,
+    padding:10,
+    marginStart:10,
+    textAlign:'justify',
+    fontFamily:'Roboto-Regular',
+    color: '#FFF', // make links coloured pink
+  },
+});

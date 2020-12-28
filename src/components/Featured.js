@@ -49,9 +49,8 @@ export default class Featured extends Component {
     <View style={{ maxWidth: maxwidth, paddingVertical:20, paddingLeft:16}}>
        {isLoading  ? (
           <TouchableOpacity
-          onPress={() => navigation.navigate('MovieDetails', {
-              movie: feature,
-              imageUrl:imageUrl
+           onPress={() => navigation.navigate('Movies', {screen: 'MovieDetails',
+           params:{movie: feature, imageUrl:imageUrl }
           }) }
           >
             <Image alt={"image"} source = { {uri: imageUrl}}

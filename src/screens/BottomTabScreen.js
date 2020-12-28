@@ -3,17 +3,22 @@ import {  Text } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-
+import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './HomeScreen'
 import MoviesScreen from './MoviesScreen'
 import CelebrityScreen from './CelebrityListScreen'
 import SearchScreen from './SearchScreen'
 import SettingsScreen from './SettingsScreen'
+import MovieDetailsScreen from './MovieDetailsScreen';
+import StreamingMovieScreen from './StreamingMoviesScreen';
+import UpcomingListScreen from './UpcomingListScreen'
+import CelebrityDetailsScreen from './CelebrityDetailsScreen'
 
 
 // const Tab = createMaterialBottomTabNavigator();
 const Tab = createMaterialBottomTabNavigator();
+const Stack = createStackNavigator();
 
 const   activeTintColor = '#bd10e0'
 const   inactiveTintColor = 'gray'
@@ -76,8 +81,8 @@ const MainTabScreen = () => (
 
   >
     <Tab.Screen name="Home" component={HomeScreen} />
-    <Tab.Screen name="Movies" component={MoviesScreen} />
-    <Tab.Screen name="Celebrity" component={CelebrityScreen} />
+    <Tab.Screen name="Movies"  initialParams={{ categoryN: 'default',categoryId: 4000 }} component={MovieStack} />
+    <Tab.Screen name="Celebrity" component={CelebrityStack} />
     <Tab.Screen name="Search" component={SearchScreen} />
     <Tab.Screen name="Settings" component={SettingsScreen} />
   </Tab.Navigator>
@@ -86,6 +91,27 @@ const MainTabScreen = () => (
 
 export default MainTabScreen;
 
+
+
+function MovieStack  ({navigation})  {
+  return (
+  <Stack.Navigator initialRouteName="MoviesList" headerMode="none" >
+          <Stack.Screen name="MoviesList" component={MoviesScreen} />
+          <Stack.Screen name="MovieDetails" component={MovieDetailsScreen} />
+          <Stack.Screen name="StreamingMovieList" component={StreamingMovieScreen} />
+          <Stack.Screen name="UpcomingListScreen" component={UpcomingListScreen} />
+  </Stack.Navigator>
+  );}
+
+  function CelebrityStack  ({navigation})  {
+    return (
+    <Stack.Navigator initialRouteName="MoviesList" headerMode="none" >
+            <Stack.Screen name="Celebritys" component={CelebrityScreen} />
+            <Stack.Screen name="CelebrityDetails" component={CelebrityDetailsScreen} />
+           
+    </Stack.Navigator>
+    );}
+  
 
 
 

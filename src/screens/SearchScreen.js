@@ -17,7 +17,8 @@ export default class SearchScreen extends Component {
       categoryId:100,
       celebrityList:[],
       movieList:[],
-      isLoaded:false,
+      isLoadingMovie:true,
+      isLoadingCeleb:true,
       category: [
         { name: 'Movie',  id: 100},
         { name: 'Celebrity', id: 200 },],
@@ -36,13 +37,14 @@ export default class SearchScreen extends Component {
   searchMovie = () => {
     const { keyword } = this.state;
     const url = (`https://trailerbabu.com/wp-json/wp/v2/movie?search=${keyword}`);
-    this.setState({ loading: true });
+    this.setState({ isLoadingMovie: true });
           axios.
           get(url)
            .then(res => {
+           
              this.setState({
                movieList: res.data,
-               loading: false,
+               isLoadingMovie:false,
                refreshing: false
              })
            })
@@ -55,13 +57,13 @@ export default class SearchScreen extends Component {
    searchCelebrity = () => {
     const { keyword } = this.state;
     const url = (`https://trailerbabu.com/wp-json/wp/v2/celebrity?search=${keyword}`);
-    this.setState({ loading: true });
+    this.setState({ isLoadingCeleb: true });
           axios.
           get(url)
            .then(res => {
              this.setState({
                celebrityList: res.data,
-               loading: false,
+               isLoadingCeleb: false,
                refreshing: false
              })
            })
@@ -76,20 +78,17 @@ export default class SearchScreen extends Component {
       this.setState({
         keyword: val
       })
-      if(this.state.categoryId === 100)
-      this.searchMovie()
-      else this.searchCelebrity()
+      // if(this.state.categoryId === 100)
+      // this.searchMovie()
+      // else this.searchCelebrity()
     } 
 }
 
-  changeBg (item) { 
-      this.setState({categoryId:item.id})
-      if(item.id === this.state.categoryId){
+  search () {     
+      if(100 === this.state.categoryId){
         this.searchMovie()
-      
       }
-      else{this.searchCelebrity()
-      
+      else{this.searchCelebrity()     
       }
     }  
   
@@ -99,8 +98,9 @@ export default class SearchScreen extends Component {
    }
 
   render() {
-    const { isLoaded, celebrityList, movieList, category, categoryId, radio_props} = this.state;
+    const {keyword, isLoadingMovie, isLoadingCeleb, celebrityList, movieList, category, categoryId, radio_props} = this.state;
     const navigation = this.props.navigation
+    
  
    
     return (
@@ -128,8 +128,9 @@ export default class SearchScreen extends Component {
           />
         </View>
              */}
-        
-        <View style={styles.searchBox}>         
+       
+        <View style={styles.searchBox}>     
+         
             <TextInput 
               placeholder="Search here..."
               placeholderTextColor="#fff"
@@ -141,7 +142,7 @@ export default class SearchScreen extends Component {
               onChangeText={(val) => this.textInputChange(val)}
             />
             <Ionicons name="ios-search"
-            onPress={() => this.searchMovie() }
+            onPress={() => this.search() }
             size={20} color={'#fff'} />
             </View>       
             </View>
@@ -162,50 +163,77 @@ export default class SearchScreen extends Component {
                   labelStyle={{fontSize: 20, color: '#fff', marginEnd: 20,}}
                   animation={true}
                   buttonSize={10}
-                  buttonOuterSize={20}
-                  
-                 
-                />
+                  buttonOuterSize={20}/>
            </View>
-
-      
-        
-        <View>
+            <View>
           
+          {/* movie section */}
          <View style={{marginTop:20,  height:320}}>
          <Text style={styles.heading}>Movies</Text>     
-               <FlatList 
-               horizontal = {true}
-               data = {movieList}
-               renderItem = {({item}) =>{
-                 
-                 return (
-               <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}
-               maxwidth = {160}  imagewidth = {150} imageheight ={200}
-               />
-                 )
-               }}
-               />
+             {
+               isLoadingMovie ? (
+                <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+                <ActivityIndicator color="#ffffff" size="large"/>  
+                </View>
+               ):(
+               movieList.length !== 0 ? (
+                <FlatList 
+                horizontal = {true}
+                data = {movieList}
+                renderItem = {({item}) =>{ 
+                  return (
+                <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}
+                maxwidth = {160}  imagewidth = {150} imageheight ={200}
+                />
+                  )
+                }}
+                />
+               ): ( <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+               <Text style={{fontSize:20, color:'#fff'}}>No match found for {keyword}</Text> 
+               </View>)
+               
+               )
+             }
+              
            </View>
            </View>
          
          
            <View>
                
-         <View style={{marginTop:-30, height:320}}>
+         <View style={{marginTop:-10, height:320}}>
          <Text style={styles.heading}>Celebrity</Text>  
-               <FlatList 
-               horizontal = {true}
-               data = {celebrityList}
+            { 
+
+isLoadingCeleb ? (
+  <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+  <ActivityIndicator color="#ffffff" size="large"/>  
+  </View>
+ ):(
+  celebrityList.length !== 0 ? (
+    <FlatList 
+    horizontal = {true}
+    data = {celebrityList}
+    
+    renderItem = {({item}) =>{ 
+      return(
+       <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}
+       maxwidth = {160}  imagewidth = {150} imageheight ={200}
+       />
+      )                   
+    }
+    } />
+  ):(
+    
+    <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
+    <Text style={{fontSize:20, color:'#fff'}}>No match found for {keyword}</Text> 
+    </View>
+  )
+ )
+            
+          
                
-               renderItem = {({item}) =>{ 
-                 return(
-                  <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}
-                  maxwidth = {160}  imagewidth = {150} imageheight ={200}
-                  />
-                 )                   
-               }
-               } />
+          }
            
            </View>
           

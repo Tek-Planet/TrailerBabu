@@ -159,7 +159,7 @@ export default class SearchScreen extends Component {
              ) : (
               <FlatList 
               key={'#'}
-              horizontal={true}
+              numColumns={2}
               data = {celebrityList}  
               renderItem = {({item}) =>{    
                  if  (item.title.rendered.charAt(0) === categoryId)  {              

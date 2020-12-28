@@ -18,9 +18,8 @@ export default class Category extends Component {
  
  componentDidMount(){
    //const {featured_media} = this.props.category
-   const featured_media = this.props.category.themeum_movie_trailer_info[0].themeum_video_trailer_image[0]
-
-   if(featured_media !== 0){
+   if(this.props.category.themeum_movie_trailer_info !== ""){
+   const featured_media =   (this.props.category.themeum_movie_trailer_info[0].themeum_video_trailer_image[0])
   axios.get(`https://trailerbabu.com/wp-json/wp/v2/media/${featured_media}`)
   .then(res => {
     this.setState({

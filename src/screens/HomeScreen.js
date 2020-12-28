@@ -208,7 +208,7 @@ export default class HomeScreen extends Component {
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
                      <Text style={styels.heading}> Upcoming</Text>                  
                      <TouchableOpacity
-                        onPress={()=> navigation.navigate('UpcomingList')}
+                        onPress={()=> navigation.navigate('Movies',{screen:'UpcomingListScreen'})}
                      >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                      </TouchableOpacity> 
@@ -241,7 +241,7 @@ export default class HomeScreen extends Component {
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
                      <Text style={styels.heading}> Categories </Text>                  
                      <TouchableOpacity
-                        onPress={()=> navigation.navigate('Movies')}
+                        onPress={()=> navigation.navigate('Movies', {screen:'MoviesList'})}
                      >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                      </TouchableOpacity> 
@@ -249,7 +249,7 @@ export default class HomeScreen extends Component {
            </View>
            </View>
            {/* categorie name list */}
-           <View style={{marginTop:-20}}>
+           {/* <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
                data = {categories}
@@ -267,11 +267,11 @@ export default class HomeScreen extends Component {
                  </View>)
                }}
                />
-           </View>
+           </View> */}
            {/* end of category list name */}
            {/* Categoty flat list */}
            {
-             //fecth data while the bottons are clicked
+            //  //fecth data while the bottons are clicked
              isLoadedCategory ? (
               //  after fetching data check if the list is empty
               actionList.length !== 0 ? (<View style={{marginTop:-20}}>
@@ -335,7 +335,7 @@ export default class HomeScreen extends Component {
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
                      <Text style={styels.heading}> Streaming Services</Text>                  
                      <TouchableOpacity
-                        onPress={()=> navigation.navigate('MovieList')}
+                        onPress={()=> navigation.navigate('Movies',{screen:'StreamingMovieList'})}
                      >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                      </TouchableOpacity> 

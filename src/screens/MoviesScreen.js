@@ -12,10 +12,20 @@ class FlatListDemo extends React.PureComponent {
       data: [],
       page: 1,
       refreshing: false,
-      categoryId:1,
-      categoryCount:100
+      categoryId:44,
+      categoryName:'',
+      categoryCount:100,
+      update: 1
     };  
   }
+
+  // componentDidUpdate(){
+  //   const { categoryName, update } = this.state
+  //   this.setState({
+  //     update:1
+  //     })
+  //   if (update === 1 )  this.setCategoryName();
+  // }
 
   componentDidMount() {
     this.makeRemoteRequest();
@@ -41,6 +51,36 @@ class FlatListDemo extends React.PureComponent {
     categoryName:item.name
     })
    } 
+
+   setCategoryName () {
+    const route = this.props.route 
+    const { categoryN, categoryId } = route.params;
+    this.setState({
+    categoryName: categoryN,
+    categoryId: categoryId,
+    update:2
+    })
+
+   } 
+
+   // this method fetch a  selected category from other pages
+  getSelectedCategoryDetails = () => {
+    const { categoryName } = this.state;
+    const url = (`https://trailerbabu.com/wp-json/wp/v2/movie_cat?search=Adventure`);
+          axios.
+          get(url)
+           .then(res => {
+             console.log(res.data)
+           
+            //  this.setState({
+              
+            //  })
+           })
+           .catch(err => {
+             console.log(err)
+           })    
+  };
+
 
   makeRemoteRequest = () => {
     const { page } = this.state;
@@ -115,12 +155,14 @@ class FlatListDemo extends React.PureComponent {
   render() {
     const navigation = this.props.navigation
     const {categoryName, categoryId,categoryCount} = this.state
+   
     
     return (
       <SafeAreaView>
-     
+            
            <View style={{padding:20, flexDirection: 'row',  justifyContent:'space-between'}}>
-               <Text style={styles.heading}> Categories </Text>                  
+               <Text style={styles.heading}>{categoryName} Categories </Text>     
+                         
                <Image 
                   duraton="1500"
                   source={require('../img/logo.png')}
@@ -137,7 +179,7 @@ class FlatListDemo extends React.PureComponent {
                  <View style={{paddingVertical:20, paddingLeft:10}}>
                      <TouchableOpacity 
                         onPress={()=>[this.changeBg(item)] }
-                        style={[styles.categoryList, item.id === categoryId ? ({backgroundColor: '#bd10e0'}):(null)]}>
+                        style={[styles.categoryList, item.id === categoryId  ? ({backgroundColor: '#bd10e0'}):(null)]}>
                        <Text style={styles.categoryListText}> 
                        {item.name}
                        </Text>
