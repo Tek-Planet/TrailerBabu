@@ -27,7 +27,11 @@ class FlatListDemo extends React.PureComponent {
   //   if (update === 1 )  this.setCategoryName();
   // }
 
+
   componentDidMount() {
+
+    console.log(this.props.route)
+
     this.makeRemoteRequest();
 
     const getCategories = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie_cat');

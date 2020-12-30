@@ -13,14 +13,15 @@ export default class SearchScreen extends Component {
     this.state = {
       movieList:[],
       isLoaded:false,
-      page:1
-     
+      page:1,
+      screen:1
     };
   }
 
   
   componentDidMount(){
    this.makeRemoteRequest()
+   console.log('mounted')
    }
 
    makeRemoteRequest = () => {

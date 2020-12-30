@@ -27,9 +27,13 @@ class MovieDetailsScreen extends Component {
     this.state = {
       movie: [],
       content: '',
-      status:''
+      status:'',
+      apiKey:'AIzaSyDXpWnVyISSysQZyK3PwA59obJQiu_Kaw8'
     };
   }
+
+
+
 
     // this method hides and show the moveie description
     changeStatus = () =>{
@@ -57,13 +61,23 @@ class MovieDetailsScreen extends Component {
                console.log(err)
              })    
     };
+
+
+  componentDidUpdate(){
+    console.log('Something updated now')
+  }
       
     
 
   render() {
+    const {status, apiKey} = this.state
+    const route = this.props.route 
+    const { movie } = route.params !== "" ? (route.params): "null";
+
+
     return (
-     
-        <ScrollView style={{flex: 1}}>
+
+       <ScrollView style={{flex: 1}}>
         <View >
         <View style={{ margin: 10, height:40, width:40, justifyContent:'center', alignItems:'center', borderRadius: 100, backgroundColor:'#0037018D'}}>
               <Icon onPress={()=>navigation.goBack()}  name="arrow-back-outline" size={30} color="#FFF" /> 
@@ -73,17 +87,17 @@ class MovieDetailsScreen extends Component {
         style = {styles.image}
         imageStyle ={{borderBottomRightRadius:250, borderBottomLeftRadius:35, }}
         /> */}
-        
-        <YouTube
-          apiKey = "AIzaSyDXpWnVyISSysQZyK3PwA59obJQiu_Kaw8"
+
+        {
+          movie !== "null" ? ( 
+            <View> 
+          <YouTube
+          apiKey = {apiKey}
           videoId={movie.themeum_movie_trailer_info[0].themeum_video_link} // The YouTube video ID
-          play // control playback of video with true/false
-          // fullscreen // control whether the video should play in fullscreen or inline
+          play 
+         
           loop // control whether the video should loop when ended
-          // onReady={e => this.setState({ isReady: true })}
-          // onChangeState={e => this.setState({ status: e.state })}
-          // onChangeQuality={e => this.setState({ quality: e.quality })}
-          // onError={e => this.setState({ error: e.error })}
+        
           style={{ alignSelf: 'stretch', height: 300, margin:5}}
           />
           
@@ -114,7 +128,7 @@ class MovieDetailsScreen extends Component {
             <Text style={[styles.subheader, {textTransform:'capitalize'}]}>{movie.themeum_movie_actor} </Text>                  
        </View>
        
-       <View style={styles.column}>
+       {/* <View style={styles.column}>
             <Text style={styles.headers}>Genre : </Text>            
               <View style={{flexDirection:'row'}}>
               {movie.themeum_movie_type.split(', ').map((category, i) => (
@@ -128,10 +142,10 @@ class MovieDetailsScreen extends Component {
               
           ))}
               </View>
-            </View>
+            </View> */}
        
        <View style={[]}>
-       <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', elevation:5, height:50, marginBottom:10,  marginTop:10,  padding:10, backgroundColor:'#0037018D'}}>
+       {/* <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', elevation:5, height:50, marginBottom:10,  marginTop:10,  padding:10, backgroundColor:'#0037018D'}}>
             <Text style={{fontSize:20, fontFamily:'Kanit-SemiBold', color:"#ffffff", marginStart:10}}>Movie Descriptions : </Text>   
             <TouchableOpacity
                           onPress={()=> changeStatus()}
@@ -146,15 +160,17 @@ class MovieDetailsScreen extends Component {
             stylesheet={stylesC}
           />):(null)
         }
-       
+        */}
       {/* <Text style={{fontSize:16, lineHeight:24,  marginStart:20,  color:"#ffffff", textAlign:'justify', marginEnd: 10, fontFamily:'Roboto-Regular',}}>{content}</Text>       */}
        </View>
     
        <View>
           {/* displays all comments 4186 */}
-          <Comment key={movie.id}  postID = {movie.id}/>
+          {/* <Comment key={movie.id}  postID = {movie.id}/> */}
        </View>
-       
+            </View>
+           ):(<Text>movie is null</Text>)
+      }
       </View>
     
    </ScrollView>

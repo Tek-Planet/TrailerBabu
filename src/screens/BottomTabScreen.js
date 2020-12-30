@@ -33,27 +33,8 @@ const MainTabScreen = () => (
  
 
     screenOptions={({ route }) => ({    
-    // tabBarLabel: ({ focused }) => {
-    //     let labelName;
-    //     if (route.name === 'Home') {
-    //         labelName = 'Home'
-    //     }
-    //     else if (route.name === 'Movies') {
-    //         labelName = 'Movies'
-    //       }
-    //     else if (route.name === 'Celebrity') {
-    //     labelName = 'Celebrity'
-    //       }
-    //     else if (route.name === 'Search') {
-    //         labelName = 'Search'
-    //           }
-    //     else if (route.name === 'Settings') {
-    //     labelName = 'Settings'
-    //         }
-    //     return  <Text style={{ fontSize: 11, 
-    //     color: focused ? activeTintColor : inactiveTintColor       
-    // }}>  {labelName}  </Text>
-    // },
+   
+
       tabBarIcon: ({ focused, color }) => {
         let iconName;
         if (route.name === 'Home') {
@@ -63,7 +44,8 @@ const MainTabScreen = () => (
         } else if (route.name === 'Movies') {
           iconName = focused ? 'videocam' : 'videocam-outline';
         }
-        else if (route.name === 'Celebrity') {
+        else if (route.name === 'Celebrity' ) {
+        
             iconName = focused ? 'ios-person' : 'ios-person-outline';
           }
           else if (route.name === 'Search') {
@@ -81,7 +63,7 @@ const MainTabScreen = () => (
 
   >
     <Tab.Screen name="Home" component={HomeScreen} />
-    <Tab.Screen name="Movies"  initialParams={{ categoryN: 'default',categoryId: 4000 }} component={MovieStack} />
+    <Tab.Screen name="Movies"   component={MovieStack} />
     <Tab.Screen name="Celebrity" component={CelebrityStack} />
     <Tab.Screen name="Search" component={SearchScreen} />
     <Tab.Screen name="Settings" component={SettingsScreen} />
@@ -93,11 +75,18 @@ export default MainTabScreen;
 
 
 
-function MovieStack  ({navigation})  {
+function MovieStack  ({route,navigation})  {
+
+   if (route.state && route.state.routeNames[route.state.index] === "StreamingMovieList"){
+    navigation.setOptions({tabBarVisisble: false})
+    }
+    else {
+        navigation.setOptions({tabBarVisisble:true})
+    }
+
   return (
   <Stack.Navigator initialRouteName="MoviesList" headerMode="none" >
           <Stack.Screen name="MoviesList" component={MoviesScreen} />
-          <Stack.Screen name="MovieDetails" component={MovieDetailsScreen} />
           <Stack.Screen name="StreamingMovieList" component={StreamingMovieScreen} />
           <Stack.Screen name="UpcomingListScreen" component={UpcomingListScreen} />
   </Stack.Navigator>
@@ -105,7 +94,7 @@ function MovieStack  ({navigation})  {
 
   function CelebrityStack  ({navigation})  {
     return (
-    <Stack.Navigator initialRouteName="MoviesList" headerMode="none" >
+    <Stack.Navigator initialRouteName="Celebritys" headerMode="none" >
             <Stack.Screen name="Celebritys" component={CelebrityScreen} />
             <Stack.Screen name="CelebrityDetails" component={CelebrityDetailsScreen} />
            
