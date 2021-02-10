@@ -208,7 +208,7 @@ export default class HomeScreen extends Component {
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
                      <Text style={styels.heading}> Upcoming</Text>                  
                      <TouchableOpacity
-                        onPress={()=> navigation.navigate('Movies',{screen:'UpcomingListScreen'})}
+                        onPress={()=> navigation.navigate('UpcomingListScreen')}
                      >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                      </TouchableOpacity> 
@@ -335,7 +335,7 @@ export default class HomeScreen extends Component {
                  <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
                      <Text style={styels.heading}> Streaming Services</Text>                  
                      <TouchableOpacity
-                        onPress={()=> navigation.navigate('Movies',{screen:'StreamingMovieList'})}
+                        onPress={()=> navigation.navigate('StreamingMovieList')}
                      >
                      <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                      </TouchableOpacity> 

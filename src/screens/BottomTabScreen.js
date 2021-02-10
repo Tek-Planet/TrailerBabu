@@ -63,8 +63,8 @@ const MainTabScreen = () => (
 
   >
     <Tab.Screen name="Home" component={HomeScreen} />
-    <Tab.Screen name="Movies"   component={MovieStack} />
-    <Tab.Screen name="Celebrity" component={CelebrityStack} />
+    <Tab.Screen name="Movies"   component={MoviesScreen} />
+    <Tab.Screen name="Celebrity" component={CelebrityScreen} />
     <Tab.Screen name="Search" component={SearchScreen} />
     <Tab.Screen name="Settings" component={SettingsScreen} />
   </Tab.Navigator>
@@ -88,19 +88,11 @@ function MovieStack  ({route,navigation})  {
   <Stack.Navigator initialRouteName="MoviesList" headerMode="none" >
           <Stack.Screen name="MoviesList" component={MoviesScreen} />
           <Stack.Screen name="StreamingMovieList" component={StreamingMovieScreen} />
-          <Stack.Screen name="UpcomingListScreen" component={UpcomingListScreen} />
+          <Stack.Screen name="UpcomingListScreenUpcomingListScreen" component={UpcomingListScreen} />
   </Stack.Navigator>
   );}
 
-  function CelebrityStack  ({navigation})  {
-    return (
-    <Stack.Navigator initialRouteName="Celebritys" headerMode="none" >
-            <Stack.Screen name="Celebritys" component={CelebrityScreen} />
-            <Stack.Screen name="CelebrityDetails" component={CelebrityDetailsScreen} />
-           
-    </Stack.Navigator>
-    );}
-  
+
 
 
 

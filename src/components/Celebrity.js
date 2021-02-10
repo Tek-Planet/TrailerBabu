@@ -46,9 +46,9 @@ export default class Celebrity extends Component {
 
             // if the celevrity has profile Image
             imageUrl !== 'noImage' ? (<TouchableOpacity
-              onPress={() => navigation.navigate('Celebrity', { screen:'CelebrityDetails',
-               params: {celebrity: celebrity,
-                  imageUrl:imageUrl}
+              onPress={() => navigation.navigate('CelebrityDetails', { 
+                  celebrity: celebrity,
+                  imageUrl:imageUrl
             }) }
                         >
             <Image alt={"image"} source = { {uri: imageUrl}}

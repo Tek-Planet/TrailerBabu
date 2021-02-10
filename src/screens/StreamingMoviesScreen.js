@@ -4,7 +4,7 @@ TouchableOpacity } from 'react-native';
 import Movie from '../components/MovieFull'
 
 import axios from 'axios'
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import CustomBottomNav from './CustomBottomNav'
 
 
 export default class SearchScreen extends Component {
@@ -62,7 +62,8 @@ export default class SearchScreen extends Component {
  
    
     return (
-        <SafeAreaView>
+      <SafeAreaView style={{flex:1}}> 
+      <View style={{flex: 0.9}}>
           
                  <View style={{padding:20, flexDirection: 'row',  justifyContent:'space-between'}}>
                      <Text style={styles.heading}> Streaming Services</Text>                  
@@ -112,7 +113,9 @@ export default class SearchScreen extends Component {
             }
           
            {/* end of Celebity section */}
-          
+           </View>
+  
+           <CustomBottomNav navigation = {navigation} />
         </SafeAreaView>
       );
   }

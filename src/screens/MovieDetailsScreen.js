@@ -13,6 +13,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import HTMLView from 'react-native-htmlview';
 
+import CustomBottomNav from './CustomBottomNav'
+
 import axios from 'axios'
 
 
@@ -31,14 +33,13 @@ class MovieDetailsScreen extends Component {
       apiKey:'AIzaSyDXpWnVyISSysQZyK3PwA59obJQiu_Kaw8'
     };
   }
-
-
-
-
     // this method hides and show the moveie description
     changeStatus = () =>{
-      if(status === 'open') setStatus('close')
-      else setStatus('open')
+      const {status}  = this.state
+      if(status === 'open') 
+        this.setState({ status:'close'})
+      
+      else this.setState({ status:'open'})
     }
 
     fetchCategoryDetails = (category) => {
@@ -63,22 +64,24 @@ class MovieDetailsScreen extends Component {
     };
 
 
-  componentDidUpdate(){
-    console.log('Something updated now')
-  }
+  
       
     
 
   render() {
     const {status, apiKey} = this.state
     const route = this.props.route 
+    const navigation = this.props.navigation 
     const { movie } = route.params !== "" ? (route.params): "null";
 
 
     return (
 
-       <ScrollView style={{flex: 1}}>
-        <View >
+      <SafeAreaView style={{flex:1}}> 
+      <View style={{flex: 0.9}}>
+
+       <ScrollView>
+       
         <View style={{ margin: 10, height:40, width:40, justifyContent:'center', alignItems:'center', borderRadius: 100, backgroundColor:'#0037018D'}}>
               <Icon onPress={()=>navigation.goBack()}  name="arrow-back-outline" size={30} color="#FFF" /> 
         </View>
@@ -115,7 +118,7 @@ class MovieDetailsScreen extends Component {
        
        <View style={styles.row  }>
             <Text style={styles.headers}>Release Date : </Text>   
-    <Text style={styles.subheader}> { movie.themeum_release_date}</Text>                  
+       <Text style={styles.subheader}> { movie.themeum_release_date}</Text>                  
        </View>
        
        <View style={styles.row}>
@@ -127,8 +130,8 @@ class MovieDetailsScreen extends Component {
             <Text style={styles.headers}>Actors : </Text>   
             <Text style={[styles.subheader, {textTransform:'capitalize'}]}>{movie.themeum_movie_actor} </Text>                  
        </View>
-       
-       {/* <View style={styles.column}>
+    
+     <View style={styles.column}>
             <Text style={styles.headers}>Genre : </Text>            
               <View style={{flexDirection:'row'}}>
               {movie.themeum_movie_type.split(', ').map((category, i) => (
@@ -142,13 +145,13 @@ class MovieDetailsScreen extends Component {
               
           ))}
               </View>
-            </View> */}
+            </View> 
        
        <View style={[]}>
-       {/* <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', elevation:5, height:50, marginBottom:10,  marginTop:10,  padding:10, backgroundColor:'#0037018D'}}>
+      <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', elevation:5, height:50, marginBottom:10,  marginTop:10,  padding:10, backgroundColor:'#0037018D'}}>
             <Text style={{fontSize:20, fontFamily:'Kanit-SemiBold', color:"#ffffff", marginStart:10}}>Movie Descriptions : </Text>   
             <TouchableOpacity
-                          onPress={()=> changeStatus()}
+                          onPress={()=> this.changeStatus()}
                        >
                        <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
                        </TouchableOpacity>   
@@ -156,24 +159,30 @@ class MovieDetailsScreen extends Component {
         {
           status === 'open' ? ( <HTMLView
             addLineBreaks={false}
-            value={content}
+            value={movie.content.rendered}
             stylesheet={stylesC}
           />):(null)
         }
-        */}
-      {/* <Text style={{fontSize:16, lineHeight:24,  marginStart:20,  color:"#ffffff", textAlign:'justify', marginEnd: 10, fontFamily:'Roboto-Regular',}}>{content}</Text>       */}
+
+     <Text style={{fontSize:16, lineHeight:24,  marginStart:20,  color:"#ffffff", textAlign:'justify', marginEnd: 10, fontFamily:'Roboto-Regular',}}></Text>  
        </View>
     
        <View>
           {/* displays all comments 4186 */}
-          {/* <Comment key={movie.id}  postID = {movie.id}/> */}
+          <Comment key={movie.id}  postID = {movie.id}/>
        </View>
             </View>
            ):(<Text>movie is null</Text>)
       }
-      </View>
     
    </ScrollView>
+
+         
+ </View>
+  
+  <CustomBottomNav navigation = {navigation} />
+
+</SafeAreaView>
   
     );
   }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, ImageBackground , StyleSheet, SafeAreaView, ScrollView, Linking,} from 'react-native';
+import { View, Text, Image, ImageBackground , StyleSheet, SafeAreaView, ScrollView, Linking,
+  BackHandler} from 'react-native';
 
 import Comment from '../components/Comment'
 
@@ -9,6 +10,9 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import HTMLView from 'react-native-htmlview';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import CustomBottomNav from './CustomBottomNav'
+
 
 LogBox.ignoreLogs([
   'VirtualizedLists should never be nested', // TODO: Remove when fixed
@@ -21,7 +25,6 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
   /* 2. Get the param */
   const { imageUrl } = route.params;
   const { celebrity} = route.params;
-  var  [oldCelebrity, setOldCelebrity] = useState(null);
   const content = celebrity.content.rendered
   const insta = celebrity.themeum_instagram_url
   const fb = celebrity.themeum_facebook_url
@@ -29,21 +32,11 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
   const twitter = celebrity.themeum_twitter_url
 
  
- if (celebrity ===  oldCelebrity) {
-      console.log('no changes')
- }
-
- else {
-      console.log('changes')
-     
- }
-
- setOldCelebrity = (celebrity)
 
   return (
-  
- <ScrollView style={{flex: 1}}>
-      <View > 
+<SafeAreaView style={{flex:1}}> 
+ <View style={{flex: 0.9}}>
+ <ScrollView>
         {
           imageUrl !== 'noImage' ? (<ImageBackground
             source={{uri: imageUrl}}
@@ -144,10 +137,14 @@ export default function CelebrityDetailsScreen({ route, navigation }) {
         
      </View>
      
-     
-    </View>
-  
  </ScrollView>
+
+      
+ </View>
+  
+     <CustomBottomNav navigation = {navigation} />
+ 
+</SafeAreaView>
  );
 }
 
