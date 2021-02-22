@@ -7,17 +7,20 @@ import { NavigationContainer,
 import OtherStackScreen from './src/screens/OtherStackScreen'
 import SplashScreen from './src/screens/SplashScreen'
 import { StatusBar } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerContent } from './src/components/DrawerContent';
+
 
 const CustomDefaultTheme = {
   ...NavigationDefaultTheme,
   colors: {
     ...NavigationDefaultTheme.colors,
     background: '#37018D',
-    text: '#fff'
+    text: '#000'
   }
 }
 
-
+const Drawer = createDrawerNavigator();
 
 const  App = () => {
 
@@ -36,7 +39,11 @@ const [isLoading, setIsLoading] = useState(true)
   }
   return (
        <NavigationContainer theme={CustomDefaultTheme}>
-           <OtherStackScreen />   
+            {/* <OtherStackScreen />    */}
+            <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+            <Drawer.Screen name="Home" component={OtherStackScreen} />
+            <Drawer.Screen name="Article" component={SplashScreen} />
+          </Drawer.Navigator>
       </NavigationContainer>
   );
 }

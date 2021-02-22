@@ -154,6 +154,7 @@
     <orderEntry type="module" module-name="react-native-screens" />
     <orderEntry type="module" module-name="react-native-vector-icons" />
     <orderEntry type="module" module-name="react-native-video" />
+    <orderEntry type="module" module-name="react-native-webview" />
     <orderEntry type="module" module-name="react-native-youtube" />
   </component>
 </module>
