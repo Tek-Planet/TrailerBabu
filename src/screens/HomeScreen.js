@@ -1,255 +1,325 @@
-import React, { Component } from 'react';
-import { View, Text, ScrollView, SafeAreaView, StyleSheet, FlatList, 
-  Image, ImageBackground,
-  TouchableOpacity, ActivityIndicator } from 'react-native';
-import axios from 'axios'
-import dayjs from 'dayjs'
-import { StatusBar } from 'react-native';
+import React, {Component} from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  SafeAreaView,
+  StyleSheet,
+  FlatList,
+  Image,
+  ImageBackground,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
+import axios from 'axios';
+import dayjs from 'dayjs';
+import {StatusBar} from 'react-native';
 
 //components
-import Celebrity from '../components/Celebrity'
-import Featured from '../components/Featured'
-import Upcoming from '../components/Upcoming'
-import Streaming from '../components/Streaming'
-import Category from '../components/Category'
+import Celebrity from '../components/Celebrity';
+import Featured from '../components/Featured';
+import Upcoming from '../components/Upcoming';
+import Streaming from '../components/Streaming';
+import Category from '../components/Category';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Splash from './SplashScreen'
+import Splash from './SplashScreen';
 
 export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
-    // changing background of categories
-    categoryId:1000,
-    categoryName:'',
-    isLoadedCategory:false,
+      // changing background of categories
+      categoryId: 1000,
+      categoryName: '',
+      isLoadedCategory: false,
 
-    // changing background of streaming category
-    streamingId:1000,
-    streamingName:'',
-    isLoadedStreaming:true,
-    reload:false,
+      // changing background of streaming category
+      streamingId: 1000,
+      streamingName: '',
+      isLoadedStreaming: true,
+      reload: false,
 
-    streaming: [
-      { name: 'Netflix',  id: '108'},
-      { name: 'Amazon Prime Video', id: '2' },
-      { name: 'Zee5', id: '115' },
-    
-    ],
-    categories:[],
-    movies:[],
-    celebrityList:[],
-    featuredList:[],
-    upcomingList:[],
-    streamingList:[],
-    isLoaded:false,
-    data: [],
-    page: 1,   
-    upcomingCounter:0,
-    
+      streaming: [
+        {name: 'Netflix', id: '108'},
+        {name: 'Amazon Prime Video', id: '2'},
+        {name: 'Zee5', id: '115'},
+      ],
+      categories: [],
+      movies: [],
+      celebrityList: [],
+      featuredList: [],
+      upcomingList: [],
+      streamingList: [],
+      isLoaded: false,
+      data: [],
+      page: 1,
+      upcomingCounter: 0,
     };
   }
   componentWillUnmount() {
-   // StatusBar.setHidden(false);
+    // StatusBar.setHidden(false);
   }
-  componentDidMount(){
-  
+  componentDidMount() {
     StatusBar.setHidden(true);
-  this.makeRemoteRequest()
-   
-   
-   const getActionList = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie');
-   const getCategories = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie_cat');
-   const getCelebityList = axios.get('https://trailerbabu.com/wp-json/wp/v2/celebrity?page=2');
-   const getStreaming = axios.get('https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=115');
+    this.makeRemoteRequest();
 
-   Promise.all([getCategories,getActionList, getCelebityList,getStreaming])
-          .then(res => {
-            this.setState({
-              categories: res[0].data,
-              actionList: res[1].data,
-              celebrityList:res[2].data,
-              streamingList:res[3].data,
-              isLoadedCategory:true,
-            })
-          })
-          .catch(err => {
-            console.log(err)
-            this.setState({  
-              reload: true,
-              })
-          })       
-  
-  }
-  
-  
-  fetchSelectedCategoty(id, source){
-    axios.get(`https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=${id}`)
-    .then(res => {
-      if (source === 0) {
+    const getActionList = axios.get(
+      'https://trailerbabu.com/wp-json/wp/v2/movie',
+    );
+    const getCategories = axios.get(
+      'https://trailerbabu.com/wp-json/wp/v2/movie_cat',
+    );
+    const getCelebityList = axios.get(
+      'https://trailerbabu.com/wp-json/wp/v2/celebrity?page=2',
+    );
+    const getStreaming = axios.get(
+      'https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=115',
+    );
+
+    Promise.all([getCategories, getActionList, getCelebityList, getStreaming])
+      .then((res) => {
         this.setState({
-          actionList:res.data,
-          isLoadedCategory:true
-        })
-      }
-      else{
+          categories: res[0].data,
+          actionList: res[1].data,
+          celebrityList: res[2].data,
+          streamingList: res[3].data,
+          isLoadedCategory: true,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
         this.setState({
-          streamingList:res.data,
-          isLoadedStreaming:true
-        })
-      }  
-    })
+          reload: true,
+        });
+      });
   }
-  
-  
-  changeBg (item, source) {
-  if(source === 0){
-    this.setState({categoryId:item.id,categoryName:item.name, isLoadedCategory:false})
+
+  fetchSelectedCategoty(id, source) {
+    axios
+      .get(`https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=${id}`)
+      .then((res) => {
+        if (source === 0) {
+          this.setState({
+            actionList: res.data,
+            isLoadedCategory: true,
+          });
+        } else {
+          this.setState({
+            streamingList: res.data,
+            isLoadedStreaming: true,
+          });
+        }
+      });
   }
-  else{
-    this.setState({streamingId:item.id,streamingName:item.name, isLoadedStreaming:false})
+
+  changeBg(item, source) {
+    if (source === 0) {
+      this.setState({
+        categoryId: item.id,
+        categoryName: item.name,
+        isLoadedCategory: false,
+      });
+    } else {
+      this.setState({
+        streamingId: item.id,
+        streamingName: item.name,
+        isLoadedStreaming: false,
+      });
+    }
   }
-  }  
 
   makeRemoteRequest = () => {
-    const { page } = this.state;
-    const url = (`https://trailerbabu.com/wp-json/wp/v2/movie?page=${page}`);
-          axios.
-          get(url, {timeout:10000})
-           .then(res => {
-             this.setState({  
-             movies: page === 1 ? res.data : [...this.state.movies, ...res.data,],
-             isLoaded:true
-             })
-           })
-           .catch(err => {
-             console.log(err)
-             this.setState({  
-              reload: true,
-              })
-           })    
+    const {page} = this.state;
+    const url = `https://trailerbabu.com/wp-json/wp/v2/movie?page=${page}`;
+    axios
+      .get(url, {timeout: 10000})
+      .then((res) => {
+        this.setState({
+          movies: page === 1 ? res.data : [...this.state.movies, ...res.data],
+          isLoaded: true,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({
+          reload: true,
+        });
+      });
   };
-  
 
   handleLoadMore = () => {
     this.setState(
       {
-        page: this.state.page + 1
+        page: this.state.page + 1,
       },
       () => {
         this.makeRemoteRequest();
-      }
+      },
     );
   };
-    
+
   render() {
-      const {movies, streaming, actionList,categories, categoryName, streamingName, isLoaded, reload, isLoadedStreaming, isLoadedCategory, celebrityList, featuredList, upcomingList, streamingList,
-      upcomingCounter} = this.state;
-      const navigation = this.props.navigation     
-      const date = new Date()
+    const {
+      movies,
+      streaming,
+      actionList,
+      categories,
+      categoryName,
+      streamingName,
+      isLoaded,
+      reload,
+      isLoadedStreaming,
+      isLoadedCategory,
+      celebrityList,
+      featuredList,
+      upcomingList,
+      streamingList,
+      upcomingCounter,
+    } = this.state;
+    const navigation = this.props.navigation;
+    const date = new Date();
 
-      if(reload){
-        return ( 
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-               <Image 
-                       style={{width:150, height:150, borderRadius:100, marginBottom:20}}
-                        source={require('../img/error.png')}
-                    />
-              <Text style={{color:'#fff', fontSize:18, marginBottom:10}}>Hmm. We’re having trouble fetching data</Text>
+    if (reload) {
+      return (
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <Image
+            style={{
+              width: 150,
+              height: 150,
+              borderRadius: 100,
+              marginBottom: 20,
+            }}
+            source={require('../img/error.png')}
+          />
+          <Text style={{color: '#fff', fontSize: 18, marginBottom: 10}}>
+            Hmm. We’re having trouble fetching data
+          </Text>
 
-              <Text style={{color:'#fff', fontSize:18, marginBottom:20}}>Check your network connection.</Text>
+          <Text style={{color: '#fff', fontSize: 18, marginBottom: 20}}>
+            Check your network connection.
+          </Text>
 
-                <TouchableOpacity 
-                          onPress={()=> [this.makeRemoteRequest(),   this.setState({  
-                            reload: false,
-                            })]}
-                          style={[styels.categoryList,{backgroundColor: '#bd10e0'}]}>
-                        <Text style={styels.categoryListText}> Try Again</Text>
-                </TouchableOpacity>
-            </View>) 
-        }
-  
-      if(isLoaded){ return (
+          <TouchableOpacity
+            onPress={() => [
+              this.makeRemoteRequest(),
+              this.setState({
+                reload: false,
+              }),
+            ]}
+            style={[styels.categoryList, {backgroundColor: '#bd10e0'}]}>
+            <Text style={styels.categoryListText}> Try Again</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    }
+
+    if (isLoaded) {
+      return (
         <SafeAreaView>
-        <ScrollView>
-        {/* featured moviee zone */}
-             <View>
-                 <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={styels.heading}>Featured</Text>                  
-                    <Image 
-                        duraton="1500"
-                        source={require('../img/logo.png')}
-                    /> 
-                </View>
-                
-           </View>
-        {/* featured flat lis t */}
-           <View style={{marginTop:-20}}>
-               <FlatList 
-               horizontal = {true}
-               data = {movies}
-               onEndReached={this.handleLoadMore}
-               onEndReachedThreshold={10}
-               renderItem = {({item}) =>{ 
-                 return (
-                  item.themeum_featured_movie ===  "1" ?(
-                  <Featured feature = {item} key = {item.id.toString()}  navigation = {navigation}
-                   maxwidth = {240}  imagewidth = {200} imageheight ={300}
+          <ScrollView>
+            {/* featured moviee zone */}
+            <View>
+              <View
+                style={{
+                  padding: 20,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}>
+                <Text style={styels.heading}>Featured</Text>
+                <Image duraton="1500" source={require('../img/logo.png')} />
+              </View>
+            </View>
+            {/* featured flat lis t */}
+            <View style={{marginTop: -20}}>
+              <FlatList
+                horizontal={true}
+                data={movies}
+                onEndReached={this.handleLoadMore}
+                onEndReachedThreshold={10}
+                renderItem={({item}) => {
+                  return item.themeum_featured_movie === '1' ? (
+                    <Featured
+                      feature={item}
+                      key={item.id.toString()}
+                      navigation={navigation}
+                      maxwidth={240}
+                      imagewidth={200}
+                      imageheight={300}
+                    />
+                  ) : null;
+                }}
+              />
+            </View>
+            {/* end of future moview */}
+
+            {/* Start of upcoming movies */}
+
+            <View>
+              <View
+                style={{
+                  padding: 20,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}>
+                <Text style={styels.heading}> Upcoming</Text>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('UpcomingListScreen')}>
+                  <Icon
+                    name="ellipsis-horizontal-outline"
+                    size={22}
+                    color="#ffffff"
                   />
-                ):(null) ) }}
-               />
-           </View>
-        {/* end of future moview */}
-           
-           {/* Start of upcoming movies */}
-           
-           <View>
-                 <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={styels.heading}> Upcoming</Text>                  
-                     <TouchableOpacity
-                        onPress={()=> navigation.navigate('UpcomingListScreen')}
-                     >
-                     <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
-                     </TouchableOpacity> 
-                 </View>
-           </View>
-           {/* upcoming flatlist */}
-           <View style={{marginTop:-20}}>
-               <FlatList 
-               horizontal = {true}
-               data = {movies}
-               onEndReached={this.handleLoadMore}
-               onEndReachedThreshold={10}
-               renderItem = {({item}) =>{  
-                const release_date  = new Date(item.themeum_release_date);     
-                 return ( 
-                  release_date.getTime()   >  date.getTime() ?(
-                   
-                    <Upcoming upcoming = {item} key = {item.id.toString()}  navigation = {navigation} /> 
-                  ):(null)
-                //  <Upcoming upcoming = {item} key = {item.id.toString()}  navigation = {navigation} />  
-                 )
-               }}
-               />
-           </View>
-           {/* end of upcmoing movies */}
-           
-           {/* Start of categories  section */}
-           <View>
-           <View>
-                 <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={styels.heading}> Categories </Text>                  
-                     <TouchableOpacity
-                        onPress={()=> navigation.navigate('Movies', {screen:'MoviesList'})}
-                     >
-                     <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
-                     </TouchableOpacity> 
-                 </View>
-           </View>
-           </View>
-           {/* categorie name list */}
-           {/* <View style={{marginTop:-20}}>
+                </TouchableOpacity>
+              </View>
+            </View>
+            {/* upcoming flatlist */}
+            <View style={{marginTop: -20}}>
+              <FlatList
+                horizontal={true}
+                data={movies}
+                onEndReached={this.handleLoadMore}
+                onEndReachedThreshold={10}
+                renderItem={({item}) => {
+                  const release_date = new Date(item.themeum_release_date);
+                  return release_date.getTime() > date.getTime() ? (
+                    <Upcoming
+                      upcoming={item}
+                      key={item.id.toString()}
+                      navigation={navigation}
+                    />
+                  ) : null;
+                  //  <Upcoming upcoming = {item} key = {item.id.toString()}  navigation = {navigation} />
+                }}
+              />
+            </View>
+            {/* end of upcmoing movies */}
+
+            {/* Start of categories  section */}
+            <View>
+              <View>
+                <View
+                  style={{
+                    padding: 20,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                  }}>
+                  <Text style={styels.heading}> Categories </Text>
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate('Movies', {screen: 'MoviesList'})
+                    }>
+                    <Icon
+                      name="ellipsis-horizontal-outline"
+                      size={22}
+                      color="#ffffff"
+                    />
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+            {/* categorie name list */}
+            {/* <View style={{marginTop:-20}}>
                <FlatList 
                horizontal = {true}
                data = {categories}
@@ -268,172 +338,229 @@ export default class HomeScreen extends Component {
                }}
                />
            </View> */}
-           {/* end of category list name */}
-           {/* Categoty flat list */}
-           {
-            //  //fecth data while the bottons are clicked
-             isLoadedCategory ? (
-              //  after fetching data check if the list is empty
-              actionList.length !== 0 ? (<View style={{marginTop:-20}}>
-                <FlatList 
-                horizontal = {true}
-                data = {actionList}
-                renderItem = {({item}) =>{   
-                  return ( <Category category = {item} key = {item.id.toString()}  navigation = {navigation} />  )
-                }}
-                />
-            </View>):( <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
-              <Text style={{color:'#fff', fontSize:18, textAlign:'center'}}>No result found for {categoryName}</Text>
-              </View>)
-              
-             ) :(
-              <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
-                 <ActivityIndicator color="#ffffff" size="large"/>  
+            {/* end of category list name */}
+            {/* Categoty flat list */}
+            {
+              //  //fecth data while the bottons are clicked
+              isLoadedCategory ? (
+                //  after fetching data check if the list is empty
+                actionList.length !== 0 ? (
+                  <View style={{marginTop: -20}}>
+                    <FlatList
+                      horizontal={true}
+                      data={actionList}
+                      renderItem={({item}) => {
+                        return (
+                          <Category
+                            category={item}
+                            key={item.id.toString()}
+                            navigation={navigation}
+                          />
+                        );
+                      }}
+                    />
+                  </View>
+                ) : (
+                  <View
+                    style={{
+                      height: 170,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fff',
+                        fontSize: 18,
+                        textAlign: 'center',
+                      }}>
+                      No result found for {categoryName}
+                    </Text>
+                  </View>
+                )
+              ) : (
+                <View
+                  style={{
+                    height: 170,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <ActivityIndicator color="#ffffff" size="large" />
+                </View>
+              )
+            }
+
+            {/* end of categories section*/}
+
+            {/* Celebrity Section */}
+            <View>
+              <View>
+                <View
+                  style={{
+                    padding: 20,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                  }}>
+                  <Text style={styels.heading}> Celebrities </Text>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate('Celebrity')}>
+                    <Icon
+                      name="ellipsis-horizontal-outline"
+                      size={22}
+                      color="#ffffff"
+                    />
+                  </TouchableOpacity>
+                </View>
               </View>
-            )
-           }
-          
-           {/* end of categories section*/}
-           
-           {/* Celebrity Section */}
-           <View>
-           <View>
-                 <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={styels.heading}> Celebrities </Text> 
-                     <TouchableOpacity
-                        onPress={()=> navigation.navigate('Celebrity')}
-                     >
-                     <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
-                     </TouchableOpacity>                 
-                     
-                    
-                 </View>
-           </View>
-           </View>
-           
-           <View style={{marginTop:-20}}>
-               <FlatList 
-               horizontal = {true}
-               data = {celebrityList}
-               
-               renderItem = {({item}) =>{ 
-                 return(
-                  <Celebrity celebrity = {item}   key = {item.id.toString()} navigation= {navigation}
-                  maxwidth = {160}  imagewidth = {150} imageheight ={200}/>
-                 )                   
-               }
-               }
-              
-               />
-           
-           </View>
-           {/* end of Celebity section */}
-           
-           {/* Start of streaming services */}
-              <View>
-              <View>
-                 <View style={{padding:20, flexDirection: 'row', justifyContent:'space-between'}}>
-                     <Text style={styels.heading}> Streaming Services</Text>                  
-                     <TouchableOpacity
-                        onPress={()=> navigation.navigate('StreamingMovieList')}
-                     >
-                     <Icon name="ellipsis-horizontal-outline" size={22} color="#ffffff" />
-                     </TouchableOpacity> 
-                 </View>
-           </View>
             </View>
-         
+
+            <View style={{marginTop: -20}}>
+              <FlatList
+                horizontal={true}
+                data={celebrityList}
+                renderItem={({item}) => {
+                  return (
+                    <Celebrity
+                      celebrity={item}
+                      key={item.id.toString()}
+                      navigation={navigation}
+                      maxwidth={160}
+                      imagewidth={150}
+                      imageheight={200}
+                    />
+                  );
+                }}
+              />
+            </View>
+            {/* end of Celebity section */}
+
+            {/* Start of streaming services */}
+            <View>
+              <View>
+                <View
+                  style={{
+                    padding: 20,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                  }}>
+                  <Text style={styels.heading}> Streaming Services</Text>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate('StreamingMovieList')}>
+                    <Icon
+                      name="ellipsis-horizontal-outline"
+                      size={22}
+                      color="#ffffff"
+                    />
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
 
             {/* Streaming services list */}
-            <View style={{marginTop:-20}}>
-               <FlatList 
-               horizontal = {true}
-               data = {streaming}
-               renderItem = {({item}) =>{
-                 
-                 return (
-                 <View style={{paddingVertical:20, paddingLeft:16}}>
-                     <TouchableOpacity 
-                       onPress={()=>[this.fetchSelectedCategoty(item.id,1), this.changeBg(item, 1)]}
-                       style={[styels.categoryList, item.id === this.state.streamingId ? ({backgroundColor: '#bd10e0'}):(null)]}>
-                       <Text style={styels.categoryListText}>
-                       {item.name}
-                       </Text>
-                     </TouchableOpacity>
-                 </View>)
-               }}
-               />
-           </View>
-            
-           {/* end of category list name */}
-           
-           
-
-           {
-             //fecth data while the bottons are clicked
-             isLoadedStreaming ? (
-              //  after fetching data check if the list is empty
-              streamingList.length !== 0 ? (
-                <View style={{marginTop:-20}}>
-                <FlatList 
-                horizontal = {true}
-                data = {streamingList}
-                renderItem = {({item}) =>{
-                 return(
-                   <Streaming streaming = {item}   key = {item.id.toString()} navigation= {navigation}/>
-                  )    
+            <View style={{marginTop: -20}}>
+              <FlatList
+                horizontal={true}
+                data={streaming}
+                renderItem={({item}) => {
+                  return (
+                    <View style={{paddingVertical: 20, paddingLeft: 16}}>
+                      <TouchableOpacity
+                        onPress={() => [
+                          this.fetchSelectedCategoty(item.id, 1),
+                          this.changeBg(item, 1),
+                        ]}
+                        style={[
+                          styels.categoryList,
+                          item.id === this.state.streamingId
+                            ? {backgroundColor: '#bd10e0'}
+                            : null,
+                        ]}>
+                        <Text style={styels.categoryListText}>{item.name}</Text>
+                      </TouchableOpacity>
+                    </View>
+                  );
                 }}
-                />
+              />
             </View>
-            ):( <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
-              <Text style={{color:'#fff', fontSize:18, textAlign:'center'}}>No result found for {streamingName}</Text>
-              </View>)
-              
-             ) :(
-              <View style={{height:170, alignItems:'center', justifyContent:'center'}}>   
-                 <ActivityIndicator color="#ffffff" size="large"/>  
-              </View>
-            )
-           }
-          
-           {/* end of categories section*/}
-            
-           {/* end of category list name */}
-           
-         
-           {/* end of streaming service */}
-           
-           
-        </ScrollView>
+
+            {/* end of category list name */}
+
+            {
+              //fecth data while the bottons are clicked
+              isLoadedStreaming ? (
+                //  after fetching data check if the list is empty
+                streamingList.length !== 0 ? (
+                  <View style={{marginTop: -20}}>
+                    <FlatList
+                      horizontal={true}
+                      data={streamingList}
+                      renderItem={({item}) => {
+                        return (
+                          <Streaming
+                            streaming={item}
+                            key={item.id.toString()}
+                            navigation={navigation}
+                          />
+                        );
+                      }}
+                    />
+                  </View>
+                ) : (
+                  <View
+                    style={{
+                      height: 170,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fff',
+                        fontSize: 18,
+                        textAlign: 'center',
+                      }}>
+                      No result found for {streamingName}
+                    </Text>
+                  </View>
+                )
+              ) : (
+                <View
+                  style={{
+                    height: 170,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <ActivityIndicator color="#ffffff" size="large" />
+                </View>
+              )
+            }
+
+            {/* end of categories section*/}
+
+            {/* end of category list name */}
+
+            {/* end of streaming service */}
+          </ScrollView>
         </SafeAreaView>
-       );}
-      
-      return ( 
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-     
-       <ImageBackground
-          style={{width:'100%', height:'100%'}}
-          source={require('../img/splash.png')}
-                    />   
-      </View>) 
+      );
+    }
+
+    return (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <ActivityIndicator color="#ffffff" size="large" />
+      </View>
+    );
   }
 }
 
-
-
 const styels = StyleSheet.create({
   categoryList: {
-    padding:14,
-    borderRadius:10,
-    backgroundColor: '#0037018D'
+    padding: 14,
+    borderRadius: 10,
+    backgroundColor: '#0037018D',
   },
-  categoryListText:{
-    color:'#ffffff',
-    fontSize:14
+  categoryListText: {
+    color: '#ffffff',
+    fontSize: 14,
   },
-  
-  heading: {color: '#ffffff', fontSize:22, fontWeight:'bold'}
-  
-})
 
-
+  heading: {color: '#ffffff', fontSize: 22, fontWeight: 'bold'},
+});

@@ -1,0 +1,11 @@
+{
+  "avatar": "https://secure.gravatar.com/avatar/a6ba9b97e115b56aa2ff4444356e19ad?s=96&d=mm&r=g",
+  "data": {
+    "auth_token": "df97945da0d7610717fc1f5580f95d6d",
+    "user_id": 1294,
+    "user_login": "TekPlanet"
+  },
+  "msg": "Successfully Authenticated",
+  "status": true,
+  "token": "df97945da0d7610717fc1f5580f95d6d"
+}
