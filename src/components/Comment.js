@@ -5,10 +5,15 @@ import {
   StyleSheet,
   ActivityIndicator,
   FlatList,
+  Image,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Rating from '../components/Rating';
+import Icon from 'react-native-vector-icons/Ionicons';
+import PostComment from './PostComment';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 export default class Comment extends Component {
   constructor(props) {
@@ -26,15 +31,18 @@ export default class Comment extends Component {
   componentDidMount() {
     const {postID} = this.props;
 
-    axios.get(`https://trailerbabu.com/wp-json/wp/v2/comments`).then((res) => {
-      this.setState({
-        comments: res.data,
-        isLoading: true,
+    axios
+      .get(`https://trailerbabu.com/wp-json/wp/v2/comments?post=${postID}`)
+      .then((res) => {
+        this.setState({
+          comments: res.data,
+          isLoading: true,
+        });
       });
-    });
   }
 
   render() {
+    dayjs.extend(relativeTime);
     const {isLoading, comments} = this.state;
 
     let commentMarkup =
@@ -46,39 +54,62 @@ export default class Comment extends Component {
             const content = item.content.rendered.replace(regex, '');
             return (
               <View>
-                <View
-                  style={{
-                    marginTop: 10,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}>
-                  <Text
+                <View style={{flexDirection: 'row'}}>
+                  <View stywi>
+                    <Image
+                      style={{
+                        width: 50,
+                        height: 50,
+                        borderRadius: 100,
+                      }}
+                      source={require('../img/background/noImage.png')}
+                    />
+                  </View>
+                  <View
                     style={{
-                      fontSize: 18,
-                      fontFamily: 'Roboto-Regular',
-                      color: '#ffffff',
+                      marginStart: 10,
                     }}>
-                    {item.author_name}
-                  </Text>
-                  {/* <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Rating</Text>               */}
-                  {item.rating ? (
-                    <Rating ratings={item.rating} />
-                  ) : (
-                    <Rating ratings={0} />
-                  )}
-                </View>
+                    <Text
+                      style={{
+                        fontSize: 18,
+                        fontFamily: 'Roboto-Regular',
+                        color: '#ffffff',
+                      }}>
+                      {item.author_name}
+                    </Text>
 
-                <Text
-                  style={{
-                    lineHeight: 26,
-                    marginTop: 5,
-                    textAlign: 'justify',
-                    fontSize: 15,
-                    fontFamily: 'Roboto-Regular',
-                    color: '#ffffff',
-                  }}>
-                  {content}
-                </Text>
+                    <Text
+                      style={{
+                        fontSize: 15,
+                        fontFamily: 'Roboto-Regular',
+                        color: '#ffffff',
+                      }}>
+                      {dayjs(item.date).format('DD/MM/YYYY')}
+                    </Text>
+
+                    {/* <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Rating</Text>               */}
+
+                    <Text
+                      style={{
+                        lineHeight: 26,
+                        marginTop: 5,
+                        textAlign: 'justify',
+                        fontSize: 15,
+                        fontFamily: 'Roboto-Regular',
+                        color: '#ffffff',
+                      }}>
+                      {content}
+                    </Text>
+
+                    <View style={{marginTop: -10, marginBottom: 10}}>
+                      {item.rating ? (
+                        <Rating ratings={item.rating} />
+                      ) : (
+                        <Rating ratings={0} />
+                      )}
+                    </View>
+                  </View>
+                </View>
               </View>
             );
           }}
@@ -107,6 +138,8 @@ export default class Comment extends Component {
         </Text>
 
         {checkIfCommentIsLoaded}
+
+        <PostComment />
       </View>
     );
   }

@@ -190,3 +190,7 @@ const styles = StyleSheet.create({
     marginStart: 10,
   },
 });
+
+//https://trailerbabu.com/movie/bollywood-movies-2021/dhamaka-trailer/#comment-419
+
+//https://example.com/wp-json/wp/v2/comments
