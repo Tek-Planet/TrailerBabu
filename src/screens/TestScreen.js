@@ -22,6 +22,26 @@ export class TestScreen extends Component {
   }
 
   doLogin = async () => {
+
+// short wordpress login scipt
+
+    // const loginDetails = {
+    //   username: 'tekplanet',
+    //   password: 'QuidProQuo@1012'
+    // };
+
+    // axios
+    // .post('https://trailerbabu.com/wp-json/jwt-auth/v1/token', loginDetails)
+    // .then((res) => {
+     
+    //     console.log(res.data);
+      
+    // })
+    // .catch((err) => {
+    //   console.log(err.message);
+    // });
+
+
     let formData = new FormData();
     formData.append('type', 'login');
     formData.append('email', 'techplanet9@gmail.com');

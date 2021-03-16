@@ -14,6 +14,9 @@ import {DrawerContent} from './src/components/DrawerContent';
 import mainContext, {doSome} from './src/context/Context';
 import {loginUrl} from './src/const/const';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+
+// axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdHJhaWxlcmJhYnUuY29tIiwiaWF0IjoxNjE1Nzk1MDQ3LCJuYmYiOjE2MTU3OTUwNDcsImV4cCI6MTYxNjM5OTg0NywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMTI5NCJ9fX0.1QP6gIis9MtWUPGnjSJKjkFuYeXME44aKu2lr5SBPE8';
 
 const CustomDefaultTheme = {
   ...NavigationDefaultTheme,
@@ -104,12 +107,12 @@ const App = ({navigation}) => {
           avatar: json.avatar,
         });
         setIsLogged(true);
-        setUserProfile(json);
+        setUserProfile(json); 
         setUserToken(json.token);
       } else {
         setIsLogged(false);
         setError('Login Failed');
-        console.log('Failed login');
+        console.log(json);
       }
       setloggingIn(false);
     } catch (error) {
