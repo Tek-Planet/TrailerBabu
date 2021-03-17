@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   Text,
   View,
@@ -10,35 +10,61 @@ import {
 import axios from 'axios'
 import mainContext from '../context/Context';
 
-export function PostComment({key}) {
+export function PostComment({postID}) {
   const {userProfile, isLogged} = useContext(
     mainContext,
   );
+
   const [state, setState] = useState({
     body: '',
-    name: '',
-    email: '',
+    name: isLogged && userProfile ? userProfile.user_login : '',
+    email: isLogged && userProfile ? userProfile.email : '',
   });
 
-  const textInputChange = (val, field) => {
-    if (val.trim().length > 0 && field === 'body') {
+  const textInputChange = (val) => {
+
+    if (val.trim().length > 0 ) {
       setState({
         ...state,
         body: val,
       });
     }
+    else{
+      setState({
+        ...state,
+        body: '',
+      });
+    }
+  };
 
-    if (val.trim().length > 0 && field === 'name') {
+  const handleNameChange = (val) => {
+
+    if (val.trim().length > 0 ) {
       setState({
         ...state,
         name: val,
       });
     }
+    else{
+      setState({
+        ...state,
+        name: '',
+      });
+    }
+  };
 
-    if (val.trim().length > 0 && field === 'email') {
+  const handleMailChange = (val) => {
+
+    if (val.trim().length > 0 ) {
       setState({
         ...state,
         email: val,
+      });
+    }
+    else{
+      setState({
+        ...state,
+        email: '',
       });
     }
   };
@@ -46,20 +72,27 @@ export function PostComment({key}) {
   const saveComment = () => {
     if (
       state.body.length > 0 &&
-      state.name.length > 0 &&
+      state.name.trim().length > 0 &&
       state.email.length > 0
     ) {
       const newComments = {
-        post: 5320,
+        post: postID,
         author: 1,
         author_name: state.name,
         author_email: state.email,
         content: state.body
       };
+
+     
       axios
         .post('https://trailerbabu.com/wp-json/wp/v2/comments', newComments)
         .then((res) => {
-          console.log(res);
+         
+          setState({
+            ...state,
+            body:''
+
+          })
         })
         .catch((err) => {
           console.log(err.message);
@@ -74,12 +107,13 @@ export function PostComment({key}) {
       <View style={{}}>
         <View style={styles.inputContainer}>
           <TextInput
+            value =  {state.body}
             multiline={true}
             numberOfLines={5}
             placeholder="Your Comment"
             placeholderTextColor="#666666"
             autoCapitalize="none"
-            onChangeText={(val) => textInputChange(val, 'body')}
+            onChangeText={(val) => textInputChange(val)}
             style={styles.input}
           />
         </View>
@@ -90,7 +124,7 @@ export function PostComment({key}) {
           placeholder="Name"
           placeholderTextColor="#666666"
           autoCapitalize="none"
-          onChangeText={(val) => textInputChange(val, 'name')}
+          onChangeText={(val) => handleNameChange(val)}
           style={styles.inputDetails}
         />
 
@@ -98,14 +132,14 @@ export function PostComment({key}) {
           placeholder="Email"
           placeholderTextColor="#666666"
           autoCapitalize="none"
-          onChangeText={(val) => textInputChange(val, 'email')}
+          onChangeText={(val) => handleMailChange(val)}
           style={styles.inputDetails}
         />
         </View>
       ) : (null)}
-
-       
-
+       {/* <Text style={{color:'#fff'}}>{state.body}</Text>
+       <Text style={{color:'#fff'}}>{state.email}</Text>
+       <Text style={{color:'#fff'}}>{state.name}</Text> */}
         <TouchableOpacity
           onPress={() => {
             saveComment();

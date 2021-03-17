@@ -43,6 +43,7 @@ export default class Comment extends Component {
 
   render() {
     dayjs.extend(relativeTime);
+    const {postID} = this.props;
     const {isLoading, comments} = this.state;
 
     let commentMarkup =
@@ -139,7 +140,7 @@ export default class Comment extends Component {
 
         {checkIfCommentIsLoaded}
 
-        <PostComment />
+        <PostComment postID = {postID} />
       </View>
     );
   }

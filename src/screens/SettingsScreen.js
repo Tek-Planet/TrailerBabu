@@ -19,10 +19,12 @@ export default function SettingsScreen({navigation}) {
     mainContext,
   );
 
+  const userDetails = userProfile
+
   useEffect(() => {
     if (isLogged) {
       console.log('from settings');
-      console.log(userProfile);
+      console.log(userDetails); 
     }
   }, []);
 
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   categoryList: {
-    marginTop: 40,
+    marginTop: 40, 
     margin: 20,
     padding: 10,
     borderRadius: 10,

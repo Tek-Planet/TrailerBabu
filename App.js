@@ -16,7 +16,7 @@ import {loginUrl} from './src/const/const';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
-// axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdHJhaWxlcmJhYnUuY29tIiwiaWF0IjoxNjE1Nzk1MDQ3LCJuYmYiOjE2MTU3OTUwNDcsImV4cCI6MTYxNjM5OTg0NywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMTI5NCJ9fX0.1QP6gIis9MtWUPGnjSJKjkFuYeXME44aKu2lr5SBPE8';
+ axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdHJhaWxlcmJhYnUuY29tIiwiaWF0IjoxNjE1Nzk1MDQ3LCJuYmYiOjE2MTU3OTUwNDcsImV4cCI6MTYxNjM5OTg0NywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMTI5NCJ9fX0.1QP6gIis9MtWUPGnjSJKjkFuYeXME44aKu2lr5SBPE8';
 
 const CustomDefaultTheme = {
   ...NavigationDefaultTheme,
@@ -88,6 +88,7 @@ const App = ({navigation}) => {
           await AsyncStorage.setItem(
             'userProfile',
             JSON.stringify({
+              email:email,
               isLoggedIn: json.status,
               authToken: json.token,
               id: json.data.id,
@@ -99,15 +100,18 @@ const App = ({navigation}) => {
         } catch {
           setError('Error storing data on device');
         }
-        setUserProfile({
+        const userDetails = {
+          email:email,
           isLoggedIn: json.status,
           authToken: json.token,
           id: json.data.id,
           user_login: json.data.user_login,
           avatar: json.avatar,
-        });
+        }
+
+        setUserProfile(userDetails);
+        
         setIsLogged(true);
-        setUserProfile(json); 
         setUserToken(json.token);
       } else {
         setIsLogged(false);

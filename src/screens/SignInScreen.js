@@ -97,42 +97,53 @@ const SignInScreen = ({navigation}) => {
 
   const loginHandle = async (userName, password) => {
     doLogin(userName, password);
-    setTimeout(() => {
-      if (isLogged) {
-        navigation.reset({
-          index: 0,
-          routes: [{name: 'Home'}],
-        });
-      }
-    }, 3000);
     // if (isLogged) navigation.navigate('Home', {screen: 'Home'});
   };
 
-  const doLogout = async () => {
-    try {
-      await AsyncStorage.removeItem('userProfile');
-      setloggingIn(true);
-      setUserProfile(null);
-      setloggingIn(false);
-      setIsLogged(false);
-      return true;
-    } catch (exception) {
-      setError('Error deleting data');
-      return false;
-    }
-  };
 
   return (
     <View style={styles.container}>
       {/* <StatusBar backgroundColor='#009387' barStyle="light-content"/> */}
 
-      <View style={styles.header}>
+    
+<View style={styles.container}>
+<View style={styles.header}> 
         <Image
           style={{width: 250, height: 30, marginTop: 15}}
           source={require('../img/logo.png')}
         />
-        <Text style={styles.text_header}>Sign in now</Text>
+        {
+          !isLogged ?  <Text style={styles.text_header}>Sign in now</Text> 
+          :
+         <View>
+            <Text style={styles.text_header}>Login successful</Text>
+
+            <TouchableOpacity
+            onPress={() => {
+                navigation.reset({
+                    index: 0,
+                    routes: [{name: 'Home'}],
+                  });
+             }}
+
+            style={styles.pinkButton}>
+            <Text style={{ color: '#ffffff',
+                  fontSize: 20,
+    textAlign: 'center',}}>Continue</Text>
+          </TouchableOpacity>
+         </View>
+        }
+       
+
       </View>
+
+      {
+      //  show this if user is logged in
+        isLogged ?  
+        (null)
+      //  if user not logged in show this
+       :
+      
       <Animatable.View
         animation="fadeInUpBig"
         style={[
@@ -275,6 +286,10 @@ const SignInScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
       </Animatable.View>
+  }
+</View>
+            
+
     </View>
   );
 };
@@ -346,5 +361,13 @@ const styles = StyleSheet.create({
   textSign: {
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  pinkButton: {
+   
+    margin: 10,
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: '#bd10e0',
+    alignItems: 'center',
   },
 });
