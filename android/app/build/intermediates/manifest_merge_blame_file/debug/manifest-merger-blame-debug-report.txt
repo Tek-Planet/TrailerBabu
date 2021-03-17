@@ -15,8 +15,8 @@
 12-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:4:5-67
 12-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:4:22-64
 13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-13-->[com.facebook.flipper:flipper:0.37.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/623174cd4892d9fb924ac44b102b25c0/flipper-0.37.0/AndroidManifest.xml:16:5-76
-13-->[com.facebook.flipper:flipper:0.37.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/623174cd4892d9fb924ac44b102b25c0/flipper-0.37.0/AndroidManifest.xml:16:22-73
+13-->[com.facebook.flipper:flipper:0.37.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/f83c0d1c0de52875b561162f0ef0d310/flipper-0.37.0/AndroidManifest.xml:16:5-76
+13-->[com.facebook.flipper:flipper:0.37.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/f83c0d1c0de52875b561162f0ef0d310/flipper-0.37.0/AndroidManifest.xml:16:22-73
 14
 15    <application
 15-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:6:5-25:19
@@ -25,7 +25,7 @@
 17        android:allowBackup="false"
 17-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:11:7-34
 18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-18-->[androidx.core:core:1.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/639e914bfc1efa21e36199d3ff2c5eef/core-1.1.0/AndroidManifest.xml:24:18-86
+18-->[androidx.core:core:1.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/6466522822c9f31c5107b8fc2277998a/core-1.1.0/AndroidManifest.xml:24:18-86
 19        android:debuggable="true"
 20        android:icon="@mipmap/ic_launcher_custom"
 20-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:9:7-48
@@ -81,6 +81,81 @@
 46                android:resource="@xml/file_provider_paths" />
 46-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:17-60
 47        </provider>
-48    </application>
-49
-50</manifest>
+48
+49        <activity
+49-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:23:9-27:75
+50            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+50-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:24:13-93
+51            android:excludeFromRecents="true"
+51-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:25:13-46
+52            android:exported="false"
+52-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:26:13-37
+53            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+53-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:27:13-72
+54        <!--
+55            Service handling Google Sign-In user revocation. For apps that do not integrate with
+56            Google Sign-In, this service will never be started.
+57        -->
+58        <service
+58-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:33:9-37:51
+59            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+59-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:34:13-89
+60            android:exported="true"
+60-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:35:13-36
+61            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+61-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:36:13-107
+62            android:visibleToInstantApps="true" />
+62-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:37:13-48
+63
+64        <activity
+64-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+65            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+65-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+66            android:exported="false"
+66-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+67            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+67-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+68
+69        <provider
+69-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:26:9-31:39
+70            android:name="com.google.firebase.provider.FirebaseInitProvider"
+70-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:27:13-77
+71            android:authorities="com.trailerbabu.firebaseinitprovider"
+71-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:28:13-72
+72            android:directBootAware="true"
+72-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:29:13-43
+73            android:exported="false"
+73-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:30:13-37
+74            android:initOrder="100" />
+74-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:31:13-36
+75
+76        <service
+76-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:33:9-46:19
+77            android:name="com.google.firebase.components.ComponentDiscoveryService"
+77-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:34:13-84
+78            android:directBootAware="true"
+78-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:35:13-43
+79            android:exported="false" >
+79-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:36:13-37
+80
+81            <!--
+82                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+83                clients to use it as well, by defining this registrar in their own core/common library.
+84            -->
+85            <meta-data
+85-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:43:13-45:85
+86                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+86-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:44:17-121
+87                android:value="com.google.firebase.components.ComponentRegistrar" />
+87-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:45:17-82
+88        </service>
+89
+90        <meta-data
+90-->[com.google.android.gms:play-services-basement:17.1.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/b60dd2268b782368d557b27ad5db1f38/jetified-play-services-basement-17.1.1/AndroidManifest.xml:23:9-25:69
+91            android:name="com.google.android.gms.version"
+91-->[com.google.android.gms:play-services-basement:17.1.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/b60dd2268b782368d557b27ad5db1f38/jetified-play-services-basement-17.1.1/AndroidManifest.xml:24:13-58
+92            android:value="@integer/google_play_services_version" />
+92-->[com.google.android.gms:play-services-basement:17.1.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/b60dd2268b782368d557b27ad5db1f38/jetified-play-services-basement-17.1.1/AndroidManifest.xml:25:13-66
+93    </application>
+94
+95</manifest>
