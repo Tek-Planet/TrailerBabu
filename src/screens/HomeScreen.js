@@ -164,7 +164,7 @@ export default class HomeScreen extends Component {
       movies,
       streaming,
       actionList,
-      categories,
+     
       categoryName,
       streamingName,
       isLoaded,
@@ -172,10 +172,7 @@ export default class HomeScreen extends Component {
       isLoadedStreaming,
       isLoadedCategory,
       celebrityList,
-      featuredList,
-      upcomingList,
       streamingList,
-      upcomingCounter,
     } = this.state;
     const navigation = this.props.navigation;
     const date = new Date();

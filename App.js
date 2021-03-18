@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {View, Text, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {
   NavigationContainer,
@@ -15,6 +15,7 @@ import mainContext, {doSome} from './src/context/Context';
 import {loginUrl} from './src/const/const';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import analytics from '@react-native-firebase/analytics';
 
  axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdHJhaWxlcmJhYnUuY29tIiwiaWF0IjoxNjE1Nzk1MDQ3LCJuYmYiOjE2MTU3OTUwNDcsImV4cCI6MTYxNjM5OTg0NywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMTI5NCJ9fX0.1QP6gIis9MtWUPGnjSJKjkFuYeXME44aKu2lr5SBPE8';
 
@@ -30,6 +31,10 @@ const CustomDefaultTheme = {
 const Drawer = createDrawerNavigator();
 
 const App = ({navigation}) => {
+
+  const navigationRef = useRef();
+  const routeNameRef = useRef();
+
   const [isLogged, setIsLogged] = useState(false); //True if the user is logged in
   const [userToken, setUserToken] = useState(null); //User token, maybe a useless state
   const [userProfile, setUserProfile] = useState(null); //userProfile object, it contains token too
@@ -150,7 +155,33 @@ const App = ({navigation}) => {
   }
   return (
     <mainContext.Provider value={wContext}>
-      <NavigationContainer theme={CustomDefaultTheme}>
+      <NavigationContainer theme={CustomDefaultTheme}
+      // setting of screens 
+      ref={navigationRef}
+      onReady={() =>
+        (routeNameRef.current = navigationRef.current.getCurrentRoute().name)
+      }
+      onStateChange={async () => {
+        const previousRouteName = routeNameRef.current;
+        const currentRouteName = navigationRef.current.getCurrentRoute().name;
+
+        if (previousRouteName !== currentRouteName) {
+          // The line below uses the expo-firebase-analytics tracker
+          // https://docs.expo.io/versions/latest/sdk/firebase-analytics/
+          // Change this line to use another Mobile analytics SDK
+          await analytics().logScreenView({
+            screen_name: currentRouteName,
+            screen_class: currentRouteName
+          });
+        
+        }
+
+        // Save the current route name for later comparison
+        routeNameRef.current = currentRouteName;
+      }}
+      
+      
+      >
         <OtherStackScreen />
         {/* <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
     //     <Drawer.Screen name="Home" component={OtherStackScreen} />
