@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
 import React, {useEffect, useState, useRef} from 'react';
-import {View, Text, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {
   NavigationContainer,
   DefaultTheme as NavigationDefaultTheme,
@@ -8,14 +7,14 @@ import {
 
 import OtherStackScreen from './src/screens/OtherStackScreen';
 import SplashScreen from './src/screens/SplashScreen';
-import {StatusBar} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {DrawerContent} from './src/components/DrawerContent';
 import mainContext, {doSome} from './src/context/Context';
-import {loginUrl} from './src/const/const';
+import {loginUrl} from './src/const/const'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import analytics from '@react-native-firebase/analytics';
+import OneSignal from  'react-native-onesignal'
 
  axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdHJhaWxlcmJhYnUuY29tIiwiaWF0IjoxNjE1Nzk1MDQ3LCJuYmYiOjE2MTU3OTUwNDcsImV4cCI6MTYxNjM5OTg0NywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMTI5NCJ9fX0.1QP6gIis9MtWUPGnjSJKjkFuYeXME44aKu2lr5SBPE8';
 
@@ -43,6 +42,14 @@ const App = ({navigation}) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+
+    OneSignal.setAppId("01706cc8-b5df-4482-9f3c-66981f781739");
+    OneSignal.setLogLevel(6, 0);
+    OneSignal.setRequiresUserPrivacyConsent(false);
+    OneSignal.promptForPushNotificationsWithUserResponse(response => {
+        this.OSLog("Prompt response:", response);
+    });
+
     AsyncStorage.getItem('userProfile').then((value) => {
       if (value !== null) {
         setUserProfile(JSON.parse(value));
@@ -210,3 +217,7 @@ const App = ({navigation}) => {
 };
 
 export default App;
+
+// some app data
+
+// Your App ID: 01706cc8-b5df-4482-9f3c-66981f781739

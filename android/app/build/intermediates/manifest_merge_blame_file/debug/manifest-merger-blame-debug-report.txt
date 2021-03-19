@@ -20,204 +20,696 @@
 14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 14-->[:react-native-firebase_analytics] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/@react-native-firebase/analytics/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-79
 14-->[:react-native-firebase_analytics] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/@react-native-firebase/analytics/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-76
-15    <uses-permission android:name="android.permission.WAKE_LOCK" />
+15    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
 15-->[:react-native-firebase_analytics] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/@react-native-firebase/analytics/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-68
 15-->[:react-native-firebase_analytics] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/@react-native-firebase/analytics/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:22-65
-16    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-16-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:26:5-110
-16-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:26:22-107
-17
-18    <application
-18-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:6:5-25:19
-19        android:name="com.trailerbabu.MainApplication"
-19-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:7:7-38
-20        android:allowBackup="false"
-20-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:11:7-34
-21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-21-->[androidx.core:core:1.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/6466522822c9f31c5107b8fc2277998a/core-1.1.0/AndroidManifest.xml:24:18-86
-22        android:debuggable="true"
-23        android:icon="@mipmap/ic_launcher_custom"
-23-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:9:7-48
-24        android:label="@string/app_name"
-24-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:8:7-39
-25        android:roundIcon="@mipmap/ic_launcher_custom_round"
-25-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:10:7-59
-26        android:theme="@style/AppTheme"
-26-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:12:7-38
-27        android:usesCleartextTraffic="true" >
-27-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/debug/AndroidManifest.xml:7:18-53
-28        <activity
-28-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:13:7-23:18
-29            android:name="com.trailerbabu.MainActivity"
-29-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:14:9-37
-30            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-30-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:16:9-86
-31            android:label="@string/app_name"
-31-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:15:9-41
-32            android:launchMode="singleTask"
-32-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:17:9-40
-33            android:windowSoftInputMode="adjustResize" >
-33-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:18:9-51
-34            <intent-filter>
-34-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:19:9-22:25
-35                <action android:name="android.intent.action.MAIN" />
-35-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:20:13-65
-35-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:20:21-62
-36
-37                <category android:name="android.intent.category.LAUNCHER" />
-37-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:21:13-73
-37-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:21:23-70
-38            </intent-filter>
-39        </activity>
-40        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-40-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:24:7-84
-40-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:24:17-81
-41
-42        <meta-data
-42-->[:react-native-firebase_analytics] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/@react-native-firebase/analytics/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:9-18:36
-43            android:name="firebase_analytics_collection_enabled"
-43-->[:react-native-firebase_analytics] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/@react-native-firebase/analytics/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-65
-44            android:value="true" />
-44-->[:react-native-firebase_analytics] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/@react-native-firebase/analytics/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-33
-45
-46        <provider
-46-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-20:20
-47            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
-47-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-83
-48            android:authorities="com.trailerbabu.fileprovider"
-48-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-64
-49            android:exported="false"
-49-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-37
-50            android:grantUriPermissions="true" >
-50-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-47
-51            <meta-data
-51-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-19:63
-52                android:name="android.support.FILE_PROVIDER_PATHS"
-52-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-67
-53                android:resource="@xml/file_provider_paths" />
-53-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:17-60
-54        </provider>
-55
-56        <service
-56-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:17:9-23:19
-57            android:name="com.google.firebase.components.ComponentDiscoveryService"
-57-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:18:13-84
-58            android:directBootAware="true"
-58-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:35:13-43
-59            android:exported="false" >
-59-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:19:13-37
-60            <meta-data
-60-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:20:13-22:85
-61                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-61-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:21:17-111
-62                android:value="com.google.firebase.components.ComponentRegistrar" />
-62-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:22:17-82
-63            <meta-data
-63-->[com.google.android.gms:play-services-measurement-api:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2203d6a84fc51624bcebcc4c5c651f3c/play-services-measurement-api-18.0.2/AndroidManifest.xml:30:13-32:85
-64                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-64-->[com.google.android.gms:play-services-measurement-api:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2203d6a84fc51624bcebcc4c5c651f3c/play-services-measurement-api-18.0.2/AndroidManifest.xml:31:17-139
-65                android:value="com.google.firebase.components.ComponentRegistrar" />
-65-->[com.google.android.gms:play-services-measurement-api:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2203d6a84fc51624bcebcc4c5c651f3c/play-services-measurement-api-18.0.2/AndroidManifest.xml:32:17-82
-66            <meta-data
-66-->[com.google.firebase:firebase-installations:16.3.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/7c7197f4f135048fa4cb5d72655163fc/firebase-installations-16.3.5/AndroidManifest.xml:18:13-20:85
-67                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-67-->[com.google.firebase:firebase-installations:16.3.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/7c7197f4f135048fa4cb5d72655163fc/firebase-installations-16.3.5/AndroidManifest.xml:19:17-127
-68                android:value="com.google.firebase.components.ComponentRegistrar" />
-68-->[com.google.firebase:firebase-installations:16.3.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/7c7197f4f135048fa4cb5d72655163fc/firebase-installations-16.3.5/AndroidManifest.xml:20:17-82
-69            <!--
-70                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
-71                clients to use it as well, by defining this registrar in their own core/common library.
-72            -->
-73            <meta-data
-73-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:43:13-45:85
-74                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
-74-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:44:17-121
-75                android:value="com.google.firebase.components.ComponentRegistrar" />
-75-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:45:17-82
-76        </service>
-77
-78        <activity
-78-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:23:9-27:75
-79            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-79-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:24:13-93
-80            android:excludeFromRecents="true"
-80-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:25:13-46
-81            android:exported="false"
-81-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:26:13-37
-82            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-82-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:27:13-72
-83        <!--
-84            Service handling Google Sign-In user revocation. For apps that do not integrate with
-85            Google Sign-In, this service will never be started.
-86        -->
-87        <service
-87-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:33:9-37:51
-88            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-88-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:34:13-89
-89            android:exported="true"
-89-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:35:13-36
-90            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-90-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:36:13-107
-91            android:visibleToInstantApps="true" />
-91-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:37:13-48
-92
-93        <activity
-93-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
-94            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-94-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
-95            android:exported="false"
-95-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
-96            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-96-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+16    <permission
+16-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:7:5-9:47
+17        android:name="com.trailerbabu.permission.C2D_MESSAGE"
+17-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:8:9-63
+18        android:protectionLevel="signature" />
+18-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:9:9-44
+19
+20    <uses-permission android:name="com.trailerbabu.permission.C2D_MESSAGE" /> <!-- c2dm RECEIVE are basic requirements for push messages through Google's FCM -->
+20-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:11:5-79
+20-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:11:22-76
+21    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+21-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:17:5-82
+21-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:17:22-79
+22    <!--
+23 Required so the device vibrates on receiving a push notification.
+24         Vibration settings of the device still apply.
+25    -->
+26    <uses-permission android:name="android.permission.VIBRATE" />
+26-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:23:5-66
+26-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:23:22-63
+27    <!--
+28 Use to restore notifications the user hasn't interacted with.
+29         They could be missed notifications if the user reboots their device if this isn't in place.
+30    -->
+31    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- START: ShortcutBadger -->
+31-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:29:5-81
+31-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:29:22-78
+32    <!-- Samsung -->
+33    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+33-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:31:5-86
+33-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:31:22-83
+34    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" /> <!-- HTC -->
+34-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:32:5-87
+34-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:32:22-84
+35    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+35-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:33:5-81
+35-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:33:22-78
+36    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" /> <!-- Sony -->
+36-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:34:5-83
+36-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:34:22-80
+37    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+37-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:35:5-88
+37-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:35:22-85
+38    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" /> <!-- Apex -->
+38-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:36:5-92
+38-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:36:22-89
+39    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" /> <!-- Solid -->
+39-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:37:5-84
+39-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:37:22-81
+40    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" /> <!-- Huawei -->
+40-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:38:5-83
+40-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:38:22-80
+41    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+41-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:39:5-91
+41-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:39:22-88
+42    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+42-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:40:5-92
+42-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:40:22-89
+43    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" /> <!-- ZUK -->
+43-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:41:5-93
+43-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:41:22-90
+44    <uses-permission android:name="android.permission.READ_APP_BADGE" /> <!-- OPPO -->
+44-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:42:5-73
+44-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:42:22-70
+45    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+45-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:43:5-82
+45-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:43:22-79
+46    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" /> <!-- EvMe -->
+46-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:44:5-83
+46-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:44:22-80
+47    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+47-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:45:5-88
+47-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:45:22-85
+48    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+48-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:46:5-89
+48-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:46:22-86
+49    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+49-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:26:5-110
+49-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:26:22-107
+50    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+50-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:28:5-77
+50-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:28:22-74
+51
+52    <application
+52-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:6:5-25:19
+53        android:name="com.trailerbabu.MainApplication"
+53-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:7:7-38
+54        android:allowBackup="false"
+54-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:11:7-34
+55        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+55-->[androidx.core:core:1.5.0-beta01] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/712e3e5fc91c379849394928b5832cf4/core-1.5.0-beta01/AndroidManifest.xml:24:18-86
+56        android:debuggable="true"
+57        android:icon="@mipmap/ic_launcher_custom"
+57-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:9:7-48
+58        android:label="@string/app_name"
+58-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:8:7-39
+59        android:roundIcon="@mipmap/ic_launcher_custom_round"
+59-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:10:7-59
+60        android:theme="@style/AppTheme"
+60-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:12:7-38
+61        android:usesCleartextTraffic="true" >
+61-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/debug/AndroidManifest.xml:7:18-53
+62        <activity
+62-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:13:7-23:18
+63            android:name="com.trailerbabu.MainActivity"
+63-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:14:9-37
+64            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+64-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:16:9-86
+65            android:label="@string/app_name"
+65-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:15:9-41
+66            android:launchMode="singleTask"
+66-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:17:9-40
+67            android:windowSoftInputMode="adjustResize" >
+67-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:18:9-51
+68            <intent-filter>
+68-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:19:9-22:25
+69                <action android:name="android.intent.action.MAIN" />
+69-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:20:13-65
+69-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:20:21-62
+70
+71                <category android:name="android.intent.category.LAUNCHER" />
+71-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:21:13-73
+71-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:21:23-70
+72            </intent-filter>
+73        </activity>
+74        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+74-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:24:7-84
+74-->/home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/android/app/src/main/AndroidManifest.xml:24:17-81
+75
+76        <meta-data
+76-->[:react-native-firebase_analytics] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/@react-native-firebase/analytics/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:9-18:36
+77            android:name="firebase_analytics_collection_enabled"
+77-->[:react-native-firebase_analytics] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/@react-native-firebase/analytics/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-65
+78            android:value="true" />
+78-->[:react-native-firebase_analytics] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/@react-native-firebase/analytics/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-33
+79
+80        <provider
+80-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-20:20
+81            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
+81-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-83
+82            android:authorities="com.trailerbabu.fileprovider"
+82-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-64
+83            android:exported="false"
+83-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-37
+84            android:grantUriPermissions="true" >
+84-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-47
+85            <meta-data
+85-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-19:63
+86                android:name="android.support.FILE_PROVIDER_PATHS"
+86-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-67
+87                android:resource="@xml/file_provider_paths" />
+87-->[:react-native-webview] /home/tekplanet/Documents/Project/React native/NativeProjects/TrailerBabu/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:17-60
+88        </provider>
+89
+90        <receiver
+90-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:49:9-59:20
+91            android:name="com.onesignal.FCMBroadcastReceiver"
+91-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:50:13-62
+92            android:permission="com.google.android.c2dm.permission.SEND" >
+92-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:51:13-73
+93
+94            <!-- High priority so OneSignal payloads can be filtered from other FCM receivers -->
+95            <intent-filter android:priority="999" >
+95-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:54:13-58:29
+95-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:54:28-50
+96                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+96-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:55:17-81
+96-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:55:25-78
 97
-98        <provider
-98-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:26:9-31:39
-99            android:name="com.google.firebase.provider.FirebaseInitProvider"
-99-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:27:13-77
-100            android:authorities="com.trailerbabu.firebaseinitprovider"
-100-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:28:13-72
-101            android:directBootAware="true"
-101-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:29:13-43
-102            android:exported="false"
-102-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:30:13-37
-103            android:initOrder="100" />
-103-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:31:13-36
-104
-105        <receiver
-105-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:29:9-33:20
-106            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-106-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:30:13-85
-107            android:enabled="true"
-107-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:31:13-35
-108            android:exported="false" >
-108-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:32:13-37
-109        </receiver>
-110
-111        <service
-111-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:35:9-38:40
-112            android:name="com.google.android.gms.measurement.AppMeasurementService"
-112-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:36:13-84
-113            android:enabled="true"
-113-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:37:13-35
-114            android:exported="false" />
-114-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:38:13-37
-115        <service
-115-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:39:9-43:72
-116            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-116-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:40:13-87
-117            android:enabled="true"
-117-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:41:13-35
-118            android:exported="false"
-118-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:42:13-37
-119            android:permission="android.permission.BIND_JOB_SERVICE" />
-119-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:43:13-69
-120
-121        <meta-data
-121-->[com.google.android.gms:play-services-basement:17.1.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/b60dd2268b782368d557b27ad5db1f38/jetified-play-services-basement-17.1.1/AndroidManifest.xml:23:9-25:69
-122            android:name="com.google.android.gms.version"
-122-->[com.google.android.gms:play-services-basement:17.1.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/b60dd2268b782368d557b27ad5db1f38/jetified-play-services-basement-17.1.1/AndroidManifest.xml:24:13-58
-123            android:value="@integer/google_play_services_version" />
-123-->[com.google.android.gms:play-services-basement:17.1.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/b60dd2268b782368d557b27ad5db1f38/jetified-play-services-basement-17.1.1/AndroidManifest.xml:25:13-66
-124    </application>
-125
-126</manifest>
+98                <category android:name="com.trailerbabu" />
+98-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:57:17-61
+98-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:57:27-58
+99            </intent-filter>
+100        </receiver>
+101
+102        <service
+102-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:61:9-67:19
+103            android:name="com.onesignal.HmsMessageServiceOneSignal"
+103-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:62:13-68
+104            android:exported="false" >
+104-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:63:13-37
+105            <intent-filter>
+105-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:64:13-66:29
+106                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
+106-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:65:17-81
+106-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:65:25-78
+107            </intent-filter>
+108        </service>
+109
+110        <activity
+110-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:69:9-76:20
+111            android:name="com.onesignal.NotificationOpenedActivityHMS"
+111-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:70:13-71
+112            android:noHistory="true"
+112-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:71:13-37
+113            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+113-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:72:13-72
+114            <intent-filter>
+114-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:73:13-75:29
+115                <action android:name="android.intent.action.VIEW" />
+115-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:74:17-69
+115-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:74:25-66
+116            </intent-filter>
+117        </activity>
+118
+119        <service android:name="com.onesignal.FCMIntentService" />
+119-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:78:9-66
+119-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:78:18-63
+120        <service
+120-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:79:9-81:72
+121            android:name="com.onesignal.FCMIntentJobService"
+121-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:80:13-61
+122            android:permission="android.permission.BIND_JOB_SERVICE" />
+122-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:81:13-69
+123        <service
+123-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:82:9-84:43
+124            android:name="com.onesignal.FocusDelaySyncService"
+124-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:83:13-63
+125            android:stopWithTask="true" />
+125-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:84:13-40
+126        <service
+126-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:85:9-87:72
+127            android:name="com.onesignal.FocusDelaySyncJobService"
+127-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:86:13-66
+128            android:permission="android.permission.BIND_JOB_SERVICE" />
+128-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:87:13-69
+129        <service
+129-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:88:9-90:43
+130            android:name="com.onesignal.SyncService"
+130-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:89:13-53
+131            android:stopWithTask="true" />
+131-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:90:13-40
+132        <service
+132-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:91:9-93:72
+133            android:name="com.onesignal.SyncJobService"
+133-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:92:13-56
+134            android:permission="android.permission.BIND_JOB_SERVICE" />
+134-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:93:13-69
+135
+136        <activity
+136-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:95:9-97:75
+137            android:name="com.onesignal.PermissionsActivity"
+137-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:96:13-61
+138            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+138-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:97:13-72
+139
+140        <receiver android:name="com.onesignal.NotificationDismissReceiver" />
+140-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:99:9-78
+140-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:99:19-75
+141        <receiver android:name="com.onesignal.BootUpReceiver" >
+141-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:100:9-105:20
+141-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:100:19-62
+142            <intent-filter>
+142-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:101:13-104:29
+143                <action android:name="android.intent.action.BOOT_COMPLETED" />
+143-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:102:17-79
+143-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:102:25-76
+144                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+144-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:103:17-82
+144-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:103:25-79
+145            </intent-filter>
+146        </receiver>
+147        <receiver android:name="com.onesignal.UpgradeReceiver" >
+147-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:106:9-110:20
+147-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:106:19-63
+148            <intent-filter>
+148-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:107:13-109:29
+149                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+149-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:108:17-84
+149-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:108:25-81
+150            </intent-filter>
+151        </receiver>
+152
+153        <activity
+153-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:112:9-115:75
+154            android:name="com.onesignal.NotificationOpenedReceiver"
+154-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:113:13-68
+155            android:noHistory="true"
+155-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:114:13-37
+156            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+156-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:115:13-72
+157
+158        <service
+158-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:17:9-23:19
+159            android:name="com.google.firebase.components.ComponentDiscoveryService"
+159-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:18:13-84
+160            android:directBootAware="true"
+160-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:35:13-43
+161            android:exported="false" >
+161-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:19:13-37
+162            <meta-data
+162-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:20:13-22:85
+163                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+163-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:21:17-111
+164                android:value="com.google.firebase.components.ComponentRegistrar" />
+164-->[com.google.firebase:firebase-firestore:22.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca03bee0c2396b68cfbafaf182e36c57/jetified-firebase-firestore-22.1.0/AndroidManifest.xml:22:17-82
+165            <meta-data
+165-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:39:13-41:85
+166                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+166-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:40:17-119
+167                android:value="com.google.firebase.components.ComponentRegistrar" />
+167-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:41:17-82
+168            <meta-data
+168-->[com.google.firebase:firebase-datatransport:17.0.10] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/f5cbade612140108f54057bae2ecff1c/firebase-datatransport-17.0.10/AndroidManifest.xml:28:13-30:85
+169                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+169-->[com.google.firebase:firebase-datatransport:17.0.10] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/f5cbade612140108f54057bae2ecff1c/firebase-datatransport-17.0.10/AndroidManifest.xml:29:17-115
+170                android:value="com.google.firebase.components.ComponentRegistrar" />
+170-->[com.google.firebase:firebase-datatransport:17.0.10] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/f5cbade612140108f54057bae2ecff1c/firebase-datatransport-17.0.10/AndroidManifest.xml:30:17-82
+171            <meta-data
+171-->[com.google.firebase:firebase-iid:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca8976134810ae7a66088b4d0258d154/firebase-iid-21.0.1/AndroidManifest.xml:32:13-34:85
+172                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+172-->[com.google.firebase:firebase-iid:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca8976134810ae7a66088b4d0258d154/firebase-iid-21.0.1/AndroidManifest.xml:33:17-96
+173                android:value="com.google.firebase.components.ComponentRegistrar" />
+173-->[com.google.firebase:firebase-iid:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca8976134810ae7a66088b4d0258d154/firebase-iid-21.0.1/AndroidManifest.xml:34:17-82
+174            <meta-data
+174-->[com.google.android.gms:play-services-measurement-api:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2203d6a84fc51624bcebcc4c5c651f3c/play-services-measurement-api-18.0.2/AndroidManifest.xml:30:13-32:85
+175                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+175-->[com.google.android.gms:play-services-measurement-api:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2203d6a84fc51624bcebcc4c5c651f3c/play-services-measurement-api-18.0.2/AndroidManifest.xml:31:17-139
+176                android:value="com.google.firebase.components.ComponentRegistrar" />
+176-->[com.google.android.gms:play-services-measurement-api:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2203d6a84fc51624bcebcc4c5c651f3c/play-services-measurement-api-18.0.2/AndroidManifest.xml:32:17-82
+177            <meta-data
+177-->[com.google.firebase:firebase-installations:16.3.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/7c7197f4f135048fa4cb5d72655163fc/firebase-installations-16.3.5/AndroidManifest.xml:18:13-20:85
+178                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+178-->[com.google.firebase:firebase-installations:16.3.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/7c7197f4f135048fa4cb5d72655163fc/firebase-installations-16.3.5/AndroidManifest.xml:19:17-127
+179                android:value="com.google.firebase.components.ComponentRegistrar" />
+179-->[com.google.firebase:firebase-installations:16.3.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/7c7197f4f135048fa4cb5d72655163fc/firebase-installations-16.3.5/AndroidManifest.xml:20:17-82
+180            <!--
+181                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+182                clients to use it as well, by defining this registrar in their own core/common library.
+183            -->
+184            <meta-data
+184-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:43:13-45:85
+185                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+185-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:44:17-121
+186                android:value="com.google.firebase.components.ComponentRegistrar" />
+186-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:45:17-82
+187        </service>
+188        <!--
+189             FirebaseMessagingService performs security checks at runtime,
+190             but set to not exported to explicitly avoid allowing another app to call it.
+191        -->
+192        <service
+192-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:28:9-35:19
+193            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+193-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:29:13-82
+194            android:directBootAware="true"
+194-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:30:13-43
+195            android:exported="false" >
+195-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:31:13-37
+196            <intent-filter android:priority="-500" >
+196-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:32:13-34:29
+196-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:32:28-51
+197                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+197-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:33:17-78
+197-->[com.google.firebase:firebase-messaging:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/28688ac564f84dd4bf12e068752dcb4c/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:33:25-75
+198            </intent-filter>
+199        </service>
+200        <service
+200-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2c6c35b36e2cd976392781ff1e194e90/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+201            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+201-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2c6c35b36e2cd976392781ff1e194e90/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+202            android:exported="false" >
+202-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2c6c35b36e2cd976392781ff1e194e90/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+203            <meta-data
+203-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2c6c35b36e2cd976392781ff1e194e90/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+204                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+204-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2c6c35b36e2cd976392781ff1e194e90/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+205                android:value="cct" />
+205-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/2c6c35b36e2cd976392781ff1e194e90/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+206        </service>
+207        <service
+207-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/54fddfe7548372730712f4a711c70953/jetified-transport-runtime-2.2.5/AndroidManifest.xml:26:9-30:19
+208            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+208-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/54fddfe7548372730712f4a711c70953/jetified-transport-runtime-2.2.5/AndroidManifest.xml:27:13-117
+209            android:exported="false"
+209-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/54fddfe7548372730712f4a711c70953/jetified-transport-runtime-2.2.5/AndroidManifest.xml:28:13-37
+210            android:permission="android.permission.BIND_JOB_SERVICE" >
+210-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/54fddfe7548372730712f4a711c70953/jetified-transport-runtime-2.2.5/AndroidManifest.xml:29:13-69
+211        </service>
+212
+213        <receiver
+213-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/54fddfe7548372730712f4a711c70953/jetified-transport-runtime-2.2.5/AndroidManifest.xml:32:9-34:40
+214            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+214-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/54fddfe7548372730712f4a711c70953/jetified-transport-runtime-2.2.5/AndroidManifest.xml:33:13-132
+215            android:exported="false" />
+215-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/54fddfe7548372730712f4a711c70953/jetified-transport-runtime-2.2.5/AndroidManifest.xml:34:13-37
+216
+217        <activity
+217-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:23:9-27:75
+218            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+218-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:24:13-93
+219            android:excludeFromRecents="true"
+219-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:25:13-46
+220            android:exported="false"
+220-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:26:13-37
+221            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+221-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:27:13-72
+222        <!--
+223            Service handling Google Sign-In user revocation. For apps that do not integrate with
+224            Google Sign-In, this service will never be started.
+225        -->
+226        <service
+226-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:33:9-37:51
+227            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+227-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:34:13-89
+228            android:exported="true"
+228-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:35:13-36
+229            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+229-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:36:13-107
+230            android:visibleToInstantApps="true" />
+230-->[com.google.android.gms:play-services-auth:19.0.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/33989af206de8df2bc991bb8c7a4e1ea/play-services-auth-19.0.0/AndroidManifest.xml:37:13-48
+231
+232        <receiver
+232-->[com.google.firebase:firebase-iid:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca8976134810ae7a66088b4d0258d154/firebase-iid-21.0.1/AndroidManifest.xml:37:9-44:20
+233            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+233-->[com.google.firebase:firebase-iid:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca8976134810ae7a66088b4d0258d154/firebase-iid-21.0.1/AndroidManifest.xml:38:13-78
+234            android:exported="true"
+234-->[com.google.firebase:firebase-iid:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca8976134810ae7a66088b4d0258d154/firebase-iid-21.0.1/AndroidManifest.xml:39:13-36
+235            android:permission="com.google.android.c2dm.permission.SEND" >
+235-->[com.google.firebase:firebase-iid:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca8976134810ae7a66088b4d0258d154/firebase-iid-21.0.1/AndroidManifest.xml:40:13-73
+236            <intent-filter>
+236-->[com.google.firebase:firebase-iid:21.0.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ca8976134810ae7a66088b4d0258d154/firebase-iid-21.0.1/AndroidManifest.xml:41:13-43:29
+237                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+237-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:55:17-81
+237-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:55:25-78
+238            </intent-filter>
+239        </receiver>
+240
+241        <activity
+241-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+242            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+242-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+243            android:exported="false"
+243-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+244            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+244-->[com.google.android.gms:play-services-base:17.1.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d3caf54114e86177d18237a7364d1766/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+245
+246        <provider
+246-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:26:9-31:39
+247            android:name="com.google.firebase.provider.FirebaseInitProvider"
+247-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:27:13-77
+248            android:authorities="com.trailerbabu.firebaseinitprovider"
+248-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:28:13-72
+249            android:directBootAware="true"
+249-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:29:13-43
+250            android:exported="false"
+250-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:30:13-37
+251            android:initOrder="100" />
+251-->[com.google.firebase:firebase-common:19.5.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/4ddad8e68324c3fb857b79e6a4bba0e9/jetified-firebase-common-19.5.0/AndroidManifest.xml:31:13-36
+252
+253        <receiver
+253-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:29:9-33:20
+254            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+254-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:30:13-85
+255            android:enabled="true"
+255-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:31:13-35
+256            android:exported="false" >
+256-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:32:13-37
+257        </receiver>
+258
+259        <service
+259-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:35:9-38:40
+260            android:name="com.google.android.gms.measurement.AppMeasurementService"
+260-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:36:13-84
+261            android:enabled="true"
+261-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:37:13-35
+262            android:exported="false" />
+262-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:38:13-37
+263        <service
+263-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:39:9-43:72
+264            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+264-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:40:13-87
+265            android:enabled="true"
+265-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:41:13-35
+266            android:exported="false"
+266-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:42:13-37
+267            android:permission="android.permission.BIND_JOB_SERVICE" />
+267-->[com.google.android.gms:play-services-measurement:18.0.2] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/5e4ff75e92dd2a14e7706d893e413f26/play-services-measurement-18.0.2/AndroidManifest.xml:43:13-69
+268
+269        <meta-data
+269-->[com.google.android.gms:play-services-basement:17.1.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/b60dd2268b782368d557b27ad5db1f38/jetified-play-services-basement-17.1.1/AndroidManifest.xml:23:9-25:69
+270            android:name="com.google.android.gms.version"
+270-->[com.google.android.gms:play-services-basement:17.1.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/b60dd2268b782368d557b27ad5db1f38/jetified-play-services-basement-17.1.1/AndroidManifest.xml:24:13-58
+271            android:value="@integer/google_play_services_version" />
+271-->[com.google.android.gms:play-services-basement:17.1.1] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/b60dd2268b782368d557b27ad5db1f38/jetified-play-services-basement-17.1.1/AndroidManifest.xml:25:13-66
+272
+273        <provider
+273-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:31:9-37:35
+274            android:name="androidx.work.impl.WorkManagerInitializer"
+274-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:32:13-69
+275            android:authorities="com.trailerbabu.workmanager-init"
+275-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:33:13-68
+276            android:directBootAware="false"
+276-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:34:13-44
+277            android:exported="false"
+277-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:35:13-37
+278            android:multiprocess="true" />
+278-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:36:13-40
+279
+280        <service
+280-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:39:9-44:35
+281            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+281-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:40:13-88
+282            android:directBootAware="false"
+282-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:41:13-44
+283            android:enabled="@bool/enable_system_alarm_service_default"
+283-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:42:13-72
+284            android:exported="false" />
+284-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:43:13-37
+285        <service
+285-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:45:9-51:35
+286            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+286-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:46:13-84
+287            android:directBootAware="false"
+287-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:47:13-44
+288            android:enabled="@bool/enable_system_job_service_default"
+288-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:48:13-70
+289            android:exported="true"
+289-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:49:13-36
+290            android:permission="android.permission.BIND_JOB_SERVICE" />
+290-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:50:13-69
+291        <service
+291-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:52:9-57:35
+292            android:name="androidx.work.impl.foreground.SystemForegroundService"
+292-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:53:13-81
+293            android:directBootAware="false"
+293-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:54:13-44
+294            android:enabled="@bool/enable_system_foreground_service_default"
+294-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:55:13-77
+295            android:exported="false" />
+295-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:56:13-37
+296
+297        <receiver
+297-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:59:9-64:35
+298            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+298-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:60:13-88
+299            android:directBootAware="false"
+299-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:61:13-44
+300            android:enabled="true"
+300-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:62:13-35
+301            android:exported="false" />
+301-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:63:13-37
+302        <receiver
+302-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:65:9-75:20
+303            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+303-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:66:13-106
+304            android:directBootAware="false"
+304-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:67:13-44
+305            android:enabled="false"
+305-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:68:13-36
+306            android:exported="false" >
+306-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:69:13-37
+307            <intent-filter>
+307-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:71:13-74:29
+308                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+308-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:72:17-87
+308-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:72:25-84
+309                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+309-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:73:17-90
+309-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:73:25-87
+310            </intent-filter>
+311        </receiver>
+312        <receiver
+312-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:76:9-86:20
+313            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+313-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:77:13-104
+314            android:directBootAware="false"
+314-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:78:13-44
+315            android:enabled="false"
+315-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:79:13-36
+316            android:exported="false" >
+316-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:80:13-37
+317            <intent-filter>
+317-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:82:13-85:29
+318                <action android:name="android.intent.action.BATTERY_OKAY" />
+318-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:83:17-77
+318-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:83:25-74
+319                <action android:name="android.intent.action.BATTERY_LOW" />
+319-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:84:17-76
+319-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:84:25-73
+320            </intent-filter>
+321        </receiver>
+322        <receiver
+322-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:87:9-97:20
+323            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+323-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:88:13-104
+324            android:directBootAware="false"
+324-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:89:13-44
+325            android:enabled="false"
+325-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:90:13-36
+326            android:exported="false" >
+326-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:91:13-37
+327            <intent-filter>
+327-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:93:13-96:29
+328                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+328-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:94:17-83
+328-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:94:25-80
+329                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+329-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:95:17-82
+329-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:95:25-79
+330            </intent-filter>
+331        </receiver>
+332        <receiver
+332-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:98:9-107:20
+333            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+333-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:99:13-103
+334            android:directBootAware="false"
+334-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:100:13-44
+335            android:enabled="false"
+335-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:101:13-36
+336            android:exported="false" >
+336-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:102:13-37
+337            <intent-filter>
+337-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:104:13-106:29
+338                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+338-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:105:17-79
+338-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:105:25-76
+339            </intent-filter>
+340        </receiver>
+341        <receiver
+341-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:108:9-119:20
+342            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+342-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:109:13-88
+343            android:directBootAware="false"
+343-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:110:13-44
+344            android:enabled="false"
+344-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:111:13-36
+345            android:exported="false" >
+345-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:112:13-37
+346            <intent-filter>
+346-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:114:13-118:29
+347                <action android:name="android.intent.action.BOOT_COMPLETED" />
+347-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:102:17-79
+347-->[com.onesignal:OneSignal:4.2.0] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/d1e893c90a489a7fc27c136ed362da9d/jetified-OneSignal-4.2.0/AndroidManifest.xml:102:25-76
+348                <action android:name="android.intent.action.TIME_SET" />
+348-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:116:17-73
+348-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:116:25-70
+349                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+349-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:117:17-81
+349-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:117:25-78
+350            </intent-filter>
+351        </receiver>
+352        <receiver
+352-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:120:9-129:20
+353            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+353-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:121:13-99
+354            android:directBootAware="false"
+354-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:122:13-44
+355            android:enabled="@bool/enable_system_alarm_service_default"
+355-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:123:13-72
+356            android:exported="false" >
+356-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:124:13-37
+357            <intent-filter>
+357-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:126:13-128:29
+358                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+358-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:127:17-98
+358-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:127:25-95
+359            </intent-filter>
+360        </receiver>
+361        <receiver
+361-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:130:9-140:20
+362            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+362-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:131:13-78
+363            android:directBootAware="false"
+363-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:132:13-44
+364            android:enabled="true"
+364-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:133:13-35
+365            android:exported="true"
+365-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:134:13-36
+366            android:permission="android.permission.DUMP" >
+366-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:135:13-57
+367            <intent-filter>
+367-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:137:13-139:29
+368                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+368-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:138:17-88
+368-->[androidx.work:work-runtime:2.7.0-alpha02] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/ef0d683354e98742def840d6b55cb6fb/work-runtime-2.7.0-alpha02/AndroidManifest.xml:138:25-85
+369            </intent-filter>
+370        </receiver>
+371
+372        <service
+372-->[androidx.room:room-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/576aac0a911dad721855a7ed0a5dc757/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
+373            android:name="androidx.room.MultiInstanceInvalidationService"
+373-->[androidx.room:room-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/576aac0a911dad721855a7ed0a5dc757/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
+374            android:directBootAware="true"
+374-->[androidx.room:room-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/576aac0a911dad721855a7ed0a5dc757/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
+375            android:exported="false" />
+375-->[androidx.room:room-runtime:2.2.5] /home/tekplanet/.gradle/caches/transforms-2/files-2.1/576aac0a911dad721855a7ed0a5dc757/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
+376    </application>
+377
+378</manifest>
