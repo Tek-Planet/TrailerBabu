@@ -14,6 +14,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/../node_modules/@react-native-async-storage/async-storage/android" />
             <option value="$PROJECT_DIR$/../node_modules/@react-native-community/masked-view/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@react-native-firebase/analytics/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@react-native-firebase/app/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@react-native-firebase/firestore/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-linear-gradient/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-reanimated/android" />
