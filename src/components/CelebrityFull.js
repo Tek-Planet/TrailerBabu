@@ -38,6 +38,7 @@ export default class Celebrity extends Component {
 
   render() {
     const {title} = this.props.celebrity;
+    const titleFix = title.rendered.replace('D&#8217;', '');
     const {isLoading, imageUrl} = this.state;
     const {celebrity, navigation} = this.props;
 
@@ -92,7 +93,7 @@ export default class Celebrity extends Component {
             fontWeight: 'bold',
             textAlign: 'center',
           }}>
-          {title.rendered}
+          {titleFix}
         </Text>
       </View>
     );

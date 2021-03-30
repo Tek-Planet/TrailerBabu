@@ -7,13 +7,11 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import axios from 'axios'
+import axios from 'axios';
 import mainContext from '../context/Context';
 
 export function PostComment({postID}) {
-  const {userProfile, isLogged} = useContext(
-    mainContext,
-  );
+  const {userProfile, isLogged, setReloadComment} = useContext(mainContext);
 
   const [state, setState] = useState({
     body: '',
@@ -22,14 +20,12 @@ export function PostComment({postID}) {
   });
 
   const textInputChange = (val) => {
-
-    if (val.trim().length > 0 ) {
+    if (val.trim().length > 0) {
       setState({
         ...state,
         body: val,
       });
-    }
-    else{
+    } else {
       setState({
         ...state,
         body: '',
@@ -38,14 +34,12 @@ export function PostComment({postID}) {
   };
 
   const handleNameChange = (val) => {
-
-    if (val.trim().length > 0 ) {
+    if (val.trim().length > 0) {
       setState({
         ...state,
         name: val,
       });
-    }
-    else{
+    } else {
       setState({
         ...state,
         name: '',
@@ -54,14 +48,12 @@ export function PostComment({postID}) {
   };
 
   const handleMailChange = (val) => {
-
-    if (val.trim().length > 0 ) {
+    if (val.trim().length > 0) {
       setState({
         ...state,
         email: val,
       });
-    }
-    else{
+    } else {
       setState({
         ...state,
         email: '',
@@ -80,19 +72,16 @@ export function PostComment({postID}) {
         author: 1,
         author_name: state.name,
         author_email: state.email,
-        content: state.body
+        content: state.body,
       };
-
-     
       axios
         .post('https://trailerbabu.com/wp-json/wp/v2/comments', newComments)
         .then((res) => {
-          console.log(res.data)
+          console.log(res.data);
           setState({
             ...state,
-            body:''
-
-          })
+            body: '',
+          });
         })
         .catch((err) => {
           console.log(err.message);
@@ -107,7 +96,7 @@ export function PostComment({postID}) {
       <View style={{}}>
         <View style={styles.inputContainer}>
           <TextInput
-            value =  {state.body}
+            value={state.body}
             multiline={true}
             numberOfLines={5}
             placeholder="Your Comment"
@@ -117,27 +106,27 @@ export function PostComment({postID}) {
             style={styles.input}
           />
         </View>
-{/* show the username and password when user is not login */}
-      { !isLogged ? (
-        <View>
-          <TextInput
-          placeholder="Name"
-          placeholderTextColor="#666666"
-          autoCapitalize="none"
-          onChangeText={(val) => handleNameChange(val)}
-          style={styles.inputDetails}
-        />
+        {/* show the username and password when user is not login */}
+        {!isLogged ? (
+          <View>
+            <TextInput
+              placeholder="Name"
+              placeholderTextColor="#666666"
+              autoCapitalize="none"
+              onChangeText={(val) => handleNameChange(val)}
+              style={styles.inputDetails}
+            />
 
-        <TextInput
-          placeholder="Email"
-          placeholderTextColor="#666666"
-          autoCapitalize="none"
-          onChangeText={(val) => handleMailChange(val)}
-          style={styles.inputDetails}
-        />
-        </View>
-      ) : (null)}
-       {/* <Text style={{color:'#fff'}}>{state.body}</Text>
+            <TextInput
+              placeholder="Email"
+              placeholderTextColor="#666666"
+              autoCapitalize="none"
+              onChangeText={(val) => handleMailChange(val)}
+              style={styles.inputDetails}
+            />
+          </View>
+        ) : null}
+        {/* <Text style={{color:'#fff'}}>{state.body}</Text>
        <Text style={{color:'#fff'}}>{state.email}</Text>
        <Text style={{color:'#fff'}}>{state.name}</Text> */}
         <TouchableOpacity

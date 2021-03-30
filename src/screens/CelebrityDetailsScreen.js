@@ -35,6 +35,11 @@ export default function CelebrityDetailsScreen({route, navigation}) {
   const fb = celebrity.themeum_facebook_url;
   const youtube = celebrity.themeum_youtube_url;
   const twitter = celebrity.themeum_twitter_url;
+  //const regrex = (/[`~0-9!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+  var str = 'D&#8217; Visit Microsoft!';
+  var res = str.replace('D&#8217;', 'W3Schools');
+  const regrex = ('D&#8217;', '');
+  const titleFix = celebrity.title.rendered.replace('D&#8217;', '');
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -126,7 +131,7 @@ export default function CelebrityDetailsScreen({route, navigation}) {
           </View>
 
           <View style={[styles.row, {marginTop: 40}]}>
-            <Text style={styles.headers}>{celebrity.title.rendered}</Text>
+            <Text style={styles.headers}>{titleFix}</Text>
           </View>
 
           <View style={styles.row}>

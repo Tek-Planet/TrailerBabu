@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -14,136 +14,145 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import PostComment from './PostComment';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import mainContext from '../context/Context';
 
-export default class Comment extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: false,
-      comments: [],
-    };
-  }
+export default function Comment({postID}) {
+  const {reloadComment, setReloadComment} = useContext(mainContext);
 
-  static propTypes = {
-    postID: PropTypes.number.isRequired,
+  const [state, setState] = useState({
+    isLoading: false,
+    comments: [],
+  });
+
+  useEffect(() => {
+    fetchComments();
+  });
+
+  // if (reloadComment) {
+  //   test();
+  // }
+
+  const test = () => {
+    alert('mee');
   };
 
-  componentDidMount() {
-    const {postID} = this.props;
-
+  const fetchComments = () => {
     axios
       .get(`https://trailerbabu.com/wp-json/wp/v2/comments?post=${postID}`)
       .then((res) => {
-        this.setState({
+        setState({
+          ...state,
           comments: res.data,
           isLoading: true,
         });
       });
-  }
+  };
 
-  render() {
-    dayjs.extend(relativeTime);
-    const {postID} = this.props;
-    const {isLoading, comments} = this.state;
+  dayjs.extend(relativeTime);
 
-    let commentMarkup =
-      comments.length !== 0 ? (
-        <FlatList
-          data={comments}
-          renderItem={({item}) => {
-            const regex = /(<([^>]+)>)/gi;
-            const content = item.content.rendered.replace(regex, '');
-            return (
-              <View>
-                <View style={{flexDirection: 'row'}}>
-                  <View stywi>
-                    <Image
-                      style={{
-                        width: 50,
-                        height: 50,
-                        borderRadius: 100,
-                      }}
-                      source={require('../img/background/noImage.png')}
-                    />
-                  </View>
-                  <View
+  let commentMarkup =
+    state.comments.length !== 0 ? (
+      <FlatList
+        data={state.comments}
+        renderItem={({item}) => {
+          const regex = /(<([^>]+)>)/gi;
+          const content = item.content.rendered.replace(regex, '');
+          return (
+            <View>
+              <View style={{flexDirection: 'row'}}>
+                <View stywi>
+                  <Image
                     style={{
-                      marginStart: 10,
+                      width: 50,
+                      height: 50,
+                      borderRadius: 100,
+                    }}
+                    source={require('../img/background/noImage.png')}
+                  />
+                </View>
+                <View
+                  style={{
+                    marginStart: 10,
+                  }}>
+                  <Text
+                    style={{
+                      fontSize: 18,
+                      fontFamily: 'Roboto-Regular',
+                      color: '#ffffff',
                     }}>
-                    <Text
-                      style={{
-                        fontSize: 18,
-                        fontFamily: 'Roboto-Regular',
-                        color: '#ffffff',
-                      }}>
-                      {item.author_name}
-                    </Text>
+                    {item.author_name}
+                  </Text>
 
-                    <Text
-                      style={{
-                        fontSize: 15,
-                        fontFamily: 'Roboto-Regular',
-                        color: '#ffffff',
-                      }}>
-                      {dayjs(item.date).format('DD/MM/YYYY')}
-                    </Text>
+                  <Text
+                    style={{
+                      fontSize: 15,
+                      fontFamily: 'Roboto-Regular',
+                      color: '#ffffff',
+                    }}>
+                    {dayjs(item.date).format('DD/MM/YYYY')}
+                  </Text>
 
-                    {/* <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Rating</Text>               */}
+                  {/* <Text style={{fontSize:20, fontWeight:"bold", color:"#ffffff"}}>Rating</Text>               */}
 
-                    <Text
-                      style={{
-                        lineHeight: 26,
-                        marginTop: 5,
-                        textAlign: 'justify',
-                        fontSize: 15,
-                        fontFamily: 'Roboto-Regular',
-                        color: '#ffffff',
-                      }}>
-                      {content}
-                    </Text>
+                  <Text
+                    style={{
+                      lineHeight: 26,
+                      marginTop: 5,
+                      textAlign: 'justify',
+                      fontSize: 15,
+                      fontFamily: 'Roboto-Regular',
+                      color: '#ffffff',
+                    }}>
+                    {content}
+                  </Text>
 
-                    <View style={{marginTop: -10, marginBottom: 10}}>
-                      {item.rating ? (
-                        <Rating ratings={item.rating} />
-                      ) : (
-                        <Rating ratings={0} />
-                      )}
-                    </View>
-                  </View>
+                  {/* <View style={{marginTop: -10, marginBottom: 10}}>
+                    {item.rating ? (
+                      <Rating ratings={item.rating} />
+                    ) : (
+                      <Rating ratings={0} />
+                    )}
+                  </View> */}
                 </View>
               </View>
-            );
-          }}
-        />
-      ) : (
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{fontSize: 20, fontWeight: 'normal', color: '#ffffff'}}>
-            {' '}
-            No review for this movie yet{' '}
-          </Text>
-        </View>
-      );
-
-    let checkIfCommentIsLoaded = isLoading ? (
-      commentMarkup
+            </View>
+          );
+        }}
+      />
     ) : (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <ActivityIndicator color="#ffffff" size="large" />
-      </View>
-    );
-
-    return (
-      <View style={{padding: 20}}>
-        <Text style={{fontSize: 22,  marginBottom:10, fontWeight: 'bold', color: '#ffffff'}}>
-          Reviews
+        <Text style={{fontSize: 20, fontWeight: 'normal', color: '#ffffff'}}>
+          {' '}
+          No review for this movie yet{' '}
         </Text>
-
-        {checkIfCommentIsLoaded}
-
-        <PostComment postID = {postID} />
       </View>
     );
-  }
+
+  let checkIfCommentIsLoaded = state.isLoading ? (
+    commentMarkup
+  ) : (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <ActivityIndicator color="#ffffff" size="large" />
+    </View>
+  );
+
+  return (
+    <View style={{padding: 20}}>
+      <Text
+        style={{
+          fontSize: 22,
+          marginBottom: 10,
+          fontWeight: 'bold',
+          color: '#ffffff',
+        }}>
+        Reviews
+      </Text>
+
+      {checkIfCommentIsLoaded}
+
+      <PostComment postID={postID} />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

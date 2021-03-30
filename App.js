@@ -9,39 +9,69 @@ import OtherStackScreen from './src/screens/OtherStackScreen';
 import SplashScreen from './src/screens/SplashScreen';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import mainContext, {doSome} from './src/context/Context';
-import {loginUrl} from './src/const/const'; 
+import {loginUrl} from './src/const/const';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import analytics from '@react-native-firebase/analytics';
-import OneSignal from  'react-native-onesignal'
+import OneSignal from 'react-native-onesignal';
 import jwtDecode from 'jwt-decode';
-
 
 // axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdHJhaWxlcmJhYnUuY29tIiwiaWF0IjoxNjE2ODM5NjI0LCJuYmYiOjE2MTY4Mzk2MjQsImV4cCI6MTYxNzQ0NDQyNCwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMTI5NCJ9fX0.sbHvmRiHkV9kMTD7j1T4scEdMPvm3sjkX3xdpIN_QK8';
 
 AsyncStorage.getItem('token').then((token) => {
   if (token !== null) {
-  //  if we have token stored then check if it has expired
-  const decodedToken = jwtDecode(token);
-  if (decodedToken.exp * 1000 < Date.now())
-  // if tooken has expired make request for new token
-  { console.log('token expired')
+    //  if we have token stored then check if it has expired
+    const decodedToken = jwtDecode(token);
+    if (decodedToken.exp * 1000 < Date.now()) {
+      // if tooken has expired make request for new token
+      console.log('token expired');
 
-  const loginDetals = {
-    username: "TekPlanet",
-    password: "QuidProQuo@1012"
-  };
+      const loginDetals = {
+        username: 'TekPlanet',
+        password: 'QuidProQuo@1012',
+      };
 
-  axios
+      axios
+        .post('https://trailerbabu.com/wp-json/jwt-auth/v1/token', loginDetals)
+        .then((res) => {
+          // save it in the asyncstorage
+          console.log(res.data.token);
+          try {
+            AsyncStorage.setItem('token', res.data.token);
+            console.log('token stored');
+            axios.defaults.headers.common['Authorization'] =
+              'Bearer ' + res.data.token;
+          } catch {
+            setError('Error storing data on device');
+          }
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
+    // if token is still valid
+    else {
+      console.log('Token is still valid');
+      console.log(token);
+      axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+    }
+  } else {
+    // if we dont have token stored
+    const loginDetals = {
+      username: 'TekPlanet',
+      password: 'QuidProQuo@1012',
+    };
+    // make request for new token
+    axios
       .post('https://trailerbabu.com/wp-json/jwt-auth/v1/token', loginDetals)
       .then((res) => {
-      // save it in the asyncstorage
-        console.log(res.data.token)
+        // save it in the asyncstorage
+        console.log(res.data.token);
         try {
-            AsyncStorage.setItem(
-            'token', res.data.token);
-             console.log('token stored');
-             axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token
+          AsyncStorage.setItem('token', res.data.token);
+          console.log('token stored');
+          axios.defaults.headers.common['Authorization'] =
+            'Bearer ' + res.data.token;
         } catch {
           setError('Error storing data on device');
         }
@@ -49,47 +79,8 @@ AsyncStorage.getItem('token').then((token) => {
       .catch((err) => {
         console.log(err.message);
       });
-
-}
-  else 
-  // if token is still valid
-  {  console.log('Token is still valid')
-  console.log(token)
-  axios.defaults.headers.common['Authorization'] = 'Bearer '+token
-
-
-}
-   
-   
-  } else {
-  // if we dont have token stored
-      const loginDetals = {
-        username: "TekPlanet",
-        password: "QuidProQuo@1012"
-      };
-        // make request for new token
-      axios
-          .post('https://trailerbabu.com/wp-json/jwt-auth/v1/token', loginDetals)
-          .then((res) => {
-          // save it in the asyncstorage
-            console.log(res.data.token)
-            try {
-                AsyncStorage.setItem(
-                'token', res.data.token);
-                 console.log('token stored');
-                 axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token
-            } catch {
-              setError('Error storing data on device');
-            }
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
   }
 });
-
-
-
 
 const CustomDefaultTheme = {
   ...NavigationDefaultTheme,
@@ -100,10 +91,7 @@ const CustomDefaultTheme = {
   },
 };
 
-const Drawer = createDrawerNavigator();
-
 const App = ({navigation}) => {
-
   const navigationRef = useRef();
   const routeNameRef = useRef();
 
@@ -113,15 +101,16 @@ const App = ({navigation}) => {
   const [loggingIn, setloggingIn] = useState(false); //True when user is waiting for auth
   const [error, setError] = useState(null); //Error texts from the app or serve
   const [isLoading, setIsLoading] = useState(true);
+  const [reloadComment, setReloadComment] = useState(false);
 
   useEffect(() => {
-
-    OneSignal.setAppId("01706cc8-b5df-4482-9f3c-66981f781739");
+    OneSignal.setAppId('01706cc8-b5df-4482-9f3c-66981f781739');
     OneSignal.setLogLevel(6, 0);
     OneSignal.setRequiresUserPrivacyConsent(false);
-    OneSignal.promptForPushNotificationsWithUserResponse(response => {
-        this.OSLog("Prompt response:", response);
-    });
+
+    // OneSignal.promptForPushNotificationsWithUserResponse((response) => {
+    //   this.OSLog('Prompt response:', response);
+    // });
 
     AsyncStorage.getItem('userProfile').then((value) => {
       if (value !== null) {
@@ -154,7 +143,7 @@ const App = ({navigation}) => {
 
   //login function
   const doLogin = async (email, password) => {
-    //console.log(email + '...' + password);
+    console.log(email + '...' + password);
     setloggingIn(true);
     setError(null);
     let formData = new FormData();
@@ -173,7 +162,7 @@ const App = ({navigation}) => {
           await AsyncStorage.setItem(
             'userProfile',
             JSON.stringify({
-              email:email,
+              email: email,
               isLoggedIn: json.status,
               authToken: json.token,
               id: json.data.id,
@@ -186,16 +175,16 @@ const App = ({navigation}) => {
           setError('Error storing data on device');
         }
         const userDetails = {
-          email:email,
+          email: email,
           isLoggedIn: json.status,
           authToken: json.token,
           id: json.data.id,
           user_login: json.data.user_login,
           avatar: json.avatar,
-        }
+        };
 
         setUserProfile(userDetails);
-        
+
         setIsLogged(true);
         setUserToken(json.token);
       } else {
@@ -218,6 +207,8 @@ const App = ({navigation}) => {
     loggingIn: loggingIn,
     error: error,
     isLogged: isLogged,
+    reloadComment: reloadComment,
+    setReloadComment: setReloadComment,
 
     doSome: () => {
       doSome();
@@ -235,62 +226,34 @@ const App = ({navigation}) => {
   }
   return (
     <mainContext.Provider value={wContext}>
-      <NavigationContainer theme={CustomDefaultTheme}
-      // setting of screens 
-      ref={navigationRef}
-      onReady={() =>
-        (routeNameRef.current = navigationRef.current.getCurrentRoute().name)
-      }
-      onStateChange={async () => {
-        const previousRouteName = routeNameRef.current;
-        const currentRouteName = navigationRef.current.getCurrentRoute().name;
-
-        if (previousRouteName !== currentRouteName) {
-          // The line below uses the expo-firebase-analytics tracker
-          // https://docs.expo.io/versions/latest/sdk/firebase-analytics/
-          // Change this line to use another Mobile analytics SDK
-          await analytics().logScreenView({
-            screen_name: currentRouteName,
-            screen_class: currentRouteName
-          });
-        
+      <NavigationContainer
+        theme={CustomDefaultTheme}
+        // setting of screens
+        ref={navigationRef}
+        onReady={() =>
+          (routeNameRef.current = navigationRef.current.getCurrentRoute().name)
         }
+        onStateChange={async () => {
+          const previousRouteName = routeNameRef.current;
+          const currentRouteName = navigationRef.current.getCurrentRoute().name;
 
-        // Save the current route name for later comparison
-        routeNameRef.current = currentRouteName;
-      }}
-      
-      
-      >
+          if (previousRouteName !== currentRouteName) {
+            // The line below uses the expo-firebase-analytics tracker
+            // https://docs.expo.io/versions/latest/sdk/firebase-analytics/
+            // Change this line to use another Mobile analytics SDK
+            await analytics().logScreenView({
+              screen_name: currentRouteName,
+              screen_class: currentRouteName,
+            });
+          }
+
+          // Save the current route name for later comparison
+          routeNameRef.current = currentRouteName;
+        }}>
         <OtherStackScreen />
-        {/* <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-    //     <Drawer.Screen name="Home" component={OtherStackScreen} />
-    //     <Drawer.Screen name="Article" component={SplashScreen} />
-    //   </Drawer.Navigator> */}
       </NavigationContainer>
     </mainContext.Provider>
-
-    //   <mainContext.Provider value={wContext}> //WRAP IN CONTEXT
-    //   <StatusBar style="dark" />
-    //   <NavigationContainer>
-    //     <AppStack.Navigator initialRouteName="Login">
-    //       {isLogged == false ? ( //SHOWING TO LOGGED OUT USER
-    //         <>
-    //           <AppStack.Screen name="Login to Wordpress" component={Login} />
-    //         </>
-    //       ) : (
-    //         <>
-    //           <AppStack.Screen name="Home" component={Home} /> //SHOWING TO LOGGED IN USER
-    //         </>
-    //       )}
-    //     </AppStack.Navigator>
-    //   </NavigationContainer>
-    // </mainContext.Provider>
   );
 };
 
 export default App;
-
-// some app data
-
-// Your App ID: 01706cc8-b5df-4482-9f3c-66981f781739
