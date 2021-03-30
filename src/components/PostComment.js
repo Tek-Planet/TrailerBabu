@@ -71,9 +71,9 @@ export function PostComment({postID}) {
 
   const saveComment = () => {
     if (
-      state.body.length > 0 &&
+      state.body.trim().length > 0 &&
       state.name.trim().length > 0 &&
-      state.email.length > 0
+      state.email.trim().length > 0
     ) {
       const newComments = {
         post: postID,
@@ -87,7 +87,7 @@ export function PostComment({postID}) {
       axios
         .post('https://trailerbabu.com/wp-json/wp/v2/comments', newComments)
         .then((res) => {
-         
+          console.log(res.data)
           setState({
             ...state,
             body:''

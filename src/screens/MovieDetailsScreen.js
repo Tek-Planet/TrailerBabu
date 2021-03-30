@@ -47,7 +47,7 @@ class MovieDetailsScreen extends Component {
     else this.setState({status: 'open'});
   };
 
-  fetchCategoryDetails = (category) => {
+  fetchCategoryDetails = (navigation,category) => {
     const url = `https://trailerbabu.com/wp-json/wp/v2/movie_cat?search=${category}`;
     axios
       .get(url)
@@ -130,7 +130,7 @@ class MovieDetailsScreen extends Component {
                       lineHeight: 27,
                       textAlign: 'justify',
                     }}>
-                    {movie.title.rendered} ({movie.themeum_movie_release_year})
+                    {movie.id} ({movie.themeum_movie_release_year})
                   </Text>
                 </View>
 
@@ -164,7 +164,7 @@ class MovieDetailsScreen extends Component {
                   <View style={{flexDirection: 'row'}}>
                     {movie.themeum_movie_type.split(', ').map((category, i) => (
                       <TouchableOpacity
-                        onPress={() => fetchCategoryDetails(category)}
+                        onPress={() => this.fetchCategoryDetails(navigation,category)}
                         style={styles.categoryList}>
                         <Text style={styles.categoryListText}>{category}</Text>
                       </TouchableOpacity>

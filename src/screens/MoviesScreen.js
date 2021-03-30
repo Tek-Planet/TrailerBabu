@@ -21,13 +21,13 @@ class FlatListDemo extends React.PureComponent {
       data: [],
       page: 1,
       refreshing: false,
-      categoryId: 44,
+      categoryId: 1,
       categoryName: '',
       categoryCount: 100,
       update: 1,
     };
   }
-
+// https://trailerbabu.com/wp-json/wp/v2/movie?movie_cat=44
   // componentDidUpdate(){
   //   const { categoryName, update } = this.state
   //   this.setState({
@@ -219,7 +219,7 @@ class FlatListDemo extends React.PureComponent {
           }
           keyExtractor={(item) => item.id}
           ListFooterComponent={this.renderFooter}
-          onRefresh={this.handleRefresh}
+          onRefresh={categoryId}
           refreshing={this.state.refreshing}
           onEndReached={this.handleLoadMore}
           onEndReachedThreshold={10}

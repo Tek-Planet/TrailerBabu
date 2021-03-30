@@ -8,15 +8,88 @@ import {
 import OtherStackScreen from './src/screens/OtherStackScreen';
 import SplashScreen from './src/screens/SplashScreen';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {DrawerContent} from './src/components/DrawerContent';
 import mainContext, {doSome} from './src/context/Context';
 import {loginUrl} from './src/const/const'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import analytics from '@react-native-firebase/analytics';
 import OneSignal from  'react-native-onesignal'
+import jwtDecode from 'jwt-decode';
 
- axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdHJhaWxlcmJhYnUuY29tIiwiaWF0IjoxNjE1Nzk1MDQ3LCJuYmYiOjE2MTU3OTUwNDcsImV4cCI6MTYxNjM5OTg0NywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMTI5NCJ9fX0.1QP6gIis9MtWUPGnjSJKjkFuYeXME44aKu2lr5SBPE8';
+
+// axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdHJhaWxlcmJhYnUuY29tIiwiaWF0IjoxNjE2ODM5NjI0LCJuYmYiOjE2MTY4Mzk2MjQsImV4cCI6MTYxNzQ0NDQyNCwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMTI5NCJ9fX0.sbHvmRiHkV9kMTD7j1T4scEdMPvm3sjkX3xdpIN_QK8';
+
+AsyncStorage.getItem('token').then((token) => {
+  if (token !== null) {
+  //  if we have token stored then check if it has expired
+  const decodedToken = jwtDecode(token);
+  if (decodedToken.exp * 1000 < Date.now())
+  // if tooken has expired make request for new token
+  { console.log('token expired')
+
+  const loginDetals = {
+    username: "TekPlanet",
+    password: "QuidProQuo@1012"
+  };
+
+  axios
+      .post('https://trailerbabu.com/wp-json/jwt-auth/v1/token', loginDetals)
+      .then((res) => {
+      // save it in the asyncstorage
+        console.log(res.data.token)
+        try {
+            AsyncStorage.setItem(
+            'token', res.data.token);
+             console.log('token stored');
+             axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token
+        } catch {
+          setError('Error storing data on device');
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+
+}
+  else 
+  // if token is still valid
+  {  console.log('Token is still valid')
+  console.log(token)
+  axios.defaults.headers.common['Authorization'] = 'Bearer '+token
+
+
+}
+   
+   
+  } else {
+  // if we dont have token stored
+      const loginDetals = {
+        username: "TekPlanet",
+        password: "QuidProQuo@1012"
+      };
+        // make request for new token
+      axios
+          .post('https://trailerbabu.com/wp-json/jwt-auth/v1/token', loginDetals)
+          .then((res) => {
+          // save it in the asyncstorage
+            console.log(res.data.token)
+            try {
+                AsyncStorage.setItem(
+                'token', res.data.token);
+                 console.log('token stored');
+                 axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token
+            } catch {
+              setError('Error storing data on device');
+            }
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+  }
+});
+
+
+
 
 const CustomDefaultTheme = {
   ...NavigationDefaultTheme,
@@ -55,8 +128,8 @@ const App = ({navigation}) => {
         setUserProfile(JSON.parse(value));
         setIsLoading(false);
         setIsLogged(true);
-        console.log('From login async storage');
-        console.log(value);
+        // console.log('From login async storage');
+        // console.log(value);
       } else {
         setIsLoading(false);
         setIsLogged(false);

@@ -21,12 +21,12 @@ export default function SettingsScreen({navigation}) {
 
   const userDetails = userProfile
 
-  useEffect(() => {
-    if (isLogged) {
-      console.log('from settings');
-      console.log(userDetails); 
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (isLogged) {
+  //     console.log('from settings');
+  //     console.log(userDetails); 
+  //   }
+  // }, []);
 
   return (
     <SafeAreaView>

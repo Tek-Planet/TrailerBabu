@@ -134,7 +134,7 @@ export default class Comment extends Component {
 
     return (
       <View style={{padding: 20}}>
-        <Text style={{fontSize: 22, fontWeight: 'bold', color: '#ffffff'}}>
+        <Text style={{fontSize: 22,  marginBottom:10, fontWeight: 'bold', color: '#ffffff'}}>
           Reviews
         </Text>
 

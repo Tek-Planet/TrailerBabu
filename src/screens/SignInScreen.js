@@ -41,7 +41,7 @@ const SignInScreen = ({navigation}) => {
   // const { signIn } = React.useContext(AuthContext);
 
   const textInputChange = (val) => {
-    if (val.trim().length >= 4) {
+    if (val.trim().length >= 4 && val.includes('@') && val.includes('.')) {
       setData({
         ...data,
         username: val,
@@ -159,12 +159,12 @@ const SignInScreen = ({navigation}) => {
               color: '#37018D',
             },
           ]}>
-          Username
+          Email
         </Text>
         <View style={styles.action}>
           <FontAwesome name="user-o" color="{colors.text}" size={20} />
           <TextInput
-            placeholder="Your Username"
+            placeholder="email"
             placeholderTextColor="#666666"
             style={[
               styles.textInput,
@@ -185,7 +185,7 @@ const SignInScreen = ({navigation}) => {
         {data.isValidUser ? null : (
           <Animatable.View animation="fadeInLeft" duration={500}>
             <Text style={styles.errorMsg}>
-              Username must be 4 characters long.
+             Invalid email address
             </Text>
           </Animatable.View>
         )}
@@ -231,11 +231,11 @@ const SignInScreen = ({navigation}) => {
           </Animatable.View>
         )}
 
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <Text style={{color: '#37018D', marginTop: 15}}>
             Forgot password?
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {error && (
           <View style={styles.error}>
